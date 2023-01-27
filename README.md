@@ -1,10 +1,10 @@
 # TechyDev
-Development place for assignment project
+Development place for Colaborative Development assignment project.
 
-This repository consists of two branches:
+Repository branches:
 - Software_Development
 - Database_Development
 
-The contributors appointed for this repository are:
-Database Branch - Dame2Dolla
-Software Branch - Patar450 
+Contributors appointed:
+- Dame2Dolla (Database Branch)
+- Patar450 (Software Branch)

@@ -1,4 +1,4 @@
-# TechyDev
+# TechyDev - Database_Development
 Development place for Colaborative Development assignment project.
 
-Branch main contributor: Patar450
+Branch main contributor: Dame2Dolla

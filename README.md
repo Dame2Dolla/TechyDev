@@ -1,2 +1,4 @@
-# TechyDev
-Development place for assignment project
+# TechyDev - Software_Development
+Development place for Colaborative Development assignment project.
+
+Branch main contributor: Patar450

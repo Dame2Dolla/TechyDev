@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginForm.scss";
 
 const LoginForm = () => {
+  //Setting the value of e-mail and password in a used state using props.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,15 +15,41 @@ const LoginForm = () => {
   };
 
   const handleLoginSubmit = (event) => {
+    //Prevents a reload.
     event.preventDefault();
-    // TODO: Add login logic here
-    //open database and search for matching credentials
+
+    // Get the email and password from the form inputs
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    // Send a POST request to the PHP API to check if the user exists
+    // --> Check the URL when testing.
+    fetch("https://your-000webhost-domain/authentication.php", {
+      method: "POST",
+      headers: {
+        // Type Application: Form Value. 
+        // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email}&password=${password}`,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data === "User exists") {
+          // If the user exists, redirect to the home page (<--- need to build a home page.)
+          window.location.href = "/home";
+        } else {
+          // If the user does not exist, show an error message
+          alert("Invalid email or password");
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
   const handleSignupSubmit = (event) => {
     event.preventDefault();
-    // TODO: Add signup logic here 
-      //Load Sign up page
+    // TODO: Add signup logic here
+    //Load Sign up page
   };
 
   return (

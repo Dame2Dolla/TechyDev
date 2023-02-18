@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -15,6 +16,7 @@ const LoginForm = () => {
   };
 
   const handleLoginSubmit = (event) => {
+    console.log("Click");
     //Prevents a reload.
     event.preventDefault();
 
@@ -63,6 +65,7 @@ const LoginForm = () => {
             className="form-control"
             value={email}
             onChange={handleEmailChange}
+            placeholder="Email@email.com"
           />
         </div>
         <div className="form-group">
@@ -72,6 +75,7 @@ const LoginForm = () => {
             className="form-control"
             value={password}
             onChange={handlePasswordChange}
+            placeholder="Abc123?!"
           />
         </div>
         <button type="submit" className="btn btn-primary btn-block">

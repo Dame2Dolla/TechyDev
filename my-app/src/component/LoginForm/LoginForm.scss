@@ -7,31 +7,41 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
   
-
   form {
-    margin-top: 20px;
+    
 
     h2 {
       margin-bottom: 20px;
+      color: #004C9E;
     }
 
     .form-group {
       margin-bottom: 20px;
+      font-size: x-large;
 
       label {
         display: block;
         margin-bottom: 5px;
+        text-align: start;
+      }
+      input.form-control {
+        font-size: x-large;
       }
     }
+  }
 
-    button {
-      margin-top: 20px;
-    }
-    .forgot-password {
-      display: block;
-      margin-top: 20px;
-      text-align: center;
-      color: #007bff;
-    }
+  button { 
+    width: 100%;
+    margin-top: 5%;
+    font-size: large;
+    display: block;
+  }
+
+  .forgot-password {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+    font-size: x-large;
   }
 }

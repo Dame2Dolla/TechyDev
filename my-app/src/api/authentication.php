@@ -1,10 +1,10 @@
 <?php
 
-    //Need to know the database details 
+    //Details of the Database.
     $servername = "localhost";
-    $username = "your_username";
-    $password = "your_password";
-    $dbname = "your_database_name";
+    $username = "id20324296_teser";
+    $password = "0123456789abc-A";
+    $dbname = "id20324296_test";
 
     // Create a new connection and assign to $conn variable
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,7 +19,8 @@
     $password = $_POST['password'];
 
     // Query the database to check if the user exists and store it to the variable $sql.
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    // Re-check the name of the table as the current one is for testing purposes only.
+    $sql = "SELECT * FROM Student WHERE email='$email' AND password='$password'";
     $result = $conn->query($sql);
 
     // If the query returns at least one row, the user exists. Else user does not exist.

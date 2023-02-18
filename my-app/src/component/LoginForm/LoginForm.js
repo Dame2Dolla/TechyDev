@@ -15,6 +15,7 @@ const LoginForm = () => {
     setPassword(event.target.value);
   };
 
+  console.log("HEllo");
   const handleLoginSubmit = (event) => {
     console.log("Click");
     //Prevents a reload.
@@ -26,7 +27,7 @@ const LoginForm = () => {
 
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
-    fetch("https://your-000webhost-domain/authentication.php", {
+    fetch("https://techytest23.000webhostapp.com/authentication.php", {
       method: "POST",
       headers: {
         // Type Application: Form Value. 
@@ -39,7 +40,8 @@ const LoginForm = () => {
       .then((data) => {
         if (data === "User exists") {
           // If the user exists, redirect to the home page (<--- need to build a home page.)
-          window.location.href = "/home";
+          //window.location.href = "/home";
+          console.log("Correct!")
         } else {
           // If the user does not exist, show an error message
           alert("Invalid email or password");

@@ -1,6 +1,7 @@
 .login-form {
   max-width: 400px;
-  margin: 0 auto;
+  margin-top: 10%;
+  margin-left: 40%;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #0000;
@@ -31,10 +32,12 @@
   }
 
   button { 
+    position: inherit;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 2%;
     font-size: large;
     display: block;
+    
   }
 
   .forgot-password {

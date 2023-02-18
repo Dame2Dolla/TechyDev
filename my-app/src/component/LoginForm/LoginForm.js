@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -15,22 +15,17 @@ const LoginForm = () => {
     setPassword(event.target.value);
   };
 
-  console.log("HEllo");
   const handleLoginSubmit = (event) => {
-    console.log("Click");
     //Prevents a reload.
     event.preventDefault();
 
-    // Get the email and password from the form inputs
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
+    console.log(email);
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
     fetch("https://techytest23.000webhostapp.com/authentication.php", {
       method: "POST",
       headers: {
-        // Type Application: Form Value. 
+        // Type Application: Form Value.
         // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -41,7 +36,7 @@ const LoginForm = () => {
         if (data === "User exists") {
           // If the user exists, redirect to the home page (<--- need to build a home page.)
           //window.location.href = "/home";
-          console.log("Correct!")
+          console.log("Correct!");
         } else {
           // If the user does not exist, show an error message
           alert("Invalid email or password");

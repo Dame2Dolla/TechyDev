@@ -14,9 +14,25 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // Trim the variables of any unneccasary spaces. 
+    function postCleanForEmail($value){
+        // Trim spaces
+        $trimedValue = trim($value);
+        // Filter trimedValue to sanitize for e-mail value.
+        return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
+    }
+
+    // Trim the variables of any unneccasary spaces. 
+    function postCleanForPassword($value){
+        $trimedValue = trim($value);
+        return $trimedValue;
+    }
+
+    //Sanitize, filtering & ESCAPE
+
     // Get email and password from POST request and store each of them in a variable.
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = postCleanForEmail($_POST['email']);
+    $password = postCleanForPassword($_POST['password']);
 
     // Query the database to check if the user exists and store it to the variable $sql.
     // Re-check the name of the table as the current one is for testing purposes only.

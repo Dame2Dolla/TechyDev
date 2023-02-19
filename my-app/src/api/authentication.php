@@ -35,9 +35,20 @@
     $password = postCleanForPassword($_POST['password']);
 
     // Query the database to check if the user exists and store it to the variable $sql.
-    // Re-check the name of the table as the current one is for testing purposes only.
-    $sql = "SELECT * FROM Student WHERE email='$email' AND password='$password'";
-    $result = $conn->query($sql);
+    // Implementation of the prepare SQL statements for prevention of SQL Injection.
+    // Replacing our variables with "?".
+
+    $stmt = $conn->prepare("SELECT * FROM Student WHERE email = ? AND password = ?");
+
+    // Using blind_param to associate the 2 variables with the "s" for String. 
+    // Then the variables are bound to the SQL ? ? in chronological order.
+    $stmt -> bind_param("ss",$email,$password);
+
+    // Finally the SQL is executed
+    $stmt -> execute();
+    // get_result() is used to fetch the result.
+    $result = $stmt -> get_result();
+
 
     // If the query returns at least one row, the user exists. Else user does not exist.
     if ($result->num_rows > 0) {

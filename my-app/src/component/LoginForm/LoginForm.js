@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import SignupForm from "../SignupForm/SignupForm";
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -19,7 +20,6 @@ const LoginForm = () => {
     //Prevents a reload.
     event.preventDefault();
 
-    console.log(email);
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
     fetch("https://techytest23.000webhostapp.com/authentication.php", {
@@ -43,12 +43,6 @@ const LoginForm = () => {
         }
       })
       .catch((error) => console.error(error));
-  };
-
-  const handleSignupSubmit = (event) => {
-    event.preventDefault();
-    // TODO: Add signup logic here
-    //Load Sign up page
   };
 
   return (
@@ -78,13 +72,9 @@ const LoginForm = () => {
         <button type="submit" className="btn btn-primary btn-block">
           Log In
         </button>
-        <button
-          onClick={handleSignupSubmit}
-          className="btn btn-secondary btn-block"
-        >
-          Sign Up
-        </button>
+        <SignupForm />
       </form>
+      {/* If the usestate is set as true, show SignupForm */}
       <a href="/forgot-password" className="forgot-password">
         Forgot your password?
       </a>

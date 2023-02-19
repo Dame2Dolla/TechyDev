@@ -1,0 +1,24 @@
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
+
+}

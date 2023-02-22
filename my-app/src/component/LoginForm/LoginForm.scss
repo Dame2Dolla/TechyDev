@@ -9,13 +9,11 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
   z-index: 1;
-  
-  form {
-    
 
+  form {
     h2 {
       margin-bottom: 20px;
-      color: #004C9E;
+      color: #004c9e;
     }
 
     .form-group {
@@ -33,13 +31,12 @@
     }
   }
 
-  button { 
+  button {
     position: inherit;
     width: 100%;
     margin-top: 2%;
     font-size: large;
     display: block;
-    
   }
 
   .forgot-password {

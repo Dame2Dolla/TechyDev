@@ -68,6 +68,7 @@ const LoginForm = () => {
               value={password}
               onChange={handlePasswordChange}
               placeholder="Abc123?!"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
           </div>
           <button type="submit" className="btn btn-primary btn-block">

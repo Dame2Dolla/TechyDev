@@ -91,7 +91,7 @@ const SignupForm = () => {
             <Overlay onClick={toggleForm} />
             <div ref={formRef} className="signup-form-official">
               <form onSubmit={handleSubmit}>
-                <h2 className="text-center">Sign Up</h2>
+                <h2 className="text-center title">Sign Up</h2>
                 <div className="form-group">
                   <label>First Name:</label>
                   <input
@@ -153,6 +153,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
+                    pattern="[0-9]{9}"
                   />
                 </div>
                 <div className="form-group">

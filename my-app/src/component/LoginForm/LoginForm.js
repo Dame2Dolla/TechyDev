@@ -7,8 +7,6 @@ const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //set initial state to true
-  const [showSignupForm, setShowSignupForm] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);

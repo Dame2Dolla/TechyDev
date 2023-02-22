@@ -7,6 +7,8 @@ const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //set initial state to true
+  const [showSignupForm, setShowSignupForm] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -46,39 +48,40 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form">
-      <form onSubmit={handleLoginSubmit}>
-        <h2 className="text-center">Login</h2>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="Email@email.com"
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Abc123?!"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary btn-block">
-          Log In
-        </button>
-        <SignupForm />
-      </form>
-      {/* If the usestate is set as true, show SignupForm */}
-      <a href="/forgot-password" className="forgot-password">
-        Forgot your password?
-      </a>
-    </div>
+    <>
+      <div className="login-form">
+        <form onSubmit={handleLoginSubmit}>
+          <h2 className="text-center">Login</h2>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={handleEmailChange}
+              placeholder="Email@email.com"
+            />
+          </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={handlePasswordChange}
+              placeholder="Abc123?!"
+            />
+          </div>
+          <button type="submit" className="btn btn-primary btn-block">
+            Log In
+          </button>
+          <SignupForm />
+        </form>
+        <a href="/forgot-password" className="forgot-password">
+          Forgot your password?
+        </a>
+      </div>
+    </>
   );
 };
 

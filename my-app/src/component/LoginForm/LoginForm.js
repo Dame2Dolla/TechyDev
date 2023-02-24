@@ -55,7 +55,7 @@ const LoginForm = () => {
   };
   //UseEffect is used to pre fill the checkbox if the cookie aleary exists. This is done PreLoad.
   useEffect(() => {
-    const emailFromCookie = Cookies.get('email');
+    const emailFromCookie = Cookies.get("email");
     if (emailFromCookie) {
       setEmail(emailFromCookie);
       setRememberMe(true);
@@ -103,7 +103,7 @@ const LoginForm = () => {
             Log In
           </button>
         </form>
-          <SignupForm />
+        <SignupForm />
         <a href="/forgot-password" className="forgot-password">
           Forgot your password?
         </a>

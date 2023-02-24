@@ -6,12 +6,9 @@ const SignupForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  const [address, setAddress] = useState("");
-  const [street, setStreet] = useState("");
-  const [country, setCountry] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [description, setDescription] = useState("");
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -25,28 +22,16 @@ const SignupForm = () => {
     setDateOfBirth(event.target.value);
   };
 
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
-  const handleStreetChange = (event) => {
-    setStreet(event.target.value);
-  };
-
-  const handleCountryChange = (event) => {
-    setCountry(event.target.value);
-  };
-
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   const handleGenderChange = (event) => {
     setGender(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -111,49 +96,30 @@ const SignupForm = () => {
                   />
                 </div>
                 <div className="form-group">
+                  <label>Email:</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Password:</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                </div>
+                <div className="form-group">
                   <label>Date of Birth:</label>
                   <input
                     type="date"
                     className="form-control"
                     value={dateOfBirth}
                     onChange={handleDateOfBirthChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Address:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={address}
-                    onChange={handleAddressChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Street:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={street}
-                    onChange={handleStreetChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Country:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={country}
-                    onChange={handleCountryChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Phone Number:</label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
-                    pattern="[0-9]{9}"
                   />
                 </div>
                 <div className="form-group">
@@ -165,20 +131,10 @@ const SignupForm = () => {
                     onChange={handleGenderChange}
                   />
                 </div>
-                <div className="textareawithbutton">
-                  <div className="form-group">
-                    <label>Describe yourself (Optional):</label>
-                    <textarea
-                      className="form-control"
-                      value={description}
-                      onChange={handleDescriptionChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block">
-                      Submit
-                    </button>
-                  </div>
+                <div className="form-group">
+                  <button type="submit" className="btn btn-primary btn-block">
+                    Submit
+                  </button>
                 </div>
               </form>
             </div>

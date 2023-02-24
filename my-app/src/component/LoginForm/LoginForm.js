@@ -37,7 +37,7 @@ const LoginForm = () => {
       .then((response) => response.text())
       .then((data) => {
         if (data === "User exists") {
-          //If statement to check if the initial value of the cookie is ticked. If not the cookie is removed.
+          //If statement to check if the initial value of the cookie is ticked and will remain in storage for 7 days. If not the cookie is removed.
           if (rememberMe) {
             Cookies.set("email", email, { expires: 7 });
           } else {
@@ -102,8 +102,8 @@ const LoginForm = () => {
           <button type="submit" className="btn btn-primary btn-block">
             Log In
           </button>
-          <SignupForm />
         </form>
+          <SignupForm />
         <a href="/forgot-password" className="forgot-password">
           Forgot your password?
         </a>

@@ -3,6 +3,7 @@ import "./LoginForm.scss";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import SignupForm from "../SignupForm/SignupForm";
 import Cookies from "js-cookie";
+import ForgotPassword from "../ForgotPassword/ForgotPassword";
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -104,9 +105,9 @@ const LoginForm = () => {
           </button>
         </form>
         <SignupForm />
-        <a href="/forgot-password" className="forgot-password">
-          Forgot your password?
-        </a>
+     
+          <ForgotPassword />
+        
       </div>
     </>
   );

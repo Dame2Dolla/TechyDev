@@ -101,7 +101,7 @@ const LoginForm = () => {
             </label>
           </div>
           <button type="submit" className="btn btn-primary btn-block">
-            Log In Adyan
+            Log In
           </button>
         </form>
         <SignupForm />

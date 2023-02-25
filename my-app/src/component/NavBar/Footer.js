@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <footer>
-      <div className="text-center p-3">&copy; 2023 Studentmind.com</div>
+      <div className="text-center p-3">Studentmind.xyz &copy; 2023</div>
     </footer>
   );
 }

@@ -47,9 +47,11 @@ const LoginForm = () => {
           // If the user exists, redirect to the home page (<--- need to build a home page.)
           //window.location.href = "/home";
           console.log("Correct!");
-        } else {
-          // If the user does not exist, show an error message
-          alert("Invalid email or password");
+        } else if(data === "Invalid Password"){
+          alert("Invalid password!")
+        }
+        else if(data === "Invalid Email"){
+          alert("Invalid email!");
         }
       })
       .catch((error) => console.error(error));

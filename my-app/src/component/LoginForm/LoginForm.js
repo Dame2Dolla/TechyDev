@@ -49,12 +49,15 @@ const LoginForm = () => {
           console.log("Correct!");
         } else if(data === "Locked account"){
           
-          alert("This account is locked, please e-mail customer support.")
+          alert("This account is locked, please e-mail customer support.");
         }
         else if(data === "Invalid Password"){
           // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
           // Security consultant Clayton Farrugia
           alert("Invalid email or password. Please try again.");
+        }
+        else if(data === "Invalid"){
+          alert("Opps Somthing went wrong, try again later.");
         }
       })
       .catch((error) => console.error(error));

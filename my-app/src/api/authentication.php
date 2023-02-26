@@ -2,7 +2,7 @@
 
 //Details of the Database.
 $servername = "localhost";
-$username = "id20324296_teser";
+$username = "id20324296_tester";
 $password = "0123456789abc-A";
 $dbname = "id20324296_test";
 
@@ -56,27 +56,21 @@ if ($result->num_rows > 0) {
     $stmt = $conn->prepare("SELECT password_count FROM Student");
     $stmt->execute();
     $result = $stmt->get_result();
-
-    if ($result->fetch_assoc() >= 0) {
+    $row = $result->fetch_assoc();
+  
+    if ( $row['password_count'] <= 0) {
         echo "Locked account";
     } else {
         //Checks if the user and password match
-        $stmt = $conn->prepare("SELECT * FROM Student WHERE email = ? password = ?");
-        $stmt->bind_param("ss", $email, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ? AND password = ?");
+        $stmts->bind_param("ss", $email, $password);
+        $stmts->execute();
+        $results = $stmts->get_result();
         // If the query returns at least one row, the user exists.
-        if ($result->num_rows > 0) {
+        if ($results->num_rows > 0) {
             echo "User exists";
         } else {
-            //Decrement the user password count -1;
-            $stmt = $conn->prepare("SELECT * FROM Student WHERE password = ?");
-            $stmt->bind_param("s", $password);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            // Return alert to user that email/password is invalid
-            echo "Invalid Password";
+            
             //----------------------------------------------------Update password count -1 --------------------------------------------
             // remove Safe update from MySQL to implement an update sql statement.
             $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
@@ -84,15 +78,23 @@ if ($result->num_rows > 0) {
             $stmt->get_result();
 
             // Update statement
-            $stmt = $conn->prepare("UPDATE Student set password_count=password_count-1");
+            $stmt = $conn->prepare("UPDATE Student set password_count = password_count -1 WHERE email = ?");
+            $stmt->bind_param("s", $email);
             $stmt->execute();
             $stmt->get_result();
+
             // Remove safe update to protect the database from any manipulation.
             $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 1");
             $stmt->execute();
             $stmt->get_result();
+
+            // Return alert to user that email/password is invalid
+            echo "Invalid Password";
         }
     }
+}else{
+    echo "Invalid";
 }
 
 $conn->close();
+?>

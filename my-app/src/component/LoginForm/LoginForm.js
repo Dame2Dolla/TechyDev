@@ -48,7 +48,8 @@ const LoginForm = () => {
           //window.location.href = "/home";
           console.log("Correct!");
         } else {
-          // If the user does not exist, show an error message
+          // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
+          // Security consultant Clayton Farrugia
           alert("Invalid email or password");
         }
       })
@@ -105,9 +106,8 @@ const LoginForm = () => {
           </button>
         </form>
         <SignupForm />
-     
-          <ForgotPassword />
-        
+
+        <ForgotPassword />
       </div>
     </>
   );

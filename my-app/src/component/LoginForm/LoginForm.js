@@ -47,10 +47,14 @@ const LoginForm = () => {
           // If the user exists, redirect to the home page (<--- need to build a home page.)
           //window.location.href = "/home";
           console.log("Correct!");
-        } else {
+        } else if(data === "Locked account"){
+          
+          alert("This account is locked, please e-mail customer support.")
+        }
+        else if(data === "Invalid Password"){
           // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
           // Security consultant Clayton Farrugia
-          alert("Invalid email or password");
+          alert("Invalid email or password. Please try again.");
         }
       })
       .catch((error) => console.error(error));

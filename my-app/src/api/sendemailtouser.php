@@ -14,6 +14,7 @@ $message .= "Best regards,\nThe StudentMind team";
 
 // Send the email using PHP's built-in mail() function
 // You may need to configure your server to enable mail sending
+// Reference for this code: https://www.socketlabs.com/blog/email-api-php/
 $headers = "From: techy_2023@outlook.com\r\n";
 $headers .= "Reply-To: techy_2023@outlook.com\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();

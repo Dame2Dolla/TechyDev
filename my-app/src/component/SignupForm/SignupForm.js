@@ -36,7 +36,25 @@ const SignupForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Add another API connection to INSERT the data to the database. This will be fun...
+
+    fetch("https://techytest23.000webhostapp.com/api/signup.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `firstName=${firstName}&lastName=${lastName}&email=${email}&password=${password}&dob=${dateOfBirth}&gender=${gender}`,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data === "User Exist") {
+          alert("This email is already registered.");
+        } else if (data === "User Created") {
+          alert("Account is successfully created.");
+        } else{
+          alert("Something went wrong. Please try again later.");
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
   // Toggle the visibility via a useState setting the variable to False.

@@ -15,7 +15,7 @@ const PasswordResetCard = () => {
     event.preventDefault();
 
     // Send a POST request to the PHP API to check if the user exists
-    fetch("https://techytest23.000webhostapp.com/usernamechecker.php", {
+    fetch("https://techytest23.000webhostapp.com/api/usernamechecker.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -26,7 +26,7 @@ const PasswordResetCard = () => {
       .then((data) => {
         if (data === "User exists") {
           // If the user exists, send an email to the user's email address
-          fetch("https://techytest23.000webhostapp.com/sendemailtouser.php", {
+          fetch("https://techytest23.000webhostapp.com/api/sendemailtouser.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",

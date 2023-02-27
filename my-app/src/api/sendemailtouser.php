@@ -1,7 +1,24 @@
 <?php
 
+$servername = "localhost";
+$username = "id20324296_tester";
+$password = "0123456789abc-A";
+$dbname = "id20324296_test";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+function postCleanForEmail($value)
+{
+    $trimedValue = trim($value);
+    return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
+}
+
 // Get the email address from the POST request
-$email = $_POST['email'];
+$email = postCleanForEmail($_POST['email']);
 
 
 // Create the email message with a link to reset the password
@@ -20,8 +37,8 @@ $headers .= "Reply-To: techy_2023@outlook.com\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 if (mail($email, $subject, $message, $headers)) {
-    echo "Password reset instructions have been sent to your email address.";
+    echo "Email sent";
 } else {
-    echo "Failed to send password reset instructions.";
+    echo "Failed";
 }
 ?>

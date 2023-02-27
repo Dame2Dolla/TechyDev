@@ -28,7 +28,7 @@ function postCleanForText($value)
     // Turns String to lower
     $trimedValueToLower = strtolower($trimedValue);
     // Using str_replace() function to replace the word
-    $res = str_replace( array( '\'', '"', ',' , ';', '<', '>' ), ' ', $trimedValueToLower);
+    $res = str_replace(array('\'', '"', ',', ';', '<', '>'), ' ', $trimedValueToLower);
     //Remove numbers from text
     $res = preg_replace('/[0-9]+/', '', $res);
     // turns first letter of the text to UpperCase.
@@ -39,7 +39,17 @@ function postCleanForText($value)
 function postCleanForPassword($value)
 {
     $trimedValue = trim($value);
-    return $trimedValue;
+    // Validate password strength
+    $uppercase = preg_match('@[A-Z]@', $trimedValue);
+    $lowercase = preg_match('@[a-z]@', $trimedValue);
+    $number    = preg_match('@[0-9]@', $trimedValue);
+    $specialChars = preg_match('@[^\w]@', $trimedValue);
+
+    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($trimedValue) < 8) {
+        return 'Password not properly formatted';
+    } else {
+        return $trimedValue;
+    }
 }
 
 // Get the data from the POST request
@@ -47,26 +57,33 @@ function postCleanForPassword($value)
 $firstName = postCleanForText(isset($_POST['firstName']) ? $_POST['firstName'] : "");
 $lastName = postCleanForText(isset($_POST['lastName']) ? $_POST['lastName'] : "");
 $email = postCleanForEmail(isset($_POST['email']) ? $_POST['email'] : "");
-$password = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] : "");
+$password_checker = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] : "");
 $dob = isset($_POST['dob']) ? $_POST['dob'] : "";
 $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
 
-$stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
-$stmts->bind_param("s", $email);
-$stmts->execute();
-$results = $stmts->get_result();
-
-if ($results->num_rows > 0) {
-    echo "User Exist";
+if ($password_checker == 'Password not properly formatted') {
+    echo "Password Incorrect";
 } else {
-    //prepared SQL statements.
-    $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?,'3', ?, ?)");
-    $sql->bind_param("ssssss", $firstName,$lastName, $email, $password, $dob,$gender);
-    $sql->execute();
-    $results = $sql->get_result();
 
-    echo "User Created";
+
+    $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
+    $stmts->bind_param("s", $email);
+    $stmts->execute();
+    $results = $stmts->get_result();
+
+    if ($results->num_rows > 0) {
+        echo "User Exist";
+    } else {
+        //prepared SQL statements.
+        $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?,'3', ?, ?)");
+        $sql->bind_param("ssssss", $firstName, $lastName, $email, $password, $dob, $gender);
+        $sql->execute();
+        $results = $sql->get_result();
+
+        echo "User Created";
+    }
 }
+
 
 // Close the connection
 $conn->close();

@@ -46,7 +46,10 @@ const SignupForm = () => {
     })
       .then((response) => response.text())
       .then((data) => {
-        if (data === "User Exist") {
+        if(data === "Password Incorrect"){
+          alert("Password must be longer than 8 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters.")
+        }
+          else if (data === "User Exist") {
           alert("This email is already registered.");
         } else if (data === "User Created") {
           alert("Account is successfully created.");

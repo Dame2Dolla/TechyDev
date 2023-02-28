@@ -46,6 +46,8 @@ const SignupForm = () => {
     })
       .then((response) => response.text())
       .then((data) => {
+        //data isn't being received.
+        console.log(data);
         if(data === "Password Incorrect"){
           alert("Password must be longer than 8 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters.")
         }
@@ -53,9 +55,7 @@ const SignupForm = () => {
           alert("This email is already registered.");
         } else if (data === "User Created") {
           alert("Account is successfully created.");
-        } else{
-          alert("Something went wrong. Please try again later.");
-        }
+        } 
       })
       .catch((error) => console.error(error));
   };
@@ -132,6 +132,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={password}
                     onChange={handlePasswordChange}
+                    placeholder="Abc123?!"
                   />
                 </div>
                 <div className="form-group">

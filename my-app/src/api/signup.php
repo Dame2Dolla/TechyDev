@@ -28,13 +28,12 @@ function postCleanForText($value)
     // Turns String to lower
     $trimedValueToLower = strtolower($trimedValue);
     // Using str_replace() function to replace the word
-    $res = str_replace(array('\'', '"', ',', ';', '<', '>'), ' ', $trimedValueToLower);
-    //Remove numbers from text
+    $res = str_replace(array('\'', '"', ',', '; ','<', '>'), ' ', $trimedValueToLower);
+    // Remove numbers from text
     $res = preg_replace('/[0-9]+/', '', $res);
-    // turns first letter of the text to UpperCase.
-    return ucfirst($res);
+    // Turns first letter of the text to UpperCase.
+    return filter_var(ucfirst($res), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
-
 
 function postCleanForPassword($value)
 {
@@ -49,7 +48,7 @@ function postCleanForPassword($value)
         return 'Password not properly formatted';
     } else {
         return $trimedValue;
-    }
+    } 
 }
 
 // Get the data from the POST request
@@ -65,7 +64,7 @@ if ($password_checker == 'Password not properly formatted') {
     echo "Password Incorrect";
 } else {
 
-
+    $password_checker = password_hash($password_checker, PASSWORD_DEFAULT);
     $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
     $stmts->bind_param("s", $email);
     $stmts->execute();
@@ -76,10 +75,8 @@ if ($password_checker == 'Password not properly formatted') {
     } else {
         //prepared SQL statements.
         $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?,'3', ?, ?)");
-        $sql->bind_param("ssssss", $firstName, $lastName, $email, $password, $dob, $gender);
+        $sql->bind_param("ssssss", $firstName, $lastName, $email, $password_checker, $dob, $gender);
         $sql->execute();
-        $results = $sql->get_result();
-
         echo "User Created";
     }
 }

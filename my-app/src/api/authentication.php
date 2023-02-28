@@ -31,10 +31,9 @@ function postCleanForPassword($value)
 }
 
 //Sanitize, filtering & ESCAPE
-
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);
-$password = postCleanForPassword($_POST['password']);
+$passworddb = postCleanForPassword($_POST['password']);
 
 // Query the database to check if the user exists and store it to the variable $sql.
 // Implementation of the prepare SQL statements for prevention of SQL Injection.
@@ -52,25 +51,32 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-
     $stmt = $conn->prepare("SELECT password_count FROM Student");
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-  
-    if ( $row['password_count'] <= 0) {
+
+    if ($row['password_count'] <= 0) {
         echo "Locked account";
     } else {
+
         //Checks if the user and password match
         $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ? AND password = ?");
-        $stmts->bind_param("ss", $email, $password);
+        $stmts->bind_param("ss", $email, $passworddb);
         $stmts->execute();
         $results = $stmts->get_result();
-        // If the query returns at least one row, the user exists.
-        if ($results->num_rows > 0) {
+
+        $stmtr = $conn->prepare("SELECT password FROM Student WHERE email = ?");
+        $stmtr-> bind_param("s",$email);
+        $stmtr->execute();
+        $resultz = $stmtr->get_result();
+        $rowz = $resultz->fetch_assoc();
+        // If the query returns at least one row, and password makes the hash password the user exists.
+  
+        if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password'])) {
             echo "User exists";
         } else {
-            
+
             //----------------------------------------------------Update password count -1 --------------------------------------------
             // remove Safe update from MySQL to implement an update sql statement.
             $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
@@ -92,9 +98,8 @@ if ($result->num_rows > 0) {
             echo "Invalid Password";
         }
     }
-}else{
+} else {
     echo "Invalid";
 }
 
 $conn->close();
-?>

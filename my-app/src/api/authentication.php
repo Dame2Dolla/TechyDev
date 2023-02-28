@@ -17,6 +17,8 @@ if ($conn->connect_error) {
 // Trim the variables of any unneccasary spaces. 
 function postCleanForEmail($value)
 {
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     // Trim spaces
     $trimedValue = trim($value);
     // Filter trimedValue to sanitize for e-mail value.
@@ -26,6 +28,8 @@ function postCleanForEmail($value)
 // Trim the variables of any unneccasary spaces. 
 function postCleanForPassword($value)
 {
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $trimedValue = trim($value);
     return $trimedValue;
 }

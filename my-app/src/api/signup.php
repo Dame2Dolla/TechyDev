@@ -16,6 +16,8 @@ if ($conn->connect_error) {
 
 function postCleanForEmail($value)
 {
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     // Trim spaces
     $trimedValue = trim($value);
     // Filter trimedValue to sanitize for e-mail value.
@@ -24,6 +26,9 @@ function postCleanForEmail($value)
 
 function postCleanForText($value)
 {
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    // Removes spaces
     $trimedValue = trim($value);
     // Turns String to lower
     $trimedValueToLower = strtolower($trimedValue);
@@ -37,6 +42,8 @@ function postCleanForText($value)
 
 function postCleanForPassword($value)
 {
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $trimedValue = trim($value);
     // Validate password strength
     $uppercase = preg_match('@[A-Z]@', $trimedValue);

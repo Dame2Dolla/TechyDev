@@ -17,6 +17,8 @@ const LoginForm = () => {
   const [rememberMe, setRememberMe] = useState(false);
   //Implementation of show or hide password.
   const [showPassword, setShowPassword] = useState(false);
+  // If password is incorrect textarea changes to red.
+  const [passwordError, setPasswordError] = useState(true);
   //Use navigate hook to direct to the new site.
   const navigate = useNavigate();
 
@@ -60,6 +62,8 @@ const LoginForm = () => {
           // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
           // Security consultant Clayton Farrugia
           alert("Invalid email or password. Please try again.");
+          // set pasWordError to true.
+          setPasswordError(true);
         } else if (data === "Invalid") {
           alert("Please, fill your login information.");
         }
@@ -95,24 +99,23 @@ const LoginForm = () => {
             <label>Password:</label>
             <input
               type={showPassword ? "text" : "password"}
-              className="form-control"
+              className={`form-control ${passwordError ? "is-invalid" : ""}`}
               value={password}
               onChange={handlePasswordChange}
               placeholder="Abc123?!"
             />
-            <>
-              <button
-                className="btn password-icon"
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <FontAwesomeIcon icon={faEyeSlash}/>
-                ) : (
-                  <FontAwesomeIcon icon={faEye}/>
-                )}
-              </button>
-            </>
+
+            <button
+              className="btn password-icon"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <FontAwesomeIcon icon={faEyeSlash} />
+              ) : (
+                <FontAwesomeIcon icon={faEye} />
+              )}
+            </button>
           </div>
           <div className="form-group form-check">
             <input

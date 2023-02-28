@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginForm.scss";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import SignupForm from "../SignupForm/SignupForm";
 import Cookies from "js-cookie";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
-import Footer from "../NavBar/Footer";
-
+import Footer from "../Footer/Footer";
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -14,6 +15,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   //First time signing in the initial state of the checkbox will be off.
   const [rememberMe, setRememberMe] = useState(false);
+  //Implementation of show or hide password.
+  const [showPassword, setShowPassword] = useState(false);
   //Use navigate hook to direct to the new site.
   const navigate = useNavigate();
 
@@ -31,7 +34,7 @@ const LoginForm = () => {
 
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
-    fetch("https://techytest23.000webhostapp.com/api/authentication.php", {
+    fetch("http://www.studentmind.xyz/api/authentication.php", {
       method: "POST",
       headers: {
         // Type Application: Form Value.
@@ -51,17 +54,14 @@ const LoginForm = () => {
           }
           // If the user exists, redirect to the home page (<--- need to build a home page.)
           navigate("/homepage");
-        } else if(data === "Locked account"){
-          
+        } else if (data === "Locked account") {
           alert("This account is locked, please e-mail customer support.");
-        }
-        else if(data === "Invalid Password"){
+        } else if (data === "Invalid Password") {
           // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
           // Security consultant Clayton Farrugia
           alert("Invalid email or password. Please try again.");
-        }
-        else if(data === "Invalid"){
-          alert("Opps Somthing went wrong, try again later.");
+        } else if (data === "Invalid") {
+          alert("Please, fill your login information.");
         }
       })
       .catch((error) => console.error(error));
@@ -88,17 +88,31 @@ const LoginForm = () => {
               value={email}
               onChange={handleEmailChange}
               placeholder="Email@email.com"
+              title="Enter your e-mail"
             />
           </div>
           <div className="form-group">
             <label>Password:</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="form-control"
               value={password}
               onChange={handlePasswordChange}
               placeholder="Abc123?!"
             />
+            <>
+              <button
+                className="btn password-icon"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEyeSlash}/>
+                ) : (
+                  <FontAwesomeIcon icon={faEye}/>
+                )}
+              </button>
+            </>
           </div>
           <div className="form-group form-check">
             <input

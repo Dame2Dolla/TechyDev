@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LoginForm.scss";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import SignupForm from "../SignupForm/SignupForm";
 import Cookies from "js-cookie";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
+import Footer from "../NavBar/Footer";
+
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -11,6 +14,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   //First time signing in the initial state of the checkbox will be off.
   const [rememberMe, setRememberMe] = useState(false);
+  //Use navigate hook to direct to the new site.
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -45,8 +50,7 @@ const LoginForm = () => {
             Cookies.remove("email");
           }
           // If the user exists, redirect to the home page (<--- need to build a home page.)
-          //window.location.href = "/home";
-          console.log("Correct!");
+          navigate("/homepage");
         } else if(data === "Locked account"){
           
           alert("This account is locked, please e-mail customer support.");
@@ -116,6 +120,7 @@ const LoginForm = () => {
 
         <ForgotPassword />
       </div>
+      <Footer />
     </>
   );
 };

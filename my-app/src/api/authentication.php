@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //Details of the Database.
 $servername = "localhost";
 $username = "id20324296_tester";
@@ -63,22 +63,26 @@ if ($result->num_rows > 0) {
     if ($row['password_count'] <= 0) {
         echo "Locked account";
     } else {
-
-        //Checks if the user and password match
-        $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ? AND password = ?");
-        $stmts->bind_param("ss", $email, $passworddb);
-        $stmts->execute();
-        $results = $stmts->get_result();
-
-        $stmtr = $conn->prepare("SELECT password FROM Student WHERE email = ?");
+        
+        $stmtr = $conn->prepare("SELECT * FROM Student WHERE email = ?");
         $stmtr-> bind_param("s",$email);
         $stmtr->execute();
         $resultz = $stmtr->get_result();
         $rowz = $resultz->fetch_assoc();
+
+
         // If the query returns at least one row, and password makes the hash password the user exists.
   
         if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password'])) {
+            
+            $_SESSION['email'] = $rowz['email'];
+            $_SESSION['first_name'] = $rowz['first_name'];
+            $_SESSION['last_name'] = $rowz['last_name'];
+            $_SESSION['dob'] = $rowz['dob'];
+            $_SESSION['gender'] = $rowz['gender'];
             echo "User exists";
+            
+
         } else {
 
             //----------------------------------------------------Update password count -1 --------------------------------------------
@@ -107,3 +111,4 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+?>

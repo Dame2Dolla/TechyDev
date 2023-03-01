@@ -13,6 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+//sanitization to avoid SQL injection and Cross site scripting ( for the new php version 8.1 )- Security Consultant Clayton
 
 function postCleanForEmail($value)
 {
@@ -23,7 +24,7 @@ function postCleanForEmail($value)
     // Filter trimedValue to sanitize for e-mail value.
     return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
 }
-
+//sanitization to avoid SQL injection and Cross site scripting ( for the new php version 8.1 )- Security Consultant Clayton
 function postCleanForText($value)
 {
     // Removes ASCI characters for escaping.
@@ -39,10 +40,11 @@ function postCleanForText($value)
     // Turns first letter of the text to UpperCase.
     return filter_var(ucfirst($res), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
-
+//sanitization to avoid SQL injection and Cross site scripting ( for the new php version 8.1 )- Security Consultant Clayton
 function postCleanForPassword($value)
 {
     // Removes ASCI characters for escaping.
+    // This Mitigation is done to make it harder for bruteforce attack to succeed and for tampering mitigation. - Clayton Security consultant
     $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $trimedValue = trim($value);
     // Validate password strength
@@ -51,7 +53,7 @@ function postCleanForPassword($value)
     $number    = preg_match('@[0-9]@', $trimedValue);
     $specialChars = preg_match('@[^\w]@', $trimedValue);
 
-    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($trimedValue) < 8) {
+    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($trimedValue) >= 15) {
         return 'Password not properly formatted';
     } else {
         return $trimedValue;
@@ -70,8 +72,10 @@ $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
 if ($password_checker == 'Password not properly formatted') {
     echo "Password Incorrect";
 } else {
+// performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
 
     $password_checker = password_hash($password_checker, PASSWORD_DEFAULT);
+    //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
     $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
     $stmts->bind_param("s", $email);
     $stmts->execute();
@@ -81,6 +85,7 @@ if ($password_checker == 'Password not properly formatted') {
         echo "User Exist";
     } else {
         //prepared SQL statements.
+        //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
         $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?,'3', ?, ?)");
         $sql->bind_param("ssssss", $firstName, $lastName, $email, $password_checker, $dob, $gender);
         $sql->execute();

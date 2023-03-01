@@ -60,10 +60,12 @@ if ($result->num_rows > 0) {
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
+    // This will check if the password_count column has the row with 0 as value, if no it will got to the else statement and 
+    // starts checking for the email credentials if valid or not.  Security Consultant-Clayton
     if ($row['password_count'] <= 0) {
         echo "Locked account";
     } else {
-        
+        //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
         $stmtr = $conn->prepare("SELECT * FROM Student WHERE email = ?");
         $stmtr-> bind_param("s",$email);
         $stmtr->execute();
@@ -71,7 +73,7 @@ if ($result->num_rows > 0) {
         $rowz = $resultz->fetch_assoc();
 
 
-        // If the query returns at least one row, and password makes the hash password the user exists.
+        // If the query returns at least one row, and the password is the same as the hashed value the user exists. Security Consultant-Clayton
   
         if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password'])) {
             
@@ -82,7 +84,8 @@ if ($result->num_rows > 0) {
             $_SESSION['gender'] = $rowz['gender'];
             echo "User exists";
             
-
+        // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 
+        // Security Consultant-Clayton
         } else {
 
             //----------------------------------------------------Update password count -1 --------------------------------------------
@@ -92,6 +95,7 @@ if ($result->num_rows > 0) {
             $stmt->get_result();
 
             // Update statement
+            //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
             $stmt = $conn->prepare("UPDATE Student set password_count = password_count -1 WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();

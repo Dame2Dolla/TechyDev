@@ -18,7 +18,7 @@ const LoginForm = () => {
   //Implementation of show or hide password.
   const [showPassword, setShowPassword] = useState(false);
   // If password is incorrect textarea changes to red.
-  const [passwordError, setPasswordError] = useState(true);
+  const [passwordError, setPasswordError] = useState(false);
   //Use navigate hook to direct to the new site.
   const navigate = useNavigate();
 

@@ -1,14 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "id20324296_tester";
-$password = "0123456789abc-A";
-$dbname = "id20324296_test";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/conn.php';
 
 // Trim the variables of any unneccasary spaces. 
 function postCleanForEmail($value)

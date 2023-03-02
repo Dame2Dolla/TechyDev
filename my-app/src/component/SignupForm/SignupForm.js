@@ -43,7 +43,7 @@ const SignupForm = () => {
     /**
      * Created 2 objects with the Date value and stored that as seperated variables
      * Then subracted both variables together by aquiring the year.
-     * If statement is created to check is the dob entered is either greater than 16 or 
+     * If statement is created to check is the dob entered is either greater than 16 or
      * //if it is exactly 16 than a check is done to check if user has had their 16th birthday.
      */
     const birthDate = new Date(dateOfBirth);
@@ -124,6 +124,7 @@ const SignupForm = () => {
             <div ref={formRef} className="signup-form-official">
               <form onSubmit={handleSubmit}>
                 <h2 className="text-center title">Sign Up</h2>
+
                 <div className="form-group">
                   <label>First Name:</label>
                   <input
@@ -131,6 +132,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={firstName}
                     onChange={handleFirstNameChange}
+                    placeholder="First Name"
                   />
                 </div>
                 <div className="form-group">
@@ -140,6 +142,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={lastName}
                     onChange={handleLastNameChange}
+                    placeholder="Last Name"
                   />
                 </div>
                 <div className="form-group">
@@ -149,6 +152,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={email}
                     onChange={handleEmailChange}
+                    placeholder="Email@email.com"
                   />
                 </div>
                 <div className="form-group">
@@ -177,6 +181,7 @@ const SignupForm = () => {
                     className="form-control"
                     value={gender}
                     onChange={handleGenderChange}
+                    placeholder="Optional"
                   />
                 </div>
                 <div className="form-group">

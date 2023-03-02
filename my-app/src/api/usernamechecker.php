@@ -1,6 +1,8 @@
 <?php
-
+//Session start
+session_start();
 require_once __DIR__ . '/conn.php';
+require_once __DIR__ . '/session.php';
 
 // Trim the variables of any unneccasary spaces. 
 function postCleanForEmail($value)

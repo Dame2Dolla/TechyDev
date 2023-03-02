@@ -62,7 +62,7 @@ const SignupForm = () => {
       return;
     }
 
-    fetch("http://www.studentmind.xyz/api/signup.php", {
+    fetch("https://techytest23.000webhostapp.com/api/signup.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

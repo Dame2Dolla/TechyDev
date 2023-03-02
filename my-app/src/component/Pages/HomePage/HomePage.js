@@ -6,7 +6,7 @@ export default class HomePage extends Component {
     const handleLogout =(event) =>
     {
       event.preventDefault();
-      fetch("http://studentmind.xyz/api/logout.php" ,{
+      fetch("https://techytest23.000webhostapp.com/api/logout.php" ,{
         headers : {
           "Content-Type": "application/x-www-form-urlencoded",
         }

@@ -36,7 +36,7 @@ const LoginForm = () => {
 
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
-    fetch("http://www.studentmind.xyz/api/authentication.php", {
+    fetch("https://techytest23.000webhostapp.com/api/authentication.php", {
       method: "POST",
       headers: {
         // Type Application: Form Value.

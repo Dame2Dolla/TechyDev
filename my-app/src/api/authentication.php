@@ -1,6 +1,9 @@
 <?php
+//Session start
+session_start();
 
 require_once __DIR__ . '/conn.php';
+
 
 // Trim the variables of any unneccasary spaces. 
 function postCleanForEmail($value)
@@ -70,6 +73,8 @@ if ($result->num_rows > 0) {
             $_SESSION['last_name'] = $rowz['last_name'];
             $_SESSION['dob'] = $rowz['dob'];
             $_SESSION['gender'] = $rowz['gender'];
+            require_once __DIR__ . '/session.php';
+            print_r($_SESSION);
             echo "User exists";
             
         // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 

@@ -1,4 +1,7 @@
 <?php
+//Session start
+session_start();
+require_once __DIR__ . '/session.php';
 //Error reporting function that disabled error messages.
 error_reporting(0);
 session_start();

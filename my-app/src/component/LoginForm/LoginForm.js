@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,7 @@ import SignupForm from "../SignupForm/SignupForm";
 import Cookies from "js-cookie";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import Footer from "../Footer/Footer";
+import { CsrfContext } from "../Security/csrfcontext";
 
 const LoginForm = () => {
   //Setting the value of e-mail and password in a used state using props.
@@ -21,7 +22,10 @@ const LoginForm = () => {
   const [wrongCredentials, setWrongCredentials] = useState(false);
   //Use navigate hook to direct to the new site.
   const navigate = useNavigate();
-
+  // CSRF token, useContext will be used for Global access across react
+  const {csrfToken} = useContext(CsrfContext);
+  
+  console.log(csrfToken);
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -33,7 +37,7 @@ const LoginForm = () => {
   const handleLoginSubmit = (event) => {
     //Prevents a reload.
     event.preventDefault();
-
+    console.log(csrfToken);
     // Send a POST request to the PHP API to check if the user exists
     // --> Check the URL when testing.
     fetch("https://techytest23.000webhostapp.com/api/authentication.php", {
@@ -43,7 +47,7 @@ const LoginForm = () => {
         // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `email=${email}&password=${password}`,
+      body: `email=${email}&password=${password}&csrf_token=${csrfToken}`,
     })
       .then((response) => response.text())
       .then((data) => {
@@ -129,6 +133,10 @@ const LoginForm = () => {
               Remember me
             </label>
           </div>
+          <input
+            type="hidden"
+            name="csrf_token"
+            value={csrfToken}/>
           <button type="submit" className="btn btn-primary btn-block">
             Log In
           </button>

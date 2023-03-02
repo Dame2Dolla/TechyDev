@@ -18,7 +18,7 @@ const LoginForm = () => {
   //Implementation of show or hide password.
   const [showPassword, setShowPassword] = useState(false);
   // If password is incorrect textarea changes to red.
-  const [passwordError, setPasswordError] = useState(false);
+  const [wrongCredentials, setWrongCredentials] = useState(false);
   //Use navigate hook to direct to the new site.
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ const LoginForm = () => {
           // Security consultant Clayton Farrugia
           alert("Invalid email or password. Please try again.");
           // set pasWordError to true.
-          setPasswordError(true);
+          setWrongCredentials(true);
         } else if (data === "Invalid") {
           alert("Please, fill your login information.");
         }
@@ -88,7 +88,7 @@ const LoginForm = () => {
             <label>Email:</label>
             <input
               type="email"
-              className="form-control"
+              className={`form-control ${wrongCredentials ? "is-invalid" : ""}`}
               value={email}
               onChange={handleEmailChange}
               placeholder="Email@email.com"
@@ -99,7 +99,7 @@ const LoginForm = () => {
             <label>Password:</label>
             <input
               type={showPassword ? "text" : "password"}
-              className={`form-control ${passwordError ? "is-invalid" : ""}`}
+              className={`form-control ${wrongCredentials ? "is-invalid" : ""}`}
               value={password}
               onChange={handlePasswordChange}
               placeholder="Abc123?!"

@@ -1,0 +1,10 @@
+{
+  "name": "StudentMind",
+  "short_name": "SM",
+  "description": "Social media platform for students",
+  "start_url": "./index.html",
+  "theme_color": "#000080",
+  "background_color":"#F5F5DC",
+  "orientation":"any",
+  "display":"standalone"
+}

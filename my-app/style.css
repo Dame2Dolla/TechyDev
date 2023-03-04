@@ -154,7 +154,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #0188C6;
+  background-color: #0188c6;
 }
 
 .user-info {
@@ -181,11 +181,50 @@
   color: #fff;
 }
 
-.profile-page{
+.profile-page {
+  border: 2px solid #1c6ea4;
   text-align: center;
 }
 
-.logo{
-  background-color:#4F5459;
-  border-style: outset;
+.profile-image {
+  border-radius: 50%;
+  border: 2px solid #1c6ea4;
+}
+
+.profile-primary-details {
+  margin-left: 22%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-primary-information-firstsection {
+  position: relative;
+  font-size: xx-large;
+  text-align: left;
+  justify-items: start;
+  ;
+  margin-left: -101%;
+}
+
+.profile-secondary-information-Bio {
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+  max-width: 21%;
+  margin-left: -4%;
+  margin-top: 2%;
+}
+
+.profile-secondary{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.change-password-link{
+  padding-top: 6%;
+}
+
+.profile-buttons {
+  text-align: center;
 }

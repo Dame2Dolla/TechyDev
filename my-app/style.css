@@ -1,0 +1,145 @@
+.form-wrapper {
+  position: relative;
+}
+
+.login-form {
+  position: relative;
+  max-width: 400px;
+  margin: 10% auto 37.5%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #0000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+.login-form form h2 {
+  margin-bottom: 20px;
+  color: #004c9e;
+}
+.login-form form .form-group {
+  margin-bottom: 20px;
+  font-size: x-large;
+}
+.login-form form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: start;
+}
+.login-form form .form-group input.form-control {
+  font-size: x-large;
+}
+.login-form .form-control.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.password-wrapper {
+  position: relative;
+}
+.login-form .password-icon {
+  position: absolute;
+  right: -2%;
+  top: 33%;
+  transform: translateY(-50%);
+  max-width: fit-content;
+}
+
+.login-form button {
+  position: inherit;
+  width: 100%;
+  margin-top: 2%;
+  font-size: large;
+  display: block;
+}
+
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+}
+.signup-form .signup-form-official {
+  position: absolute;
+  padding-left: 10%;
+  max-width: 900px;
+  width: 900%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4; /* Change z-index value to 4 */
+  background-color: #fff;
+  border: 1px solid #0000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
+}
+.signup-form .signup-form-official .title {
+  font-size: 2rem;
+}
+.signup-form .signup-form-official .form-group {
+  margin-left: 10px;
+  display: inline-block;
+  width: 48%;
+}
+.signup-form .signup-form-official label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: x-large;
+}
+.signup-form .signup-form-official input {
+  max-width: 80%;
+}
+.signup-form .signup-form-official .textareawithbutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.signup-form .signup-form-official textarea {
+  max-width: 1200px;
+  width: 100%;
+}
+.signup-form .signup-form-official .btn-primary {
+  background-color: #007bff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 20px;
+  max-width: 400px;
+  margin-left: 50%;
+  /* Add hover effect */
+  transition: background-color 0.3s ease-in-out;
+}
+.signup-form .signup-form-official .btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.radio-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .radio-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .radio-label input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .custom-text {
+    margin-top: 10px;
+  }
+
+  .customGenderInput{
+    display: none;
+  }

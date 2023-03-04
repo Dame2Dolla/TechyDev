@@ -1,17 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Profile</title>
-    <meta name="viewport">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php require "./php_require/htmlheader.php" ?>
+<title>Profile</title>
 </head>
 
 <body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="./images/icon.png" width="60px" height="60px" alt="Logo">
+            </div>
+            <div class="user-info">
+                <!-- <p><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></p> -->
+                <p>Patrick Frendo</p>
+                <a class="btn btn-dark" href="logout.php">Log out</a>
+            </div>
+        </div>
+    </header>
+    <div class="profile-page">
+        <h1>Profile Details</h1>
+        <a class="btn btn-secondary" href="logout.php">Delete Profile</a>
 
+        <a class="btn btn-dark" href="logout.php">Log out</a>
+    </div>
 </body>
 
 </html>

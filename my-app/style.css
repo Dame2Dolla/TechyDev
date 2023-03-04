@@ -119,27 +119,73 @@
 }
 
 .radio-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-  
-  .radio-label {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: 10px;
-  }
-  
-  .radio-label input[type="radio"] {
-    margin-right: 5px;
-  }
-  
-  .custom-text {
-    margin-top: 10px;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 
-  .customGenderInput{
-    display: none;
-  }
+.radio-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.custom-text {
+  margin-top: 10px;
+}
+
+.customGenderInput {
+  display: none;
+}
+
+/* .header {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #0188C6;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info p {
+  margin: 0 10px 0 0;
+  font-weight: bold;
+}
+
+.user-info a {
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.user-info a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.profile-page{
+  text-align: center;
+}
+
+.logo{
+  background-color:#4F5459;
+  border-style: outset;
+}

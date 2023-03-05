@@ -82,6 +82,7 @@ if ($password_checker == 'Password not properly formatted') {
     // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
 
     $password_checker = password_hash($password_checker, PASSWORD_DEFAULT);
+    
     //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
     $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
     $stmts->bind_param("s", $email);

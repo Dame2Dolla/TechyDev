@@ -57,7 +57,7 @@ function submitFormSignUp(event) {
   })
     .then((response) => response.text())
     .then((data) => {
-      console.log(data);
+    
       if (data === "Password Incorrect") {
         alert(
           "Password must be longer than 8 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."

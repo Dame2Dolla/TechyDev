@@ -65,11 +65,9 @@ if ($result->num_rows > 0) {
   
         if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password'])) {
             
-            $_SESSION['email'] = $rowz['email'];
+            $_SESSION['id_user'] = $rowz['ID'];
             $_SESSION['first_name'] = $rowz['first_name'];
             $_SESSION['last_name'] = $rowz['last_name'];
-            $_SESSION['dob'] = $rowz['dob'];
-            $_SESSION['gender'] = $rowz['gender'];
             echo "Successful";
             
         // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 

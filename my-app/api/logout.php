@@ -1,14 +1,9 @@
 <?php
 //Error reporting function that disabled error messages.
 error_reporting(0);
+// Start the session.
 session_start();
-    Print_r($_SESSION); 
-
-// // remove all session variables
-// session_unset();
-
-// // destroy the session
-// session_destroy();
-
-// echo "Log out";
+session_destroy();
+header('Location: index.php');
+exit;
 ?>

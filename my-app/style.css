@@ -2,10 +2,62 @@
   position: relative;
 }
 
+label {
+  font-family: "Bree Serif";
+}
+
+/* footer {
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #f3f2ee;
+  margin-top: 19%;
+  margin-bottom: 0%;
+}
+
+.footer-text {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+} */
+.login-form-card {
+  display: block;
+  justify-items: center;
+
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.forgot-password {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.button-login {
+  position: absolute;
+  background: #0188c6;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.button-log-in-text {
+  color: #ffffff;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+}
+
 .login-form {
   position: relative;
   max-width: 400px;
-  margin: 10% auto 37.5%;
+  margin: 10% auto;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #0000;
@@ -51,6 +103,10 @@
   margin-top: 2%;
   font-size: large;
   display: block;
+}
+
+#signup-form {
+  display: none;
 }
 
 .signup-form {
@@ -160,6 +216,18 @@
 .user-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 17%;
+  
+}
+
+.user-info-name-details{
+  font-size: large;
+  margin-right: 20px;
+}
+
+.user-profile-image-header{
+  border-radius: 50%;
 }
 
 .user-info p {
@@ -193,35 +261,22 @@
 
 .profile-primary-details {
   margin-left: 22%;
+  margin-right: 16%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
-.profile-primary-information-firstsection {
+.profile-primary-information {
   position: relative;
+  display: flex;
   font-size: xx-large;
   text-align: left;
   justify-items: start;
-  ;
-  margin-left: -101%;
 }
 
-.profile-secondary-information-Bio {
-  display: flex;
-  flex-direction: column;
-  font-size: x-large;
-  max-width: 21%;
-  margin-left: -4%;
-  margin-top: 2%;
-}
-
-.profile-secondary{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.change-password-link{
+.change-password-link {
   padding-top: 6%;
 }
 

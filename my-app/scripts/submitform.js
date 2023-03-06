@@ -34,18 +34,28 @@ function submitFormSignUp(event) {
     }
   });
 
-  // // Calculate the difference between the date of birth and the current date
-  // const ageDiffMs = Date.now() - longDob.getTime();
+  // Code explanation:
+    /**
+     * Created 2 objects with the Date value and stored that as seperated variables
+     * Then subracted both variables together by aquiring the year.
+     * If statement is created to check is the dob entered is either greater than 16 or
+     * //if it is exactly 16 than a check is done to check if user has had their 16th birthday.
+     */
+    const birthDate = new Date(dateOfBirth);
+    const today = new Date();
+    const ageDiff = today.getFullYear() - birthDate.getFullYear();
+    const isOver16 =
+      ageDiff > 16 ||
+      (ageDiff === 16 && today.getMonth() > birthDate.getMonth()) ||
+      (ageDiff === 16 &&
+        today.getMonth() === birthDate.getMonth() &&
+        today.getDate() >= birthDate.getDate());
 
-  // // Convert the difference to years
-  // const ageDate = new Date(ageDiffMs);
-  // const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-
-  // // Check if the user is older than 16 years
-  // if (age < 16) {
-  //   alert("You must be at least 16 years old to sign up.");
-  //   return false; // Prevent the form from submitting
-  // }
+    if (!isOver16) {
+      alert("You must be over 16 years old to register.");
+      // return is used to stop the whole function.
+      return;
+    }
 
   // Send data to PHP API
   fetch("https://techytest23.000webhostapp.com/api/signup.php", {

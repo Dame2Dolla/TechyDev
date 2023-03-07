@@ -128,6 +128,7 @@
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"];?>" />
           </form>
           <!-- End of SignUp Form -->
         </div>

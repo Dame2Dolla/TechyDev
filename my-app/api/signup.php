@@ -76,36 +76,47 @@ $email = postCleanForEmail(isset($_POST['email']) ? $_POST['email'] : "");
 $password = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] : "");
 $dob = isset($_POST['dob']) ? $_POST['dob'] : "";
 $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
+$csrf_token = $_POST['token'];
+
+// create session for the current time
+$_SESSION['date_expire'] = time();
+
+// aquire session date_expire and add 60 minutes
+$sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
 
 // Check if any variables are empty if yes throw an error message.
 if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($postcode) || empty($city) || empty($country) || empty($email) || empty($password) || empty($dob) || empty($gender)) {
     echo "Try again";
 } else {
-    if ($password == 'Password not properly formatted') {
-        echo "Password Incorrect";
-    } else {
-        // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
-
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
-        //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-        $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
-        $stmts->bind_param("s", $email);
-        $stmts->execute();
-        $results = $stmts->get_result();
-
-        if ($results->num_rows > 0) {
-            echo "User Exist";
+    if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] >= $sixtyMinutes) {
+        if ($password == 'Password not properly formatted') {
+            echo "Password Incorrect";
         } else {
+            // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
 
-            //prepared SQL statements.
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
             //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-            $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, address1, address2, postcode, city, country, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '3', ?, ?)");
-            $sql->bind_param("sssssssssss", $firstName, $lastName, $address1, $address2, $postcode, $city, $country, $email, $password, $dob, $gender);
-            $sql->execute();
+            $stmts = $conn->prepare("SELECT * FROM Student WHERE email = ?");
+            $stmts->bind_param("s", $email);
+            $stmts->execute();
+            $results = $stmts->get_result();
 
-            echo "User Created";
+            if ($results->num_rows > 0) {
+                echo "User Exist";
+            } else {
+
+                //prepared SQL statements.
+                //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
+                $sql = $conn->prepare("INSERT INTO Student (first_name, last_name, address1, address2, postcode, city, country, email, password, password_count, dob, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '3', ?, ?)");
+                $sql->bind_param("sssssssssss", $firstName, $lastName, $address1, $address2, $postcode, $city, $country, $email, $password, $dob, $gender);
+                $sql->execute();
+
+                echo "User Created";
+            }
         }
+    }else{
+        echo "bad token";
     }
 }
 // Close the connection

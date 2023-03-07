@@ -42,7 +42,14 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 // get_result() is used to fetch the result.
 $result = $stmt->get_result();
-if (hash_equals($_SESSION['token'], $_POST['token'])) {
+
+// create session for the current time
+$_SESSION['date_expire'] = time();
+
+// aquire session date_expire and add 60 minutes
+$sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
+
+if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] >= $sixtyMinutes ) {
     if ($result->num_rows > 0) {
         $stmt = $conn->prepare("SELECT password_count FROM Student WHERE email = ?");
         $stmt->bind_param("s", $email);

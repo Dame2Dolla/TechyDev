@@ -52,6 +52,7 @@
           <button type="submit" class="btn btn-primary btn-block">Log In</button>
           <button type="button" class="btn btn-success btn-block" id="signup-button">Sign Up</button>
           <button type="button" class="btn btn-link" id="forgot-password-button">Forgot Password?</button>
+           <!-- signin token -- Security consultant Clayton --> 
           <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"];?>" />
         </form>
         <!-- End of LoginForm -->
@@ -128,7 +129,8 @@
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
-            <input type="hidden" id="tokentwo" name="token" value="<?= $_SESSION["token"];?>" />
+            <!-- signup token -- Security consultant Clayton --> 
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"];?>" />
           </form>
           <!-- End of SignUp Form -->
         </div>

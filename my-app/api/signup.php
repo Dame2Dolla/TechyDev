@@ -20,7 +20,7 @@ function postCleanForText($value)
     $trimedValue = trim($value);
     // Turns String to lower
     $trimedValueToLower = strtolower($trimedValue);
-    // Using str_replace() function to replace the word
+    // Using str_replace() function to replace the word -- Cross Side scripting
     $res = str_replace(array('\'', '"', ',', '; ', '<', '>'), ' ', $trimedValueToLower);
     // Remove numbers from text
     $res = preg_replace('/[0-9]+/', '', $res);

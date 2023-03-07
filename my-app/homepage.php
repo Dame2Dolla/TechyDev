@@ -1,3 +1,4 @@
+<?php require "./php_require/session.php"?>
 <?php require "./php_require/htmlheader.php" ?>
 <title>Profile</title>
 </head>

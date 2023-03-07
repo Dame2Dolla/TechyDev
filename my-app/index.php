@@ -1,4 +1,6 @@
+<?php require "./php_require/session.php"?>
 <?php require "./php_require/htmlheader.php" ?>
+<?php require "./php_require/securitycsrf.php"?>
 <title>Log in Form</title>
 </head>
 
@@ -50,6 +52,7 @@
           <button type="submit" class="btn btn-primary btn-block">Log In</button>
           <button type="button" class="btn btn-success btn-block" id="signup-button">Sign Up</button>
           <button type="button" class="btn btn-link" id="forgot-password-button">Forgot Password?</button>
+          <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"];?>" />
         </form>
         <!-- End of LoginForm -->
         <!-- Start of SignUp Form -->

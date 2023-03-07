@@ -14,7 +14,6 @@ function submitFormSignUp(event) {
   const password = document.getElementById("signup-password").value;
   const dob = document.getElementById("dateOfBirth").value;
 
-
   if (document.getElementById("male").checked) {
     gender = document.getElementById("male").value;
   } else if (document.getElementById("female").checked) {

@@ -14,12 +14,13 @@ function getCookie(name) {
   const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
   return cookieValue ? cookieValue.pop() : null;
 }
-
+// Set cookie for 30 days 
 function setCookie(name, value, days) {
   const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
+// set cookie in the past for deletion.
 function deleteCookie(name) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
@@ -41,6 +42,7 @@ function submitFormLogin(event) {
   // The two variables are filled with the email value and the password from the form
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const token = document.getElementById("token").value;
 
   // if the either email or password aren't filled than an alert message is sent
   if (email === "" || password === "") {
@@ -55,7 +57,7 @@ function submitFormLogin(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `email=${email}&password=${password}`,
+    body: `email=${email}&password=${password}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
@@ -74,7 +76,10 @@ function submitFormLogin(event) {
         // Security consultant Clayton Farrugia
         alert("Invalid email or password. Please try again.");
         // set pasWordError to true.
-      } else {
+      } else if(data === "bad token"){
+        alert("Refresh the page and try again.")
+      } 
+      else {
         alert("Something went wrong please try again later.");
       }
     })

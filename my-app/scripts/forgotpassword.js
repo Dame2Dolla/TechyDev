@@ -1,6 +1,5 @@
-document
-  .getElementById("forgot-password-button")
-  .addEventListener("click", function () {
+const forgotPassword =  document.getElementById("forgot-password-button");
+forgotPassword.addEventListener("click", function () {
     $("#forgot-password-modal").modal("show");
   });
 

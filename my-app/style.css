@@ -6,6 +6,14 @@ label {
   font-family: "Bree Serif";
 }
 
+html{
+  background-color: #f5f5dc;
+}
+
+.form-wrapper{
+  background-color: #f5f5dc;
+
+}
 /* footer {
   margin-top: auto;
   margin-bottom: auto;

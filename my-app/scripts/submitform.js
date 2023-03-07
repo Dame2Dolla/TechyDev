@@ -8,12 +8,13 @@ function submitFormSignUp(event) {
   const address2 = document.getElementById("address2").value;
   const postCode = document.getElementById("postCode").value;
   const city = document.getElementById("city").value;
+  const mobile = document.getElementById("mobileNumber").value;
   const country = document.getElementById("country").value;
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
   const dob = document.getElementById("dateOfBirth").value;
 
-  
+
   if (document.getElementById("male").checked) {
     gender = document.getElementById("male").value;
   } else if (document.getElementById("female").checked) {
@@ -76,7 +77,10 @@ function submitFormSignUp(event) {
         alert("This email is already registered.");
       } else if (data === "User Created") {
         alert("Account is successfully created.");
-      } else {
+      } else if(data === "Try again") {
+        alert("Please ensure you have filled all your details.")
+      }
+      else {
         alert("Something went wrong please try again.");
       }
     })

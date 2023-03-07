@@ -26,7 +26,7 @@
             <img src="./images/default_profile.jpg" class="profile-image" width="250px" height="250px"></img>
             <div class="profile-primary-information">
                 <p>Patrick&nbsp;Frendo</p>
-                <button class="btn btn-primary ml-2 mb-4 mt-2" onclick="submitDeletion()" href="#">Change Name</button>
+                <button class="btn btn-primary ml-2 mb-4 mt-2" onclick="" href="#">Change Name</button>
 
             </div>
         </div>

@@ -42,6 +42,9 @@ function submitFormLogin(event) {
   // The two variables are filled with the email value and the password from the form
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+
+  // Aquire token value from the tokenid in the index.php file and store it in a const token.
+  // After storing the token variable, the variable will be transfered to the authentication.php via fetch.
   const token = document.getElementById("token").value;
 
   // if the either email or password aren't filled than an alert message is sent

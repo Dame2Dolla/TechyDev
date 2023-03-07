@@ -1,12 +1,12 @@
 <?php
     //Error reporting function that disabled error messages.
-    error_reporting(0);
+    //error_reporting(0);
     session_start();
     //Details of the Database.
     $servername = "localhost";
-    $username = "id20324296_tester";
-    $password = "0123456789abc-A";
-    $dbname = "id20324296_test";
+    $username = "id20324296_admin_techy";
+    $password = "\zEkViUe^wvmj@6[";
+    $dbname = "id20324296_dbstudentmind";
 
     // Create a new connection and assign to $conn variable
     $conn = new mysqli($servername, $username, $password, $dbname);

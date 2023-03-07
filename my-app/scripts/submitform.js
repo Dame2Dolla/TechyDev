@@ -3,6 +3,7 @@ function submitFormSignUp(event) {
 
   // Get form data
   const firstName = document.getElementById("firstName").value;
+  const middleName = document.getElementById("middleName").value;
   const lastName = document.getElementById("lastName").value;
   const address1 = document.getElementById("address1").value;
   const address2 = document.getElementById("address2").value;
@@ -13,7 +14,7 @@ function submitFormSignUp(event) {
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
   const dob = document.getElementById("dateOfBirth").value;
-  const token = document.getElementById("token").value;
+  const token = document.getElementById("tokentwo").value;
 
   if (document.getElementById("male").checked) {
     gender = document.getElementById("male").value;
@@ -41,7 +42,7 @@ function submitFormSignUp(event) {
    * If statement is created to check is the dob entered is either greater than 16 or
    * //if it is exactly 16 than a check is done to check if user has had their 16th birthday.
    */
-  const birthDate = new Date(dateOfBirth);
+  const birthDate = new Date(dob);
   const today = new Date();
   const ageDiff = today.getFullYear() - birthDate.getFullYear();
   const isOver16 =
@@ -63,7 +64,7 @@ function submitFormSignUp(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `firstName=${firstName}&lastName=${lastName}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
+    body: `firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {

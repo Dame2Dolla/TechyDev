@@ -130,7 +130,7 @@
               <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
             <!-- signup token -- Security consultant Clayton --> 
-            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"];?>" />
+            <input type="hidden" id="tokentwo" name="token" value="<?= $_SESSION["token"];?>" />
           </form>
           <!-- End of SignUp Form -->
         </div>

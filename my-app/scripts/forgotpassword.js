@@ -1,7 +1,18 @@
-const forgotPassword =  document.getElementById("forgot-password-button");
-forgotPassword.addEventListener("click", function () {
-    $("#forgot-password-modal").modal("show");
-  });
+const popup =  document.getElementById("popup");
+
+// overlay style list display changes to block.
+// popup adds the css list into the popup from open-popup
+function openPopup(){
+  overlay.style.display = "block";
+  popup.classList.add("open-popup");
+}
+
+// overlay style list display changes to none.
+// popup removes the css list into the popup from open-popup.
+function closePopup(){
+  overlay.style.display = "none";
+  popup.classList.remove("open-popup");
+}
 
 function submitFormForgotPassword(event) {
   event.preventDefault();
@@ -30,12 +41,21 @@ function submitFormForgotPassword(event) {
         })
           .then((response) => response.text())
           .then((data) => {
-            document.getElementById("message").textContent = data;
+            if(data === "Email sent"){
+              alert("Email sent.");
+              closePopup();
+            }
+            else if(data === "Failed"){
+              alert("Email failed to generate. please contact customer support.");
+            }
+            else{
+              alert("Something went wrong please try again later.");
+            }
           })
           .catch((error) => console.error(error));
       } else {
         // If the user does not exist, show a warning message
-        document.getElementById("message").textContent = "User does not exist.";
+        alert("User does not exist.")
       }
     })
     .catch((error) => console.error(error));

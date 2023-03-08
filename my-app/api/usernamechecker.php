@@ -18,7 +18,7 @@ function postCleanForEmail($value)
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);
 
-$stmt = $conn->prepare("SELECT * FROM Student WHERE email = ?");
+$stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
 
 // Using blind_param to associate the a variables with the "s" for String. 
 // Then the variables are bound to the SQL ?.

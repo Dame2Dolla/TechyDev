@@ -40,7 +40,7 @@ function submitFormSignUp(event) {
    * Created 2 objects with the Date value and stored that as seperated variables
    * Then subracted both variables together by aquiring the year.
    * If statement is created to check is the dob entered is either greater than 16 or
-   * //if it is exactly 16 than a check is done to check if user has had their 16th birthday.
+   *  - if it is exactly 16 than a check is done to check if user has had their 16th birthday.
    */
   const birthDate = new Date(dob);
   const today = new Date();
@@ -74,6 +74,7 @@ function submitFormSignUp(event) {
         );
       } else if (data === "User Exist") {
         alert("This email is already registered.");
+        window.location.href = "index.php";
       } else if (data === "User Created") {
         alert("Account is successfully created.");
       } else if (data === "Try again") {

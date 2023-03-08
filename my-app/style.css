@@ -14,6 +14,50 @@ html{
   background-color: #f5f5dc;
 
 }
+
+.popup{
+  position: absolute;
+  width: 400px;
+  left: 38%;
+  text-align: center;
+  padding: 0 30px 30px;
+  background-color: #fff;
+  box-shadow: 8px 8px 4px rgb(0 0 0 / 44%);
+  border-radius: 10px;
+  z-index: 3;
+  top: -27%;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+  top: 2%;
+  transition: transform 0.4s, top 0.4s;
+}
+.popup-title{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  padding: 5px;
+  background: #eee;
+  color:#111;
+  border: none !important; 
+  outline: none !important;
+  border-radius: 50%;
+  cursor: pointer;;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+}
+
 /* footer {
   margin-top: auto;
   margin-bottom: auto;
@@ -32,7 +76,6 @@ html{
 .login-form-card {
   display: block;
   justify-items: center;
-
   background: #fefffe;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -44,6 +87,13 @@ html{
   font-weight: 400;
   font-size: 24px;
   line-height: 33px;
+}
+
+.form-group-forgot-password{
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
 }
 
 .button-login {
@@ -65,13 +115,15 @@ html{
 .login-form {
   position: relative;
   max-width: 400px;
-  margin: 10% auto;
+  margin-left: 38%;
+  margin-top: 12%;
+  margin-right: 34%;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #0000;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
-  z-index: 1;
+  z-index: 0;
 }
 .login-form form h2 {
   margin-bottom: 20px;
@@ -114,72 +166,14 @@ html{
 }
 
 #signup-form {
-  display: none;
-}
-
-.signup-form {
-  max-width: 400px;
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 998;
-}
-.signup-form .signup-form-official {
-  position: absolute;
-  padding-left: 10%;
-  max-width: 900px;
-  width: 900%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4; /* Change z-index value to 4 */
-  background-color: #fff;
-  border: 1px solid #0000;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.9);
-}
-.signup-form .signup-form-official .title {
-  font-size: 2rem;
-}
-.signup-form .signup-form-official .form-group {
-  margin-left: 10px;
-  display: inline-block;
-  width: 48%;
-}
-.signup-form .signup-form-official label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 5px;
-  font-size: x-large;
-}
-.signup-form .signup-form-official input {
-  max-width: 80%;
-}
-.signup-form .signup-form-official .textareawithbutton {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.signup-form .signup-form-official textarea {
-  max-width: 1200px;
-  width: 100%;
-}
-.signup-form .signup-form-official .btn-primary {
-  background-color: #007bff;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px 20px;
-  margin-top: 20px;
-  max-width: 400px;
-  margin-left: 50%;
-  /* Add hover effect */
-  transition: background-color 0.3s ease-in-out;
-}
-.signup-form .signup-form-official .btn-primary:hover {
-  background-color: #0062cc;
+  border: 4px red solid;
+  margin-left: 14%;
+  margin-right: 15%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: space-around;
 }
 
 .radio-wrapper {

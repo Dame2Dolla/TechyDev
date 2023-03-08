@@ -6,16 +6,15 @@ label {
   font-family: "Bree Serif";
 }
 
-html{
+html {
   background-color: #f5f5dc;
 }
 
-.form-wrapper{
+.form-wrapper {
   background-color: #f5f5dc;
-
 }
 
-.popup{
+.popup {
   position: absolute;
   width: 400px;
   left: 38%;
@@ -29,22 +28,22 @@ html{
   transition: transform 0.4s, top 0.4s;
 }
 
-.open-popup{
+.open-popup {
   top: 2%;
   transition: transform 0.4s, top 0.4s;
 }
-.popup-title{
+.popup-title {
   position: absolute;
   top: 0;
   right: 0;
   margin: 10px;
   padding: 5px;
   background: #eee;
-  color:#111;
-  border: none !important; 
-  outline: none !important;
+  color: #111;
+  border: none;
+  outline: none;
   border-radius: 50%;
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 .overlay {
@@ -89,7 +88,7 @@ html{
   line-height: 33px;
 }
 
-.form-group-forgot-password{
+.form-group-forgot-password {
   font-family: "Peace Sans";
   font-style: normal;
   font-weight: 400;
@@ -164,18 +163,31 @@ html{
   font-size: large;
   display: block;
 }
+/* Signup Form */
+.sign-up-background {
+  background-color: #f5f5dc;
+}
 
 #signup-form {
   display: flex;
-  border: 4px red solid;
-  margin-left: 14%;
-  margin-right: 15%;
+  margin-left: 36%;
+  margin-right: 38%;
+  margin-top: 8%;
+  padding-top: 15px;
+  padding-bottom: 20px;
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: space-between;
   justify-content: space-around;
+  background-color: #fff;
+  box-shadow: 8px 8px 4px rgb(0 0 0 / 44%);
+  border-radius: 10px;
+  font-size: larger;
 }
 
+.form-group-signup-inputs {
+  display: flex;
+}
 .radio-wrapper {
   display: flex;
   flex-direction: row;
@@ -220,15 +232,14 @@ html{
   align-items: center;
   justify-content: space-between;
   width: 17%;
-  
 }
 
-.user-info-name-details{
+.user-info-name-details {
   font-size: large;
   margin-right: 20px;
 }
 
-.user-profile-image-header{
+.user-profile-image-header {
   border-radius: 50%;
 }
 

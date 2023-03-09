@@ -25,15 +25,15 @@ function submitFormSignUp(event) {
   }
 
   // Show/hide custom gender text area based on "custom" radio button selection
-  const customGenderInput = document.getElementById("customGenderInput");
-  const customRadio = document.getElementById("custom");
-  customRadio.addEventListener("change", function () {
-    if (customRadio.checked) {
-      customGenderInput.style.display = "block";
-    } else {
-      customGenderInput.style.display = "none";
-    }
-  });
+  // const customGenderInput = document.getElementById("customGenderInput");
+  // const customRadio = document.getElementById("custom");
+  // customRadio.addEventListener("change", function () {
+  //   if (customRadio.checked) {
+  //     customGenderInput.style.display = "block";
+  //   } else {
+  //     customGenderInput.style.display = "none";
+  //   }
+  // });
 
   // Code explanation:
   /**
@@ -77,6 +77,7 @@ function submitFormSignUp(event) {
         window.location.href = "index.php";
       } else if (data === "User Created") {
         alert("Account is successfully created.");
+        window.location.href = "index.php";
       } else if (data === "Try again") {
         alert("Please ensure you have filled all your details.");
       } else if (data === "bad token") {

@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label>Middle Name:</label>
-                            <input type="text" class="form-control" placeholder="Middle Name" id="middleName" required />
+                            <input type="text" class="form-control" placeholder="Middle Name" id="middleName" />
                         </div>
                     </div>
                     <div class="form-group-signup-inputs">

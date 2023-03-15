@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EA13BB85-F998-DFB7-1547-8CA966FB26A6" name="tbl_Projects">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>E4FABA9E-0BA7-4AFE-B95F-51C97A450C04</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="project_ID" id="D5F0D490-4342-4DB7-0DEE-1D4F42D4A9C9">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>2CBC0F9C-1593-27B0-E0D4-13F1300C211F</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="projectName" id="3A065BC6-BAAD-3B57-BC3A-C66860F10843">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>FA2A7BEF-7C84-F7AD-68C4-4791BB03ED31</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="projectDesc" id="1955493C-9D35-7CB7-EE77-A66759CCF2DB">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>EAF64936-63C0-A449-CF25-D561AC76C78B</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="is_ongoing" id="FE5ABEEE-5BE2-B9B9-F49C-00549F0A729C">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>86BC5587-0A17-882A-1221-E89BFFF88710</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5969A114-8A66-1CE0-3104-CBA23CF3F639" name="tbl_Projects_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>E5BFB61A-2662-AC06-10E9-F472BE346769</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5F0D490-4342-4DB7-0DEE-1D4F42D4A9C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

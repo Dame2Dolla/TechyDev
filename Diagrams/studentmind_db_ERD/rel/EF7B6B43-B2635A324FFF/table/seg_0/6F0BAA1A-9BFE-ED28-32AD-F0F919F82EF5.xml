@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6F0BAA1A-9BFE-ED28-32AD-F0F919F82EF5" name="tbl_Addresses">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>BCEDAC12-6B0A-8F4C-1707-83AB3766F67F</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="address_ID" id="0311ECB5-918E-F43C-5608-8EA9834F0572">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>348E23F8-E3BF-1359-61F0-499CAC852D07</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="line1" id="72131CAB-5C17-96B5-ADC2-4185411DF79F">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>26A87BA0-3DBF-354B-36DD-EE2617DE1267</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="line2" id="75FA8BE9-E0AE-6AA0-7FEC-05CAFE164F7E">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>2A5C37EA-6A65-29C2-E94A-46E49200EBFC</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="post_code" id="C9240B1A-83F9-827D-A257-B27624992A4A">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>C690E2E1-F6F0-4B57-2BF6-557A673A5E79</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="city_town" id="3BA169B0-0105-65F5-5571-67F517B7ECFC">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>8F19D797-A1A9-B2C7-298F-D8D2A5E6C48E</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="country" id="F4C7B8D9-4C1A-B20A-1460-CA10CFBABD1C">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>188EFC84-8A90-880B-0D98-326E33604E97</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="34901F5B-3210-599E-62A5-70F0886B3060" name="tbl_Addresses_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>3085576B-D4DE-6AAE-7786-022B28B34D78</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0311ECB5-918E-F43C-5608-8EA9834F0572"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CB0094CA-CBE3-F885-6457-44203B895FF9" name="tbl_Posts">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>38192B3C-377A-E941-B440-3FEBD97CB2EA</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="post_ID" id="21294E66-120C-8B65-E51E-9E3D14220204">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>AABF096E-C2DA-7B14-3D44-8C1C36965496</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="content_txt" id="5FD880B5-385F-8C1E-6DD8-38F1FE0013EE">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>5547DCAA-203A-DCD8-3687-D0BE92115A63</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="post_date_created" id="1D17E34C-184B-C6E1-49A0-360B7AD40D8E">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>D1CC3DA3-0D76-CF3A-558C-7A8672263AA3</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tbl_Users_user_ID" id="D7812884-4CFF-72FC-F82B-2B0078614E03">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>44752E1C-4A42-68E8-5908-4420EFF1CE11</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="43C7BB69-97E2-3CDC-DD95-B712E611107A" referredColumn="2DA21D1C-B4CE-D75C-8864-FC77D4B2DC91"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="82AF04DE-425E-F411-618F-7A6AE6A26C58" name="tbl_Posts_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>9B3822B5-4135-C4C1-1AFA-CF3BD56CE59A</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21294E66-120C-8B65-E51E-9E3D14220204"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="948BF7F3-15A9-E2A4-8756-4042CBB0CDCC" name="tbl_Posts_user_ID_fk_UN">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>CA6BD3CA-F3AC-BBE9-F291-317C0E5F1A32</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7812884-4CFF-72FC-F82B-2B0078614E03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC4D1FD2-A019-69B5-4A14-19C3197C937F" name="tbl_Posts_tbl_Users_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>E0642CD2-B719-08C4-E45A-9170E87C802F</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7812884-4CFF-72FC-F82B-2B0078614E03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

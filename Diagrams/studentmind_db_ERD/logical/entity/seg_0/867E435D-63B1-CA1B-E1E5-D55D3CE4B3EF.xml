@@ -1,0 +1,199 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="867E435D-63B1-CA1B-E1E5-D55D3CE4B3EF" name="tbl_Users">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:28:18 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="user_ID" id="92C70A14-DF27-68DA-25C4-F31A9A3015D9">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:31:38 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="givenName" id="148D5228-5F23-49F8-B669-FD769C945709">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:31:51 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="middleName" id="49F01779-EE40-6AF2-EC0B-79B16AD11174">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:32:06 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="familyName" id="B0026B0B-900F-EE63-5611-98BC22E35E08">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:32:24 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gender" id="04E177EC-4AE9-D419-EBEE-0FE8D2704584">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:32:35 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dob" id="D0589782-6DE6-E162-2100-8176513C5038">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:32:59 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="DD8C580C-5686-2D68-A1E2-A55090544D22">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:33:36 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mob_num" id="5B27DC39-DCB8-A23F-15AB-DEEA7068A87F">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:33:54 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bio_desc" id="54FEBD2D-9559-18D5-52F3-62F753860056">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:34:15 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password_hash" id="0A7BE909-24CB-B504-08B2-283969B03B81">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:34:27 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password_count" id="34A121FD-052F-226B-1AF2-7478908FA397">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:34:41 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="is_minor" id="D6EC3DC2-4E7E-3392-A903-7D91A00FE825">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:34:57 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="767AC4D5-9239-8849-806D-7DE493F6481F" name="tbl_Users PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:31:49 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>92C70A14-DF27-68DA-25C4-F31A9A3015D9</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="84A276E8-1121-F4CC-68F7-BEEF04AF395E" name="index_unique_tbl_Users_email">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:35:32 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<newElementsIDs>DD8C580C-5686-2D68-A1E2-A55090544D22</newElementsIDs>
+<usedAttributes>
+<attributeRef>DD8C580C-5686-2D68-A1E2-A55090544D22</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

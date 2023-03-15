@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="05DE4CFF-DAF7-A5B3-77CF-4C34EC420D03" name="tbl_Users_Addresses">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:40:01 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="user_ID_pk_fk" id="37E4868B-39FC-7FD2-B91B-89B8D84E5D5F">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:41:15 UTC</createdTime>
+<generatorID>651E2473-D0BD-6B7E-644B-4F94C72E69A4</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>92C70A14-DF27-68DA-25C4-F31A9A3015D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="address_ID_pk_fk" id="3907979D-ACFB-F37D-5EB2-CE55A8F72919">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:42:02 UTC</createdTime>
+<generatorID>CD3A1622-39FA-3F74-FFC8-985A7EFF19B8</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>348E23F8-E3BF-1359-61F0-499CAC852D07</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A003EBF6-908D-6912-A472-7394077197BC" name="tbl_Users_Addresses PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:40:49 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>37E4868B-39FC-7FD2-B91B-89B8D84E5D5F</attributeRef>
+<attributeRef>3907979D-ACFB-F37D-5EB2-CE55A8F72919</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="09C03F11-8CF1-2A38-6D14-8D05FBF705AA" name="index_unique_user_ID_pk_fk">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:42:55 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<newElementsIDs>651E2473-D0BD-6B7E-644B-4F94C72E69A4</newElementsIDs>
+<usedAttributes>
+<attributeRef>37E4868B-39FC-7FD2-B91B-89B8D84E5D5F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

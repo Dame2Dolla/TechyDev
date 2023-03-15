@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6FF073A8-B6BB-170E-FD41-E5D58A85A01D" name="tbl_Educations">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:56:30 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="education_ID" id="5C862F10-E364-C2C2-BA6D-81D4887ECAFB">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:56:37 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="institutionName" id="2B18AB98-5750-77D7-1063-7C6925807169">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:56:49 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="courseTitle" id="824C0D87-CB91-AE85-443B-21D7BCD597A9">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:57:13 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_start" id="E75022B6-15CD-EDDC-4317-CC245950E71C">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:57:37 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_end" id="C719945D-0042-3B3D-CD09-92EAC4C38F1C">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:57:51 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="is_ongoing" id="EF121DC0-2807-F3A0-7B10-B285E7815716">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:57:58 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2B7958C4-E436-C3F5-3BBA-2DB630717FA7" name="tbl_Educations PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 13:56:48 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5C862F10-E364-C2C2-BA6D-81D4887ECAFB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

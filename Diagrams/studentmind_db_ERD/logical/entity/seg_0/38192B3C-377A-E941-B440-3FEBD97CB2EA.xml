@@ -53,7 +53,7 @@
 <logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="user_ID_fk" id="44752E1C-4A42-68E8-5908-4420EFF1CE11">
+<Attribute name="postOwner_ID_fk" id="44752E1C-4A42-68E8-5908-4420EFF1CE11">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:09:30 UTC</createdTime>
 <generatorID>E0642CD2-B719-08C4-E45A-9170E87C802F</generatorID>
@@ -73,8 +73,9 @@
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:07:17 UTC</createdTime>
 <ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

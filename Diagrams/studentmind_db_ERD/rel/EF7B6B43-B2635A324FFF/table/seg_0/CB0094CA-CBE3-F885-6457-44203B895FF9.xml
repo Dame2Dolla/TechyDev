@@ -72,7 +72,7 @@
 <colUsage columnID="21294E66-120C-8B65-E51E-9E3D14220204"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="948BF7F3-15A9-E2A4-8756-4042CBB0CDCC" name="tbl_Posts_user_ID_fk_UN">
+<ind_PK_UK id="948BF7F3-15A9-E2A4-8756-4042CBB0CDCC" name="tbl_Posts_tbl_Users_user_ID_UN">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>CA6BD3CA-F3AC-BBE9-F291-317C0E5F1A32</generatorID>

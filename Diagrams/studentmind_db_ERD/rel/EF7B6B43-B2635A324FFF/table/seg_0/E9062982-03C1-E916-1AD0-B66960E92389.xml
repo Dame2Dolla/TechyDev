@@ -53,7 +53,7 @@
 <colUsage columnID="E6F23ADA-4948-4B38-3C1E-B8F35C88E754"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C844D95F-0BE8-8F58-FE0A-212087B39636" name="tbl_Users_Educations_education_ID_pk_fk_UN">
+<ind_PK_UK id="C844D95F-0BE8-8F58-FE0A-212087B39636" name="tbl_Users_Educations_tbl_Educations_education_ID_UN">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>422EE78F-1216-4B4E-815B-7238136F20CB</generatorID>

@@ -47,6 +47,7 @@
 <engineerTo>
 <item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -169,14 +170,29 @@
 <logicalDatatype>LOGDT006</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="address_ID_fk" id="CA694A42-9B89-257D-C00E-B5E510F25D02">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 18:43:08 UTC</createdTime>
+<generatorID>9969D371-8755-4D64-B99C-8E4F600A2DDD</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>348E23F8-E3BF-1359-61F0-499CAC852D07</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="767AC4D5-9239-8849-806D-7DE493F6481F" name="tbl_Users PK">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 13:31:49 UTC</createdTime>
 <ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -187,8 +203,9 @@
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 13:35:32 UTC</createdTime>
 <ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
 </engineerTo>
 <newElementsIDs>DD8C580C-5686-2D68-A1E2-A55090544D22</newElementsIDs>
 <usedAttributes>

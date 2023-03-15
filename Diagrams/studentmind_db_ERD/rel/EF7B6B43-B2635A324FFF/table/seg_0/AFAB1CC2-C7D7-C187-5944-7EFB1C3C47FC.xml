@@ -53,7 +53,7 @@
 <colUsage columnID="3A76D321-4EC2-1007-B8C3-9BD46EFB4DA4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="81CBD138-CDE6-3655-5238-E3882596E28F" name="tbl_Users_Projects_project_ID_pk_fk_UN">
+<ind_PK_UK id="81CBD138-CDE6-3655-5238-E3882596E28F" name="tbl_Users_Projects_tbl_Projects_project_ID_UN">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>8E2C5C19-3C43-48FE-A78F-80AD783931FD</generatorID>

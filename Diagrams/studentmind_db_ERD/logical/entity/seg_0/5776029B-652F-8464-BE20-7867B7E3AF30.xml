@@ -49,8 +49,9 @@
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:04:23 UTC</createdTime>
 <ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -53,18 +53,6 @@ FOR EACH ROW BEGIN
 END$$
 DELIMITER ;
 
--- Join table that is used to connect the user to an address.
-CREATE TABLE `tbl_Users_Addresses` (
-    `user_ID_pk_fk` INT UNSIGNED NOT NULL,
-    `address_ID_pk_fk` INT UNSIGNED NOT NULL,
-    PRIMARY KEY (`user_ID_pk_fk`, `address_ID_pk_fk`),
-    FOREIGN KEY (`address_ID_pk_fk`) REFERENCES `tbl_Addresses`(`address_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (`user_ID_pk_fk`) REFERENCES `tbl_Users`(`user_ID`) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
--- Ensuring that one user uses only one address, requirement for user authentication and management systems.
-CREATE UNIQUE INDEX index_unique_user_ID_pk_fk ON `tbl_Users_Addresses`(user_ID_pk_fk);
-
 -- Educations table used to store data regarding the users educational background.
 CREATE TABLE `tbl_Educations` (
     `education_ID` INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -75,18 +63,6 @@ CREATE TABLE `tbl_Educations` (
     `is_ongoing` BOOLEAN DEFAULT NULL,
     PRIMARY KEY (`education_ID`)
 );
-
--- Join table that connects the user to a particular educational background. Therefore, allows multiple users to have the same educational background and aids in data repetition.
-CREATE TABLE `tbl_Users_Educations` (
-    `user_ID_pk_fk` INT UNSIGNED NOT NULL,
-    `education_ID_pk_fk` INT UNSIGNED NOT NULL,
-    PRIMARY KEY (`user_ID_pk_fk`, `education_ID_pk_fk`),
-    FOREIGN KEY (`education_ID_pk_fk`) REFERENCES `tbl_Educations`(`education_ID`),
-    FOREIGN KEY (`user_ID_pk_fk`) REFERENCES `tbl_Users`(`user_ID`)
-);
-
--- To find rows with specific column values quiclky, required for user management systems.
-CREATE INDEX index_tbl_Users_Educations_education_ID ON `tbl_Users_Educations` (education_ID_pk_fk);
 
 -- Projects table used to store data about projects that users were part of.
 CREATE TABLE `tbl_Projects` (

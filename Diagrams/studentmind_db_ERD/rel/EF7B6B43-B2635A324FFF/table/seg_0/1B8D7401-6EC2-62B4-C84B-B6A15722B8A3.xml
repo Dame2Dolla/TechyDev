@@ -36,6 +36,7 @@
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>49F01779-EE40-6AF2-EC0B-79B16AD11174</generatorID>
 <ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -150,6 +151,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="tbl_Addresses_address_ID" id="45A47CE8-7CBC-DA31-C96A-6877AF5307B4">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 18:45:50 UTC</createdTime>
+<generatorID>CA694A42-9B89-257D-C00E-B5E510F25D02</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0892A4EF-7B99-34BB-48EA-9AF582E592AF" referredColumn="0311ECB5-918E-F43C-5608-8EA9834F0572"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="C4ED3A4B-2FDB-6359-164D-588ABC644BFF" name="tbl_Users_PK">
@@ -173,6 +189,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="0ECD5031-DC7D-E5A0-968E-B6AF880A2B3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="808DABF7-8279-02F3-835C-7DA3B6254766" name="tbl_Users_tbl_Addresses_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 18:45:50 UTC</createdTime>
+<generatorID>9969D371-8755-4D64-B99C-8E4F600A2DDD</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45A47CE8-7CBC-DA31-C96A-6877AF5307B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -87,7 +87,7 @@
 <colUsage columnID="9BF4770C-A9B3-5150-D0CC-D6DB392303B0"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E06A03F6-3227-4500-A16C-B6B32292DD4D" name="tbl_Comments_commentOwner_ID_fk_UN">
+<ind_PK_UK id="E06A03F6-3227-4500-A16C-B6B32292DD4D" name="tbl_Comments_tbl_Users_user_ID_UN">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>4717758F-373C-3835-92CA-FCFA4253D4AA</generatorID>
@@ -98,7 +98,7 @@
 <colUsage columnID="9014BB65-2959-22E3-EFBF-44A72A51A149"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B379B793-BBD1-9F78-DBDB-CB1B45616E7F" name="tbl_Comments_post_ID_fk_UN">
+<ind_PK_UK id="B379B793-BBD1-9F78-DBDB-CB1B45616E7F" name="tbl_Comments_tbl_Posts_post_ID_UN">
 <createdBy>DamjanPC</createdBy>
 <createdTime>2023-03-15 14:23:30 UTC</createdTime>
 <generatorID>CB8B0718-E725-BAF9-5C3C-96EED07D1BCB</generatorID>

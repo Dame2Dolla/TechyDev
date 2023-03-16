@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DCF7F694-3FB2-B969-A144-77E571F55E4D" name="tbl_Comments">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:11:37 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="comment_ID" id="D793714B-6B64-C5AA-1F1C-DAFE3ACFA0C8">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:11:53 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="content_txt" id="C2DD8F7E-7829-C40F-8B68-97112772BAA2">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:12:03 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="comment_date_created" id="2B588D9F-F13C-388C-A88A-8D08CC4D2D7A">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:12:22 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="commentOwner_ID_fk" id="69114E5B-74D3-45DF-A4F0-51643C96B44C">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:15:13 UTC</createdTime>
+<generatorID>74C1581F-7A5C-D7AA-F5E2-F02AC04BFE58</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>92C70A14-DF27-68DA-25C4-F31A9A3015D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="post_ID_fk" id="07FBFE0B-5E96-9907-5297-476A1E571243">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:15:27 UTC</createdTime>
+<generatorID>C9CC5FA9-E21C-2B20-4470-D411ACD79427</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>AABF096E-C2DA-7B14-3D44-8C1C36965496</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6A3968FB-4959-70C7-15F7-480A1F854632" name="tbl_Comments PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:12:01 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D793714B-6B64-C5AA-1F1C-DAFE3ACFA0C8</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="4717758F-373C-3835-92CA-FCFA4253D4AA" name="index_tbl_Comments_commentOwner_ID_fk">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:16:46 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<newElementsIDs>74C1581F-7A5C-D7AA-F5E2-F02AC04BFE58</newElementsIDs>
+<usedAttributes>
+<attributeRef>69114E5B-74D3-45DF-A4F0-51643C96B44C</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="CB8B0718-E725-BAF9-5C3C-96EED07D1BCB" name="index_tbl_Comments_post_ID_fk">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:17:17 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<newElementsIDs>C9CC5FA9-E21C-2B20-4470-D411ACD79427</newElementsIDs>
+<usedAttributes>
+<attributeRef>07FBFE0B-5E96-9907-5297-476A1E571243</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

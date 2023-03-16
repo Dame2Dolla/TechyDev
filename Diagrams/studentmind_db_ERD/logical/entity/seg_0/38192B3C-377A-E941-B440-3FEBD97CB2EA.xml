@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="38192B3C-377A-E941-B440-3FEBD97CB2EA" name="tbl_Posts">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:07:00 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="post_ID" id="AABF096E-C2DA-7B14-3D44-8C1C36965496">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:07:07 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="content_txt" id="5547DCAA-203A-DCD8-3687-D0BE92115A63">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:07:19 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="post_date_created" id="D1CC3DA3-0D76-CF3A-558C-7A8672263AA3">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:07:36 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="postOwner_ID_fk" id="44752E1C-4A42-68E8-5908-4420EFF1CE11">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:09:30 UTC</createdTime>
+<generatorID>E0642CD2-B719-08C4-E45A-9170E87C802F</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<referedAttribute>92C70A14-DF27-68DA-25C4-F31A9A3015D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9B3822B5-4135-C4C1-1AFA-CF3BD56CE59A" name="tbl_Posts PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:07:17 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AABF096E-C2DA-7B14-3D44-8C1C36965496</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="CA6BD3CA-F3AC-BBE9-F291-317C0E5F1A32" name="index_tbl_Posts_postOwner_ID_fk">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:10:42 UTC</createdTime>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<engineerTo>
+<item key="EF7B6B43-125B-A0DB-674E-B2635A324FFF" value="true"/>
+</engineerTo>
+<newElementsIDs>E0642CD2-B719-08C4-E45A-9170E87C802F</newElementsIDs>
+<usedAttributes>
+<attributeRef>44752E1C-4A42-68E8-5908-4420EFF1CE11</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

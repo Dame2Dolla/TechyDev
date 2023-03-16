@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AFAB1CC2-C7D7-C187-5944-7EFB1C3C47FC" name="tbl_Users_Projects">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>5776029B-652F-8464-BE20-7867B7E3AF30</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tbl_Users_user_ID" id="7881B4CE-C8D4-4758-F91A-F75CADC72996">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>BCCE09DD-520D-7B4B-4F1D-B26ABEEF6FF5</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CF9B1A81-224F-550F-3937-61DFA1C6E3F6" referredColumn="2DA21D1C-B4CE-D75C-8864-FC77D4B2DC91"/>
+</associations>
+</Column>
+<Column name="tbl_Projects_project_ID" id="3A76D321-4EC2-1007-B8C3-9BD46EFB4DA4">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>D4A769E2-9C60-46AA-627D-A555A291E7C0</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BECB32CC-93CB-717C-27D9-2BF0E22FDD24" referredColumn="D5F0D490-4342-4DB7-0DEE-1D4F42D4A9C9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EEF92D05-3573-F641-BE62-DBCCEA2BC593" name="tbl_Users_Projects_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>892F5C24-442C-F1D2-3417-4F9025E2AAFD</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7881B4CE-C8D4-4758-F91A-F75CADC72996"/>
+<colUsage columnID="3A76D321-4EC2-1007-B8C3-9BD46EFB4DA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="81CBD138-CDE6-3655-5238-E3882596E28F" name="tbl_Users_Projects_tbl_Projects_project_ID_UN">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>8E2C5C19-3C43-48FE-A78F-80AD783931FD</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A76D321-4EC2-1007-B8C3-9BD46EFB4DA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CEDEE0D7-FCC0-8A83-D867-839DA1AAC035" name="tbl_Users_Projects_tbl_Users_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>42BE8F22-0A8F-341D-908C-71D0A53E8B67</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7881B4CE-C8D4-4758-F91A-F75CADC72996"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04F0F3B8-60A5-06AE-680A-D2C265CEE7ED" name="tbl_Users_Projects_tbl_Projects_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>6DED6797-D9D1-4649-104E-5B5C5A87E2CC</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A76D321-4EC2-1007-B8C3-9BD46EFB4DA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

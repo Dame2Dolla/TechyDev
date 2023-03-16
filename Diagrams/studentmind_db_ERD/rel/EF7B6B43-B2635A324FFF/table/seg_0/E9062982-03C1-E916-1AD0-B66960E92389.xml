@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E9062982-03C1-E916-1AD0-B66960E92389" name="tbl_Users_Educations">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>E719B638-B1DF-9112-C91F-3FCC13DACE50</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tbl_Users_user_ID" id="04FBD6C9-FC2E-5258-874A-25C977924551">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>26FDD813-9082-2A57-2C07-860E00E4C02C</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D0E8ADC6-04CA-A6D7-ED8F-38F4487CFC5B" referredColumn="2DA21D1C-B4CE-D75C-8864-FC77D4B2DC91"/>
+</associations>
+</Column>
+<Column name="tbl_Educations_education_ID" id="E6F23ADA-4948-4B38-3C1E-B8F35C88E754">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>686441B8-CF8D-BAFC-84E9-0CCC551622DA</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="42BF2326-A89C-0FE6-5D0B-D1A51392AD60" referredColumn="7C8108E4-9C00-55FE-7A50-24750AAC333D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CA31A620-B20C-B8ED-AAA9-2C4ABA041EE4" name="tbl_Users_Educations_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>F5475CE2-C675-61B8-A2DD-96A2EE5AA4A6</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04FBD6C9-FC2E-5258-874A-25C977924551"/>
+<colUsage columnID="E6F23ADA-4948-4B38-3C1E-B8F35C88E754"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C844D95F-0BE8-8F58-FE0A-212087B39636" name="tbl_Users_Educations_tbl_Educations_education_ID_UN">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>422EE78F-1216-4B4E-815B-7238136F20CB</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E6F23ADA-4948-4B38-3C1E-B8F35C88E754"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5CA85543-B73B-12EE-6C1E-919074DB3056" name="tbl_Users_Educations_tbl_Users_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>43E50928-03AE-63F4-475E-75196DCCF556</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04FBD6C9-FC2E-5258-874A-25C977924551"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EA5015E3-93D3-D166-D678-8FC8AE18181F" name="tbl_Users_Educations_tbl_Educations_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>2F5ED97D-7E24-7AA0-DDCF-AF6E5D0E8699</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E6F23ADA-4948-4B38-3C1E-B8F35C88E754"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

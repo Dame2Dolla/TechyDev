@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="02F72B91-46E0-2EAA-4D50-8E1B396EE4C4" name="tbl_Comments">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>DCF7F694-3FB2-B969-A144-77E571F55E4D</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="comment_ID" id="9BF4770C-A9B3-5150-D0CC-D6DB392303B0">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>D793714B-6B64-C5AA-1F1C-DAFE3ACFA0C8</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="content_txt" id="70A9E82D-B0D0-A848-D1F1-917CB8E4CDF9">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>C2DD8F7E-7829-C40F-8B68-97112772BAA2</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="comment_date_created" id="C681EC67-B61E-67E1-307B-C80E412161F1">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>2B588D9F-F13C-388C-A88A-8D08CC4D2D7A</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tbl_Users_user_ID" id="9014BB65-2959-22E3-EFBF-44A72A51A149">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>69114E5B-74D3-45DF-A4F0-51643C96B44C</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F3F7F22F-2CB2-E782-3A11-232CDCD25C63" referredColumn="2DA21D1C-B4CE-D75C-8864-FC77D4B2DC91"/>
+</associations>
+</Column>
+<Column name="tbl_Posts_post_ID" id="D2267B6D-3460-B76C-1CAF-72A4751D65B3">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>07FBFE0B-5E96-9907-5297-476A1E571243</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D181C19C-5D60-3781-F039-F62EFBAD7E57" referredColumn="21294E66-120C-8B65-E51E-9E3D14220204"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="53E373DC-5533-D695-830B-EED745DA886D" name="tbl_Comments_PK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>6A3968FB-4959-70C7-15F7-480A1F854632</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9BF4770C-A9B3-5150-D0CC-D6DB392303B0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E06A03F6-3227-4500-A16C-B6B32292DD4D" name="tbl_Comments_tbl_Users_user_ID_UN">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>4717758F-373C-3835-92CA-FCFA4253D4AA</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9014BB65-2959-22E3-EFBF-44A72A51A149"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B379B793-BBD1-9F78-DBDB-CB1B45616E7F" name="tbl_Comments_tbl_Posts_post_ID_UN">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>CB8B0718-E725-BAF9-5C3C-96EED07D1BCB</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2267B6D-3460-B76C-1CAF-72A4751D65B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45EC0050-2FBE-FEA4-8E4E-4ED420596FE8" name="tbl_Comments_tbl_Users_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>74C1581F-7A5C-D7AA-F5E2-F02AC04BFE58</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9014BB65-2959-22E3-EFBF-44A72A51A149"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A741AC67-BEAF-7E66-2D0E-DAC9B317C8D1" name="tbl_Comments_tbl_Posts_FK">
+<createdBy>DamjanPC</createdBy>
+<createdTime>2023-03-15 14:23:30 UTC</createdTime>
+<generatorID>C9CC5FA9-E21C-2B20-4470-D411ACD79427</generatorID>
+<ownerDesignName>studentmind_db_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2267B6D-3460-B76C-1CAF-72A4751D65B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

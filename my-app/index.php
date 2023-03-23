@@ -69,7 +69,7 @@
   <section>
     <div class="image-group">
       
-      <img src="./images/img_StudentGraphic.png" width="1900px" height="400px"/>
+      <img src="./images/img_StudentGraphic.png" width="1900px" height="350px"/>
     </div>
   </section>
   <footer>

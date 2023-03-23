@@ -275,7 +275,7 @@ html {
 }
 
 .image-group{
-  position: relative;
+  position: absolute;
   margin-top: 13.8%;
 }
 .logo-header{

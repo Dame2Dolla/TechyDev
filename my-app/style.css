@@ -1,4 +1,4 @@
-.form-wrapper {
+/* .form-wrapper {
   position: relative;
 }
 
@@ -8,11 +8,11 @@ label {
 
 html {
   background-color: #f5f5dc;
-}
+} */
 
-.form-wrapper {
+/* .form-wrapper {
   background-color: #f5f5dc;
-}
+} */
 
 .popup {
   position: absolute;
@@ -72,7 +72,7 @@ html {
   font-size: 24px;
   line-height: 33px;
 } */
-.login-form-card {
+/* .login-form-card {
   display: block;
   justify-items: center;
   background: #fefffe;
@@ -163,6 +163,174 @@ html {
   margin-top: 2%;
   font-size: large;
   display: block;
+} */
+
+.login-form {
+  position: absolute;
+  width: 476px;
+  height: 444px;
+  left: 1170px;
+  top: 87px;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 999;
+}
+.form-order {
+  display: flex;
+  margin-top: 10%;
+  flex-direction: column;
+  align-items: center;
+}
+.lbl {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+
+  color: #1d242b;
+}
+.or {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.btn-login {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 44px;
+  width: 135%;
+  color: #ffffff;
+  background: #0188c6;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+}
+
+.eye-dropper .password-icon {
+  position: absolute;
+  right: -132%;
+  top: 90%;
+  transform: translateY(-50%);
+  max-width: fit-content;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.credential-order {
+  position: relative;
+  left: -58%;
+}
+
+.textbox-login {
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 210%;
+  height: 40px;
+}
+
+.btn-signup {
+  position: relative;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 44px;
+  width: 270%;
+  left: -84%;
+  color: #ffffff;
+  background: #42b62b;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+}
+
+.forgot-password {
+  font-family: "Bree Serif";
+  font-style: normal;
+  text-decoration-line: underline;
+  color: #0188c6 !important;
+}
+
+.image-group{
+  position: relative;
+  margin-top: 13.8%;
+}
+.logo-header{
+  position: relative;
+    margin-top: 4%;
+    margin-left: 12%;
+}
+.quotes{
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.quote-text{
+  font-family: 'Peace Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 76px;
+    text-align: center;
+    max-width: 47%;
+    color: #676667;
+    margin-left: 2%;
+}
+
+.quoter-text{
+  font-family: 'Peace Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 64px;
+  margin-left: 24%;
+  color: #CD852D;
+}
+
+/*footer*/
+footer{
+  display: flex!important;
+  position: absolute;
+  bottom:0px;
+  margin-left: 43%;
+  margin-right: 43%;
+}
+.footer-logo{
+  font-family: 'Peace Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 33px;
+display: flex;
+align-items: center;
+
+color: #1D242B;
 }
 /* Signup Form */
 .sign-up-background {

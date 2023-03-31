@@ -4,9 +4,9 @@
     session_start();
     //Details of the Database.
     $servername = "localhost";
-    $username = "id20324296_admin_techy";
-    $password = "\zEkViUe^wvmj@6[";
-    $dbname = "id20324296_dbstudentmind";
+    $username = "u704680868_admin";
+    $password = "n!W!6Gqe?W8";
+    $dbname = "u704680868_studentmind_db";
 
     // Create a new connection and assign to $conn variable
     $conn = new mysqli($servername, $username, $password, $dbname);

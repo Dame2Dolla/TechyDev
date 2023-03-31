@@ -21,7 +21,7 @@ $password = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] 
 $dob = isset($_POST['dob']) ? $_POST['dob'] : "";
 $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
 $csrf_token = $_POST['token'];
-$bioDesc = "This is a sentence";
+$bioDesc = "Emptiness...";
 
 // create session for the current time
 $_SESSION['date_expire'] = time();
@@ -57,17 +57,17 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
                 $sql->execute();
 
                 //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-                $stmts = $conn->prepare("SELECT addressID FROM tbl_Address WHERE line1 = ?");
+                $stmts = $conn->prepare("SELECT address_ID FROM tbl_Address WHERE line1 = ?");
                 $stmts->bind_param("s", $address1);
                 $stmts->execute();
                 $result = $stmts->get_result();
                 $row = $result->fetch_assoc();
 
-                $tmp_storage = $row['addressID'];
+                $tmp_storage = $row['address_ID'];
 
                 //prepared SQL statements.
                 //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-                $sql = $conn->prepare("INSERT INTO tbl_Users (givenName, middleName, familyName, gender, dob, email, mob_num,bio_desc,password_hash,password_count,fk_addressID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '3', ?)");
+                $sql = $conn->prepare("INSERT INTO tbl_Users (givenName, middleName, familyName, gender, dob, email, mob_num,bio_desc,password_hash,password_count,address_ID_fk) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '3', ?)");
                 $sql->bind_param("ssssssssss", $firstName,$middleName, $lastName,$gender,$dob, $email,$mobileNumber,$bioDesc, $password, $tmp_storage);
                 $sql->execute();
 

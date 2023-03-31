@@ -70,7 +70,7 @@ function submitFormSignUp(event) {
     .then((data) => {
       if (data === "Password Incorrect") {
         alert(
-          "Password must be longer than 8 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."
+          "Password must be longer than 15 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."
         );
       } else if (data === "User Exist") {
         alert("This email is already registered.");

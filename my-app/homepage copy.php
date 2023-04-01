@@ -2,10 +2,27 @@
 <?php require "./php_require/htmlheader.php" ?>
 <title>Profile</title>
 </head>
-<?php require "./php_require/header.php" ?>
 
 <body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <a href="./homepage.php">
+                    <img src="./images/logo_StudentMind.png" width="97px" height="55px" alt="Logo">
+                </a>
+            </div>
+            <div class="user-info">
+                <!-- <div class="user-info-name-details">
+                    <?php error_reporting(0);
+                    echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>
+                </div> -->
 
+                <img class="user-profile-image-header" src="./images/default_profile.jpg" width="50px" height="50px" />
+                <a class="btn btn-dark" onclick="logout()" href="#">^</a>
+            </div>
+        </div>
+        </div>
+    </header>
     <div class="profile-page">
         <h1>Profile Details</h1>
         <div class="profile-primary-details">
@@ -15,8 +32,8 @@
 
             <div class="profile-primary-information">
                 <form id="primary-details" onsubmit="submitPrimaryDetailsChange(event)" method="POST">
-                    <input type="text" id="firstName" placeholder="Patrick" name="firstname" />
-                    <input type="text" id="lastName" placeholder="Frendo" name="lastname" />
+                    <input type="text" id="firstName" placeholder="<?= $_SESSION['first_name'] ?>" name="firstname" />
+                    <input type="text" id="lastName" placeholder="<?= $_SESSION['last_name'] ?>" name="lastname" />
                     <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
                     <button class="btn btn-primary ml-2 mb-4 mt-2" type="submit">Change these details</button>
                 </form>
@@ -31,7 +48,6 @@
         <script src="scripts/logout.js"></script>
         <script src="scripts/deleteprofile.js"></script>
         <script src="scripts/changedetails.js"></script>
-
 </body>
 
 </html>

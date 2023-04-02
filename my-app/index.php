@@ -23,12 +23,12 @@
   </div>
   <!-- End of Modal Box for the Forgot password.  -->
   <section class="logo-header">
-    <img src="./images/logo_StudentMind.png" width="350px" height="200px" />
+    <img src="./images/logo_StudentMind.png" width="100%" height="100%" />
   </section>
-  <section class="quotes">
+  <div class="quotes">
     <p class="quote-text">"Education is the most powerful weapon which you can use to change the world."</p>
     <p class="quoter-text"> - Nelson Mandela</p>
-  </section>
+  </div>
   <section>
     <div class="form-wrapper">
       <!-- Start of LoginForm -->
@@ -69,13 +69,12 @@
   </section>
   <section>
     <div class="image-group">
-
-      <img src="./images/img_StudentGraphic.png" width="1900px" height="350px" />
+      <img src="./images/img_StudentGraphic.png" width="100%" height="100%" />
     </div>
   </section>
   <footer>
-    <img src="./images/logo_StudentMind.png" height="60px" width="100px" />
-    <p class="footer-logo">&#169; 2023</p>
+    <img class="footer-img" src="./images/logo_StudentMind.png" height="100%" width="100%" />
+    <p class="footer-text">&#169; 2023</p>
   </footer>
   <script src="scripts/showpassword.js"></script>
   <script src="scripts/logindatasender.js"></script>

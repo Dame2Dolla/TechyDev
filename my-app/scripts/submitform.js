@@ -59,7 +59,7 @@ function submitFormSignUp(event) {
   }
 
   // Send data to PHP API
-  fetch("https://techytest23.000webhostapp.com/api/signup.php", {
+  fetch("/api/signup.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

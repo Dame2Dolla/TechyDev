@@ -27,22 +27,24 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 
-// for the loging form to work it has to pass 2 conditions. 
+// for the logging form to work it has to pass 2 conditions. 
 // 1. Token received via html needs to be the same as token of the session. 
-    //This is compared to the hash_equals function.
+// This is compared to the hash_equals function.
 // 2. Context: in the securitycsrf.php creates a new session with the current time(). 
-    //2.1 Then we create a newer session and input the current time() of the server.
-    //2.2 We increase that time by 60 seconds * 60 minutes.
-    //2.3 We then check if the token_expire that was created in the securitycsrf on load of webpage is
-        //smaller than the newer session that was created in this php file.   
-
-// create session for the current time
+// 2.1 Then we create a newer session and input the current time() of the server.
+// 2.2 We increase that time by 60 seconds * 60 minutes.
+// 2.3 We then check if the token_expire that was created in the securitycsrf on load of webpage is
+// Smaller than the newer session that was created in this php file.   
+// Create session for the current time
 $_SESSION['date_expire'] = time();
+// Aquire session date_expire and add 60 minutes
 
-// aquire session date_expire and add 60 minutes
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
+
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
+
     if ($result->num_rows > 0) {
+
         $stmt = $conn->prepare("SELECT password_count FROM tbl_Users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -66,7 +68,7 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
 
             if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password_hash'])) {
 
-                $_SESSION['id_user'] = $rowz['userID'];
+                $_SESSION['id_user'] = $rowz['user_ID'];
                 $_SESSION['first_name'] = $rowz['givenName'];
                 $_SESSION['last_name'] = $rowz['familyName'];
                 echo "Successful";

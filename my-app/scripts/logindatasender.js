@@ -1,5 +1,5 @@
- // Add an event listener to the window object to execute code when the page has finished loading.
- window.addEventListener("load", function() {
+// Add an event listener to the window object to execute code when the page has finished loading.
+window.addEventListener("load", function () {
   // Get the "rememberedEmail" cookie value.
   const rememberedEmail = getCookie("rememberedEmail");
   // If the cookie value exists, set the value of the email input field to the cookie value.
@@ -11,12 +11,16 @@
 
 // Create a cookie function
 function getCookie(name) {
-  const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+  const cookieValue = document.cookie.match(
+    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+  );
   return cookieValue ? cookieValue.pop() : null;
 }
-// Set cookie for 30 days 
+// Set cookie for 30 days
 function setCookie(name, value, days) {
-  const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+  const expires = new Date(
+    Date.now() + days * 24 * 60 * 60 * 1000
+  ).toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }
 
@@ -26,14 +30,13 @@ function deleteCookie(name) {
 }
 
 // Set the email input value to the value of the rememberedEmail cookie, if it exists
-window.addEventListener('load', () => {
-  const rememberedEmail = getCookie('rememberedEmail');
+window.addEventListener("load", () => {
+  const rememberedEmail = getCookie("rememberedEmail");
   if (rememberedEmail) {
-    document.getElementById('email').value = rememberedEmail;
-    document.getElementById('remember-me').checked = true;
+    document.getElementById("email").value = rememberedEmail;
+    document.getElementById("remember-me").checked = true;
   }
 });
-
 
 // An event listener to the login-form which is activated by the submit button.
 function submitFormLogin(event) {
@@ -55,7 +58,7 @@ function submitFormLogin(event) {
 
   // Add header that the value is going to be a value form
   // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
-  fetch("https://techytest23.000webhostapp.com/api/authentication.php", {
+  fetch("/api/authentication.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -71,7 +74,7 @@ function submitFormLogin(event) {
           deleteCookie("rememberedEmail");
         }
         alert("Login successful.");
-        window.location.replace("homepage.php");
+        window.location.replace("userprofile.php");
       } else if (data === "Locked account") {
         alert("This account is locked, please e-mail customer support.");
       } else if (data === "Invalid Password") {
@@ -79,10 +82,9 @@ function submitFormLogin(event) {
         // Security consultant Clayton Farrugia
         alert("Invalid email or password. Please try again.");
         // set pasWordError to true.
-      } else if(data === "bad token"){
-        alert("Refresh the page and try again.")
-      } 
-      else {
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
+      } else {
         alert("Something went wrong please try again later.");
       }
     })

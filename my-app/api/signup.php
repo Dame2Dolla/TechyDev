@@ -68,7 +68,7 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
                 //prepared SQL statements.
                 //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
                 $sql = $conn->prepare("INSERT INTO tbl_Users (givenName, middleName, familyName, gender, dob, email, mob_num,bio_desc,password_hash,password_count,address_ID_fk) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '3', ?)");
-                $sql->bind_param("ssssssssss", $firstName,$middleName, $lastName,$gender,$dob, $email,$mobileNumber,$bioDesc, $password, $tmp_storage);
+                $sql->bind_param("ssssssssss", $firstName, $middleName, $lastName, $gender, $dob, $email, $mobileNumber, $bioDesc, $password, $tmp_storage);
                 $sql->execute();
 
                 echo "User Created";

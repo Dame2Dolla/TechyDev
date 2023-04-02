@@ -1,15 +1,15 @@
-const popup =  document.getElementById("popup");
+const popup = document.getElementById("popup");
 
 // overlay style list display changes to block.
 // popup adds the css list into the popup from open-popup
-function openPopup(){
+function openPopup() {
   overlay.style.display = "block";
   popup.classList.add("open-popup");
 }
 
 // overlay style list display changes to none.
 // popup removes the css list into the popup from open-popup.
-function closePopup(){
+function closePopup() {
   overlay.style.display = "none";
   popup.classList.remove("open-popup");
 }
@@ -21,7 +21,7 @@ function submitFormForgotPassword(event) {
   const email = document.getElementById("forgot-password-email").value;
 
   // Send a POST request to the PHP API to check if the user exists
-  fetch("https://techytest23.000webhostapp.com/api/usernamechecker.php", {
+  fetch("/api/usernamechecker.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -32,7 +32,7 @@ function submitFormForgotPassword(event) {
     .then((data) => {
       if (data === "User exists") {
         // If the user exists, send an email to the user's email address
-        fetch("https://techytest23.000webhostapp.com/api/sendemailtouser.php", {
+        fetch("/api/sendemailtouser.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -41,21 +41,21 @@ function submitFormForgotPassword(event) {
         })
           .then((response) => response.text())
           .then((data) => {
-            if(data === "Email sent"){
+            if (data === "Email sent") {
               alert("Email sent.");
               closePopup();
-            }
-            else if(data === "Failed"){
-              alert("Email failed to generate. please contact customer support.");
-            }
-            else{
+            } else if (data === "Failed") {
+              alert(
+                "Email failed to generate. please contact customer support."
+              );
+            } else {
               alert("Something went wrong please try again later.");
             }
           })
           .catch((error) => console.error(error));
       } else {
         // If the user does not exist, show a warning message
-        alert("User does not exist.")
+        alert("User does not exist.");
       }
     })
     .catch((error) => console.error(error));

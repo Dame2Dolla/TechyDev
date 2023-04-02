@@ -21,5 +21,5 @@ dropdown.addEventListener("click", () => {
 });
 
 homepageBtn.addEventListener("click", () => {
-  window.location.href = "./homepage.php";
+  window.location.href = "./userprofile.php";
 });

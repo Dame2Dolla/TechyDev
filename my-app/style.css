@@ -419,37 +419,81 @@ footer {
   color: #fff;
 }
 
-.profile-page {
-  border: 2px solid #1c6ea4;
-  text-align: center;
+.user-profile-page {
+  background: #f3f2ee;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.profile-image {
-  border-radius: 50%;
-  border: 2px solid #1c6ea4;
-}
-
-.profile-primary-details {
-  margin-left: 22%;
-  margin-right: 16%;
+.user-profile-adspace {
+  position: absolute;
   display: flex;
+  top: 8%;
+  left: 69%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 21%;
+  padding-top: 13%;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
+  max-width: 28%;
+  justify-content: center;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
 }
 
-.profile-primary-information {
+.profile-pic {
+  position: absolute;
+  width: 11%;
+  height: 21%;
+  top: 14%;
+  left: 11%;
+  z-index: 1;
+}
+
+.image-rotation {
+  border-radius: 50%;
+}
+
+.profile-card-first {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  right: 33%;
+  background: #fefffe;
+  height: 37%;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 62%;
+  border-radius: 10px;
+}
+.profile-card-first-info {
+}
+
+.text-name {
   position: relative;
-  display: flex;
-  font-size: xx-large;
-  text-align: left;
-  justify-items: start;
+  left: 20%;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  padding-bottom: 1%;
+  color: #1d242b;
+  max-width: fit-content;
 }
-
-.change-password-link {
-  padding-top: 6%;
-}
-
-.profile-buttons {
-  text-align: center;
+.text-school {
+  padding-left: 3%;
+  padding-bottom: 2%;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.3vw;
+  color: #494949;
 }

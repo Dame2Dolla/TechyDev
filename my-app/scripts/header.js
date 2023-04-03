@@ -1,6 +1,4 @@
-const dropdown = document.querySelector(".user-menu-button");
-const dropdownActive = "./images/dropdownmenuActive.svg";
-const dropdownInactive = "./images/dropdownmenu.svg";
+const dropdown = document.querySelector(".user-profile-image-header");
 
 const card = document.querySelector(".sub-menu");
 
@@ -10,11 +8,9 @@ let isActive = false;
 
 dropdown.addEventListener("click", () => {
   if (!isActive) {
-    dropdown.src = dropdownActive;
     isActive = true;
     card.style.display = "block";
   } else {
-    dropdown.src = dropdownInactive;
     isActive = false;
     card.style.display = "none";
   }
@@ -23,3 +19,12 @@ dropdown.addEventListener("click", () => {
 homepageBtn.addEventListener("click", () => {
   window.location.href = "./userprofile.php";
 });
+
+document
+  .getElementById("search-input")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      this.form.submit();
+    }
+  });

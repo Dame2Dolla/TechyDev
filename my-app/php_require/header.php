@@ -7,14 +7,11 @@
         </div>
         <div class="search">
             <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <img class="search-icon" src="./images/search-icon.svg" width="100%" height="100%" />
+                <input type="text" class="search-text-box" placeholder="Search.." name="search" id="search-input">
             </form>
         </div>
-        <div class="user-menu ">
-            <img class="user-profile-image-header" src="./images/default_profile.jpg" width="100%" height="100%" />
-            <img class="user-menu-button" src="./images/dropdownmenu.svg" width="100%" height="100%" />
-        </div>
+        <img class="user-profile-image-header" src="./images/default_profile.jpg" width="100%" height="100%" />
     </div>
     <div class="sub-menu">
         <div class="sub-menu-items">

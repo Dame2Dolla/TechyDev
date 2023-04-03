@@ -292,7 +292,6 @@ footer {
 .logo {
   position: relative;
   top: 7%;
-  left: 10%;
   width: 5.5%;
   height: 82%;
 }
@@ -300,22 +299,46 @@ footer {
 .search {
   margin-top: 1%;
   position: relative;
+  width: 24%;
+  right: 11%;
 }
 
+.search-text-box {
+  min-width: 100%;
+  padding-left: 10%;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  background: #fefffe;
+  border: 1px solid #676667;
+  border-radius: 100px;
+}
+
+.search-icon {
+  position: absolute;
+  min-width: 10%;
+  left: 0%;
+  max-width: fit-content;
+  top: 5%;
+  height: 63%;
+  z-index: 1;
+}
 .user-menu {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  right: 3.5%;
 }
-.user-menu-button {
-  width: 21%;
-  height: 27%;
-}
+
 .user-profile-image-header {
   border-radius: 50%;
-  width: 79%;
+  position: relative;
+  width: 3%;
+  top: 7%;
   height: 84%;
+  right: 2%;
 }
 
 .sub-menu {

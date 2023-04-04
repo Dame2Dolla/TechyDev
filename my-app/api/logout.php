@@ -2,8 +2,7 @@
 //Error reporting function that disabled error messages.
 error_reporting(0);
 // Start the session.
-session_start();
+require_once __DIR__ . '/session.php';
 session_destroy();
 header('Location: index.php');
 exit;
-?>

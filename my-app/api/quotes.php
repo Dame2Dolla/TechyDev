@@ -2,7 +2,7 @@
 require_once __DIR__ . '/conn.php';
 
 // Fetch a random quote
-$stmt = $conn->prepare("SELECT * FROM quotes ORDER BY RAND() LIMIT 1");
+$stmt = $conn->prepare("SELECT * FROM tbl_Quotes ORDER BY RAND() LIMIT 1");
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -10,8 +10,8 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     echo '<div class="quotes">';
-    echo '<p class="quote-text">"' . $row["quote"] . '"</p>';
-    echo '<p class="quoter-text"> - ' . $row["author"] . '</p>';
+    echo '<p class="quote-text">' . $row["text"] . '</p>';
+    echo '<p class="quoter-text">' . $row["author"] . '</p>';
     echo '</div>';
 } else {
     echo '<div class="quotes">';

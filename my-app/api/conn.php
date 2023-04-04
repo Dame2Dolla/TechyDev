@@ -1,7 +1,7 @@
 <?php
 //Error reporting function that disabled error messages.
 //error_reporting(0);
-session_start();
+
 //Details of the Database.
 $servername = "localhost";
 $username = "u704680868_admin";

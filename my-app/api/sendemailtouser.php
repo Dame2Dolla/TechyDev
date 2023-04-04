@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/conn.php';
 
 function postCleanForEmail($value)
@@ -32,4 +32,3 @@ if (mail($email, $subject, $message, $headers)) {
 } else {
     echo "Failed";
 }
-?>

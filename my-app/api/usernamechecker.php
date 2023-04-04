@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/conn.php';
 
 // Trim the variables of any unneccasary spaces. 
@@ -37,4 +37,3 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $conn->close();
-?>

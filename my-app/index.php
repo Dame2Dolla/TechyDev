@@ -26,7 +26,7 @@
     <div class="main-content-login">
       <div class="main-content-left">
         <img src="./images/logo_StudentMind.png" class="logo-header" width="100%" height="100%" />
-        <?php include "./api/quotes.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/quotes.php'; ?>
       </div>
       <!-- Start of LoginForm -->
       <div class="login-form">

@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
@@ -13,7 +13,7 @@ $userId = $_SESSION['id_user'];
 // Aquire session date_expire and add 60 minutes
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
-    
+
     //Update SQL
     $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
     $stmt->execute();
@@ -43,8 +43,7 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
     $stmt->execute();
     $stmt->get_result();
 
-    echo"Successful";
+    echo "Successful";
 } else {
     echo "bad token";
 }
-?>

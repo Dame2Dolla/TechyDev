@@ -26,10 +26,7 @@
     <div class="main-content-login">
       <div class="main-content-left">
         <img src="./images/logo_StudentMind.png" class="logo-header" width="100%" height="100%" />
-        <div class="quotes">
-          <p class="quote-text">"Education is the most powerful weapon which you can use to change the world."</p>
-          <p class="quoter-text"> - Nelson Mandela</p>
-        </div>
+        <?php include "./api/quotes.php"; ?>
       </div>
       <!-- Start of LoginForm -->
       <div class="login-form">

@@ -84,6 +84,12 @@ function submitFormLogin(event) {
         // set pasWordError to true.
       } else if (data === "bad token") {
         alert("Refresh the page and try again.");
+      } else if (data === "under age") {
+        alert(
+          "This account has been suspended due to suspicion of involving a minor."
+        );
+      } else if (data === "not found") {
+        alert("This account was not found.");
       } else {
         alert("Something went wrong please try again later.");
       }

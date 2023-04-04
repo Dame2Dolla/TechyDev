@@ -6,31 +6,31 @@
 
 
 <body>
-  <!-- Start of Modal Box for the Forgot password.  -->
-  <div class="overlay" id="overlay"></div>
-  <div class="popup" id="popup">
-    <div class="popup-title">
-      <button type="button" class="close-button" onclick="closePopup()">X</button>
-    </div>
-    <h5 class="modal-title" id="forgot-password-modal-label">Forgot Password?</h5>
-    <form id="forgot-password-form" onsubmit="submitFormForgotPassword(event)">
-      <div class="form-group-forgot-password">
-        <label for="forgot-password-email">Email address:</label>
-        <input type="email" class="form-control" id="forgot-password-email" placeholder="Enter email" required>
+  <div class="main-content-index">
+    <!-- Start of Modal Box for the Forgot password.  -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+      <div class="popup-title">
+        <button type="button" class="close-button" onclick="closePopup()">X</button>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
-    </form>
-  </div>
-  <!-- End of Modal Box for the Forgot password.  -->
-  <section class="logo-header">
-    <img src="./images/logo_StudentMind.png" width="100%" height="100%" />
-  </section>
-  <div class="quotes">
-    <p class="quote-text">"Education is the most powerful weapon which you can use to change the world."</p>
-    <p class="quoter-text"> - Nelson Mandela</p>
-  </div>
-  <section>
-    <div class="form-wrapper">
+      <h5 class="modal-title" id="forgot-password-modal-label">Forgot Password?</h5>
+      <form id="forgot-password-form" onsubmit="submitFormForgotPassword(event)">
+        <div class="form-group-forgot-password">
+          <label for="forgot-password-email">Email address:</label>
+          <input type="email" class="form-control" id="forgot-password-email" placeholder="Enter email" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+    <!-- End of Modal Box for the Forgot password.  -->
+    <div class="main-content-login">
+      <div class="main-content-left">
+        <img src="./images/logo_StudentMind.png" class="logo-header" width="100%" height="100%" />
+        <div class="quotes">
+          <p class="quote-text">"Education is the most powerful weapon which you can use to change the world."</p>
+          <p class="quoter-text"> - Nelson Mandela</p>
+        </div>
+      </div>
       <!-- Start of LoginForm -->
       <div class="login-form">
         <form id="login-form" onsubmit="submitFormLogin(event)" method="POST">
@@ -65,24 +65,15 @@
         <!-- End of LoginForm -->
       </div>
     </div>
-
-  </section>
-  <section>
-    <div class="image-group">
-      <img src="./images/img_StudentGraphic.png" width="100%" height="100%" />
-    </div>
-  </section>
-  <footer>
-    <img class="footer-img" src="./images/logo_StudentMind.png" height="100%" width="100%" />
-    <p class="footer-text">&#169; 2023</p>
-  </footer>
+    <img src="./images/img_StudentGraphic.png" class="image-group" width="100%" height="100%" />
+  </div>
+  <?php require "./php_require/footer.php" ?>
   <script src="scripts/showpassword.js"></script>
   <script src="scripts/logindatasender.js"></script>
   <script src="scripts/signupform.js"></script>
   <script src="scripts/submitform.js"></script>
   <script src="scripts/gender.js"></script>
   <script src="scripts/forgotpassword.js"></script>
-
 </body>
 
 </html>

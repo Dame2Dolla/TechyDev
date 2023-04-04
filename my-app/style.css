@@ -1,3 +1,20 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 3vh);
+  margin-bottom: 3vh;
+}
+
+.main-content-index {
+  flex: 1;
+  min-height: calc(100vh - 13vh);
+  margin-bottom: -1vh;
+}
+
 .popup {
   position: absolute;
   width: 400px;
@@ -40,13 +57,24 @@
   z-index: 5;
   display: none;
 }
+.main-content-login {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4%;
+  margin-left: 5%;
+  margin-right: 5%;
+  justify-content: space-around;
+}
+
+.main-content-left {
+  position: relative;
+  max-width: 50%;
+}
 
 .login-form {
-  position: absolute;
-  width: 25%;
-  height: 50%;
-  right: 14%;
-  top: 9%;
+  position: relative;
+  width: 32%;
   background: #fefffe;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -55,7 +83,9 @@
   justify-content: space-evenly;
   align-items: center;
   z-index: 4;
+  margin-left: 8%;
 }
+
 .form-order {
   display: flex;
   margin-top: 10%;
@@ -81,6 +111,7 @@
   margin-top: 1%;
   margin-bottom: 1%;
 }
+
 .btn-login {
   font-family: "Peace Sans";
   font-style: normal;
@@ -151,27 +182,27 @@
 }
 
 .image-group {
-  position: absolute;
-  margin-top: 13.8%;
-  height: 36%;
+  position: relative;
+  height: 35vh;
   width: 100%;
 }
 
 .logo-header {
   position: relative;
-  margin-top: 4%;
-  margin-left: 12%;
-  width: 18%;
+  margin-top: 1%;
+  margin-left: 29%;
+  height: 41%;
+  width: 42%;
 }
 
 .quotes {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   z-index: 1;
   left: 0;
-  width: 52%;
+  width: 100%;
 }
 
 .quote-text {
@@ -181,9 +212,7 @@
   font-size: 2vw;
   line-height: 1.95;
   text-align: center;
-  max-width: 100%;
   color: #676667;
-  margin-left: 3.8%;
 }
 
 .quoter-text {
@@ -191,34 +220,29 @@
   font-style: normal;
   font-weight: 400;
   font-size: 2.3vw;
-  line-height: 1.42;
-  margin-left: 57%;
+  margin-left: 49%;
   color: #cd852d;
 }
 
-/*footer*/
+/*------------------------------Start of Fotter----------------------*/
 footer {
+  position: relative;
   display: flex !important;
-  position: absolute;
-  bottom: 0px;
-  margin-left: 39%;
-  margin-right: 46%;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .footer-img {
-  width: 29%;
+  width: 7%;
 }
 .footer-text {
   font-family: "Peace Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 1.5vw;
-  line-height: 33px;
+  font-size: 1vw;
   display: flex;
   margin: 0;
   align-items: center;
-  color: #1d242b;
+  color: #000000;
 }
 
 /*------------------------------End of Fotter----------------------*/
@@ -286,7 +310,9 @@ footer {
   width: 100%;
   height: 7%;
   justify-content: space-around;
-  z-index: 9999;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
 }
 
 .logo {
@@ -313,6 +339,8 @@ footer {
   background: #fefffe;
   border: 1px solid #676667;
   border-radius: 100px;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .search-icon {
@@ -343,16 +371,16 @@ footer {
 
 .sub-menu {
   display: none;
-  position: absolute;
-  top: 8%;
+  position: fixed;
+  margin-top: 4%;
   right: 15%;
   width: 100%;
-  max-width: 400px;
+  max-width: 20%;
   background: #fafafa;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px 0px 10px 10px;
   padding: 20px;
-  z-index: 20;
+  z-index: 4;
 }
 
 .sub-menu-items {
@@ -387,25 +415,45 @@ footer {
   color: #494949;
   left: 8%;
 }
+
 .sub-menu-button {
   position: relative;
-  width: 80%;
-  left: 12%;
-  border: 0px #cd852d;
-  background: #cd852d;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.sub-menu-button-line {
+  width: 100%;
+}
+
+.sub-menu-profile {
+  position: relative;
+  background: #cd852d;
+}
+
+.sub-menu-logout {
+  position: relative;
+  background: #c02023;
+}
+
+.button-text {
   font-family: "Peace Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
-}
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 80%;
+  border: 0px #cd852d;
 
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+/*---------------------Start of user profile--------------*/
 .profile-page {
   position: absolute;
   top: 10%;
@@ -447,18 +495,19 @@ footer {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.card-design {
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
 .user-profile-adspace {
   position: absolute;
   display: flex;
   top: 8%;
-  left: 69%;
   padding-left: 3%;
   padding-right: 3%;
   padding-bottom: 21%;
   padding-top: 13%;
-  background: #fefffe;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   align-items: center;
   max-width: 28%;
   justify-content: center;
@@ -466,6 +515,7 @@ footer {
   font-style: normal;
   font-weight: 400;
   font-size: 1vw;
+  right: 4%;
 }
 
 .profile-pic {
@@ -481,23 +531,30 @@ footer {
   border-radius: 50%;
 }
 
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  top: 48%;
+  left: 0px;
+  position: absolute;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10%;
+  right: 29%;
+}
+
 .profile-card-first {
   position: absolute;
   top: 8%;
   left: 10%;
-  right: 33%;
-  background: #fefffe;
+  right: 29%;
   height: 37%;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
 }
 
 .profile-banner {
   width: 100%;
   height: 62%;
   border-radius: 10px;
-}
-.profile-card-first-info {
 }
 
 .text-name {
@@ -520,3 +577,171 @@ footer {
   font-size: 1.3vw;
   color: #494949;
 }
+
+.profile-card-second {
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+}
+.section-title {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+}
+
+.profile-card-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button {
+  width: 6%;
+}
+
+.profile-card-edit-half {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button-half {
+  width: 13%;
+}
+.profile-card-center {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 3%;
+}
+.profile-card-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 74%;
+  margin-top: 2%;
+}
+
+.profile-card-third-left {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 9%;
+  padding-right: 3%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+
+.profile-card-third-left-password {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 8%;
+  padding-right: 3%;
+  padding-bottom: 1%;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.user-details {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9vw;
+  color: #1d242b;
+}
+
+.certificate {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9vw;
+}
+
+.normal-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9vw;
+}
+
+.profile-card-right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2%;
+}
+
+.profile-card-third-right {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+
+.user-details-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-details-text-left {
+  padding-left: 1%;
+}
+.user-details-text-right {
+  padding-right: 15%;
+}
+
+.profile-card-forth-right {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  margin-top: 4%;
+}
+
+.profile-project {
+  padding-bottom: 1%;
+}
+
+.profile-card-last {
+  position: relative;
+  width: 100%;
+  padding-left: 2%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-right: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7%;
+  min-width: 173%;
+  right: 73%;
+}
+.delete-text {
+  color: #c02023;
+}
+
+.delete-button {
+  background: #c02023;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border: 0px #c02023;
+  border-radius: 10px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: revert;
+  text-align: center;
+  color: #ffffff;
+  justify-content: flex-end;
+  margin-left: 78%;
+}
+
+/*---------------End of user Profile---------------*/

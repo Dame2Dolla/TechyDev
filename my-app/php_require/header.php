@@ -1,9 +1,9 @@
 <header>
     <div class="header">
         <div class="logo">
-            <a href="./newsfeed.php">
-                <img src="./images/logo_StudentMind.png" width="100%" height="100%" alt="Logo">
-            </a>
+            <!-- <a href="./newsfeed.php"> -->
+            <img src="./images/logo_StudentMind.png" width="100%" height="100%" alt="Logo">
+            <!-- </a> -->
         </div>
         <div class="search">
             <form action="/action_page.php">
@@ -23,7 +23,12 @@
                 <p>Student at University of Wolverhampton</p>
             </div>
         </div>
-        <button class="sub-menu-button" id="homepage-btn">View your profile</button>
+        <div class="sub-menu-button">
+            <button class="sub-menu-profile button-text" id="homepage-btn">View your profile</button>
+            <hr class="sub-menu-button-line">
+            <button class="sub-menu-logout button-text" onclick="logout()">Log out</button>
+        </div>
     </div>
     <script src="scripts/header.js"></script>
+    <script src="scripts/logout.js"></script>
 </header>

@@ -4,12 +4,23 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
+//Remove Do not allow on final version
+//Add this at the beginning of your authentication.php file
+header("Access-Control-Allow-Origin: *");
+// If you need to allow specific methods, like POST, you can add the following line
+header("Access-Control-Allow-Methods: POST");
+// You may also need to allow specific headers, like Content-Type
+header("Access-Control-Allow-Headers: Content-Type");
 
 //Sanitize, filtering & ESCAPE
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);
 $passworddb = postCleanForPasswordLogin($_POST['password']);
-$csrf_token = $_POST['token'];
+
+if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
+    echo "bad token";
+    exit;
+}
 
 // Query the database to check if the user exists and store it to the variable $sql.
 // Implementation of the prepare SQL statements for prevention of SQL Injection.
@@ -40,7 +51,7 @@ $_SESSION['date_expire'] = time();
 // Aquire session date_expire and add 60 minutes
 
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
-
+$csrf_token = $_POST['token'];
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
 
     if ($result->num_rows > 0) {

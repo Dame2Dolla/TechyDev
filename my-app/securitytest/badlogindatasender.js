@@ -1,3 +1,48 @@
+// An event listener to the login-form which is activated by the submit button.
+function submitFormLogin(event) {
+  event.preventDefault();
+
+  // The two variables are filled with the email value and the password from the form
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  // if the either email or password aren't filled than an alert message is sent
+  if (email === "" || password === "") {
+    alert("Please enter both email and password.");
+    return;
+  }
+  const token = document.getElementById("token").value;
+
+  // Add header that the value is going to be a value form
+  // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
+  fetch("https://studentmind.live/api/authentication.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `email=${email}&password=${password}&token=${token}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Successful") {
+        alert("Login successful.");
+        window.location.replace("userprofile.php");
+      } else if (data === "Locked account") {
+        alert("This account is locked, please e-mail customer support.");
+      } else if (data === "Invalid Password") {
+        // Sensitive information disclosure was fixed by alerting user with the following message if any of the credentials is wrong.
+        // Security consultant Clayton Farrugia
+        alert("Invalid email or password. Please try again.");
+        // set pasWordError to true.
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
+      } else {
+        alert("Something went wrong please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
 function submitFormSignUp(event) {
   event.preventDefault(); // Prevent the form from submitting normally
 
@@ -59,7 +104,7 @@ function submitFormSignUp(event) {
   }
 
   // Send data to PHP API
-  fetch("/api/signup.php", {
+  fetch("https://studentmind.live/api/signup.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -81,7 +126,7 @@ function submitFormSignUp(event) {
       } else if (data === "Try again") {
         alert("Please ensure you have filled all your details.");
       } else if (data === "bad token") {
-        alert("Token Expired. Please refresh the page and try again.");
+        alert("Invalid token. Please refresh the page and try again.");
       } else {
         alert("Something went wrong please try again.");
       }

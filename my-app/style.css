@@ -222,62 +222,83 @@ footer {
 }
 
 /*------------------------------End of Fotter----------------------*/
-/* Signup Form */
-.sign-up-background {
-  background-color: #f5f5dc;
+
+/*------------------------------Start of Sign Up----------------------*/
+
+.signup-form-official{
+  background-color: #faebd7;
 }
 
-#signup-form {
+.signup-Fullname{
   display: flex;
-  margin-left: 36%;
-  margin-right: 38%;
-  margin-top: 1%;
-  padding-top: 15px;
-  padding-bottom: 20px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: space-between;
-  justify-content: space-around;
-  background-color: #fff;
-  box-shadow: 8px 8px 4px rgb(0 0 0 / 44%);
+  justify-content: space-evenly;
+}
+
+.create-account-btn{
+    position: relative;
+    font-family: "Peace Sans";
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    font-size: 20px;
+    color: #ffffff;
+    background: #42b62b;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 0;
+}
+
+.textbox-signup{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  font-size: larger;
+  border: 0;
 }
 
-.form-group-signup-inputs {
+.signup-EmailGender{
   display: flex;
+  justify-content: space-evenly;
 }
-.radio-wrapper {
+
+.signup-address{
+  display: inline-block;
+}
+
+.signup-dob-mobilenumber{
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.signup-password{
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }
 
-.radio-label {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 10px;
-}
-
-.radio-label input[type="radio"] {
-  margin-right: 5px;
-}
-
-.custom-text {
-  margin-top: 10px;
+.signup-buttons{
+  text-align: center;
 }
 
 .customGenderInput {
   display: none;
 }
 
+
+
+/*------------------------------End of Fotter----------------------*/
+
+
+/*--------------------------------Start-of-Header------------------------------*/
+
 /* .header {
   display: flex;
   justify-content: space-between;
 } */
-/*--------------------------------Start-of-Header------------------------------*/
+
 .header {
   position: fixed;
   display: flex;

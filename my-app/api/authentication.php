@@ -30,6 +30,7 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
     // Implementation of the prepare SQL statements for prevention of SQL Injection.
     // Replacing our variables with "?".
 
+    //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
     $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
 
     // Using blind_param to associate the variable with the "s" for String. 
@@ -43,47 +44,29 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
 
     if ($result->num_rows > 0) {
 
-        $stmtx = $conn->prepare("SELECT is_minor FROM tbl_Users WHERE email = ?");
-        $stmtx->bind_param("s", $email);
-        $stmtx->execute();
-        $resultx = $stmt->get_result();
         $rowx = $result->fetch_assoc();
 
         if ($rowx['is_minor'] == 0) {
 
-
-            $stmt = $conn->prepare("SELECT password_count FROM tbl_Users WHERE email = ?");
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-
             // This will check if the password_count column has the row with 0 as value, if no it will got to the else statement and 
             // starts checking for the email credentials if valid or not.  Security Consultant-Clayton
-            if ($row['password_count'] <= 0) {
+            if ($rowx['password_count'] <= 0) {
                 echo "Locked account";
             } else {
-                //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-                $stmtr = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
-                $stmtr->bind_param("s", $email);
-                $stmtr->execute();
-                $resultz = $stmtr->get_result();
-                $rowz = $resultz->fetch_assoc();
 
+                //The password is the same as the hashed value the user exists. Security Consultant-Clayton
 
-                // If the query returns at least one row, and the password is the same as the hashed value the user exists. Security Consultant-Clayton
-
-                if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password_hash'])) {
+                if (password_verify($passworddb, $rowx['password_hash'])) {
 
                     // Check if the password has expired
-                    $lastPasswordChange = strtotime($rowz['last_pass_change']);
+                    $lastPasswordChange = strtotime($rowx['last_pass_change']);
                     $today = time();
                     $daysSinceLastChange = ($today - $lastPasswordChange) / (60 * 60 * 24);
 
                     if ($daysSinceLastChange <= 90) {
-                        $_SESSION['id_user'] = $rowz['user_ID'];
-                        $_SESSION['first_name'] = $rowz['givenName'];
-                        $_SESSION['last_name'] = $rowz['familyName'];
+                        $_SESSION['id_user'] = $rowx['user_ID'];
+                        $_SESSION['first_name'] = $rowx['givenName'];
+                        $_SESSION['last_name'] = $rowx['familyName'];
                         echo "Successful";
                         exit;
                     } else {

@@ -22,10 +22,9 @@ $stmt->get_result();
 // Remove safe update to protect the database from any manipulation.
 $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 1");
 $stmt->execute();
-$stmt->get_result();
 
 
-if ($result) {
+if ($stmt) {
     // Success response
     echo ("password changed");
 } else {

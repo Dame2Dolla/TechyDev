@@ -24,7 +24,7 @@
     <!-- End of Modal Box for the Forgot password.  -->
     <!-- Start of Modal Box for the Change password.  -->
     <div class="popup-change-password" id="popup-change-password">
-      <h5 class="modal-title-change-password">Welcome back to out website!</h5>
+      <h5 class="modal-title-change-password">Welcome back to our website!</h5>
       <form onsubmit="submitFormChangePassword(event)">
         <p class="modal-change-password-message">We value your security and want to ensure that your account remains safe. We noticed that your current password has expired after 90 days. Please take a moment to create a new password to continue using our services. Thank you for helping us maintain a secure environment for all of our users.</p>
         <div class="modal-change-password-password-section">

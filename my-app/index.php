@@ -4,7 +4,6 @@
 <title>Log in Form</title>
 </head>
 
-
 <body>
   <div class="main-content-index">
     <!-- Start of Modal Box for the Forgot password.  -->
@@ -17,12 +16,33 @@
       <form id="forgot-password-form" onsubmit="submitFormForgotPassword(event)">
         <div class="form-group-forgot-password">
           <label for="forgot-password-email">Email address:</label>
-          <input type="email" class="form-control" id="forgot-password-email" placeholder="Enter email" required>
+          <input type="email" class="form-control" id="forgot-password-email" placeholder="Enter email" required />
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </form>
     </div>
     <!-- End of Modal Box for the Forgot password.  -->
+    <!-- Start of Modal Box for the Change password.  -->
+    <div class="popup-change-password" id="popup-change-password">
+      <h5 class="modal-title-change-password">Welcome back to out website!</h5>
+      <form onsubmit="submitFormChangePassword(event)">
+        <p class="modal-change-password-message">We value your security and want to ensure that your account remains safe. We noticed that your current password has expired after 90 days. Please take a moment to create a new password to continue using our services. Thank you for helping us maintain a secure environment for all of our users.</p>
+        <div class="modal-change-password-password-section">
+          <label class="change-password-text">New password</label>
+          <div class="input-eye-wrapper">
+            <input type="password" id="password1" class="change-password-text-label" placeholder="***************" required />
+            <img src="./images/eye.svg" id="toggle-password1" class="change-password-eye" />
+          </div>
+          <label class="change-password-text">Confirm new password</label>
+          <div class="input-eye-wrapper">
+            <input type="password" id="password2" class="change-password-text-label" placeholder="***************" required />
+            <img src="./images/eye.svg" id="toggle-password2" class="change-password-eye" />
+          </div>
+        </div>
+        <button type="submit" class="change-password-button">Save</button>
+      </form>
+    </div>
+    <!-- End of Modal Box for the Change password.  -->
     <div class="main-content-login">
       <div class="main-content-left">
         <img src="./images/logo_StudentMind.png" class="logo-header" width="100%" height="100%" />

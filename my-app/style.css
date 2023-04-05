@@ -15,6 +15,105 @@ body {
   margin-bottom: -1vh;
 }
 
+/*---------------------Login-modal-pop-up----------------*/
+
+.popup-change-password {
+  position: fixed;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-top: 13%;
+  margin-bottom: 17%;
+  margin-right: 38%;
+  z-index: 6;
+  display: none;
+  width: 24%;
+  flex-direction: column;
+  margin-left: 38%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.input-eye-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.modal-title-change-password {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  padding-left: 2%;
+}
+
+.modal-change-password-message {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: justify;
+  color: #1d242b;
+}
+
+.modal-change-password-password-section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 8%;
+}
+
+.change-password-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #494949;
+  margin-bottom: 0;
+  margin-top: 1%;
+}
+
+.change-password-button {
+  background: #0188c6;
+  border-radius: 20px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border: 0px white;
+  color: #ffffff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 4%;
+  margin-top: 3%;
+  margin-left: auto;
+  justify-content: flex-end;
+  padding-right: 4%;
+}
+
+.change-password-text-label {
+  background: #fefffe;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-left: 4%;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.change-password-eye {
+  position: relative;
+  width: 7%;
+  margin-top: -16%;
+  margin-left: 91%;
+}
+
 .popup {
   position: absolute;
   width: 400px;
@@ -84,6 +183,8 @@ body {
   align-items: center;
   z-index: 4;
   margin-left: 8%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .form-order {
@@ -557,7 +658,7 @@ footer {
 
 .profile-banner {
   width: 100%;
-  height: 62%;
+  height: 24vh;
   border-radius: 10px;
 }
 
@@ -602,7 +703,7 @@ footer {
 }
 
 .edit-button {
-  width: 6%;
+  width: 3vw;
 }
 
 .profile-card-edit-half {
@@ -612,7 +713,7 @@ footer {
 }
 
 .edit-button-half {
-  width: 13%;
+  width: 3vw;
 }
 .profile-card-center {
   position: relative;
@@ -723,10 +824,11 @@ footer {
   padding-right: 2%;
   display: flex;
   flex-direction: column;
-  margin-top: 7%;
+  margin-top: 15%;
   min-width: 173%;
   right: 73%;
 }
+
 .delete-text {
   color: #c02023;
 }

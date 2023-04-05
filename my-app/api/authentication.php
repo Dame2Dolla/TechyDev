@@ -4,28 +4,11 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
-
 //Sanitize, filtering & ESCAPE
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);
 $passworddb = postCleanForPasswordLogin($_POST['password']);
 $csrf_token = $_POST['token'];
-
-// Query the database to check if the user exists and store it to the variable $sql.
-// Implementation of the prepare SQL statements for prevention of SQL Injection.
-// Replacing our variables with "?".
-
-$stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
-
-// Using blind_param to associate the variable with the "s" for String. 
-// Then the variables are bound to the SQL ? in chronological order.
-$stmt->bind_param("s", $email);
-
-// Finally the SQL is executed
-$stmt->execute();
-// get_result() is used to fetch the result.
-$result = $stmt->get_result();
-
 
 // for the logging form to work it has to pass 2 conditions. 
 // 1. Token received via html needs to be the same as token of the session. 
@@ -42,6 +25,21 @@ $_SESSION['date_expire'] = time();
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
 
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
+
+    // Query the database to check if the user exists and store it to the variable $sql.
+    // Implementation of the prepare SQL statements for prevention of SQL Injection.
+    // Replacing our variables with "?".
+
+    $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
+
+    // Using blind_param to associate the variable with the "s" for String. 
+    // Then the variables are bound to the SQL ? in chronological order.
+    $stmt->bind_param("s", $email);
+
+    // Finally the SQL is executed
+    $stmt->execute();
+    // get_result() is used to fetch the result.
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
 
@@ -77,11 +75,21 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
 
                 if ($resultz->num_rows > 0 && password_verify($passworddb, $rowz['password_hash'])) {
 
-                    $_SESSION['id_user'] = $rowz['user_ID'];
-                    $_SESSION['first_name'] = $rowz['givenName'];
-                    $_SESSION['last_name'] = $rowz['familyName'];
-                    echo "Successful";
+                    // Check if the password has expired
+                    $lastPasswordChange = strtotime($rowz['last_pass_change']);
+                    $today = time();
+                    $daysSinceLastChange = ($today - $lastPasswordChange) / (60 * 60 * 24);
 
+                    if ($daysSinceLastChange <= 90) {
+                        $_SESSION['id_user'] = $rowz['user_ID'];
+                        $_SESSION['first_name'] = $rowz['givenName'];
+                        $_SESSION['last_name'] = $rowz['familyName'];
+                        echo "Successful";
+                        exit;
+                    } else {
+                        echo "password expired";
+                        exit;
+                    }
                     // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 
                     // Security Consultant-Clayton
                 } else {

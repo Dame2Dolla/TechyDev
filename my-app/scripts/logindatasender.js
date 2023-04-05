@@ -7,6 +7,12 @@ window.addEventListener("load", function () {
     document.getElementById("email").value = rememberedEmail;
     document.getElementById("remember-me").checked = true;
   }
+
+  // Add event listener for the overlay
+  const overlay = document.getElementById("overlay");
+  overlay.addEventListener("click", function () {
+    hideModal();
+  });
 });
 
 // Create a cookie function
@@ -90,8 +96,54 @@ function submitFormLogin(event) {
         );
       } else if (data === "not found") {
         alert("This account was not found.");
+      } else if (data === "password expired") {
+        showModal();
       } else {
         alert("Something went wrong please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
+function showModal() {
+  const modal = document.getElementById("popup-change-password");
+  const overlay = document.getElementById("overlay");
+
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+}
+
+function hideModal() {
+  const modal = document.getElementById("popup-change-password");
+  const overlay = document.getElementById("overlay");
+
+  modal.style.display = "none";
+  overlay.style.display = "none";
+}
+
+function submitFormChangePassword(event) {
+  event.preventDefault();
+
+  // Get the email input value
+  const email = document.getElementById("email").value;
+
+  // Get the password input value
+  const password = document.getElementById("password2").value;
+
+  fetch("/api/changepassword.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `email=${email}&password=${password}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "password changed") {
+        alert("Password successfully changed.");
+        hideModal();
+      } else {
+        alert("An error occured please try again.");
       }
     })
     .catch((error) => console.error(error));

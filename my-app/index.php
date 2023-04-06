@@ -54,7 +54,7 @@
           <div class="credential-order">
             <label class="lbl" for="email">Email</label>
             <div class="form-group">
-              <input class="textbox-login" type="email" id="email" placeholder="Enter your email" name="email" required>
+              <input class="textbox-login" type="text" id="email" placeholder="Enter your email" name="email" required>
             </div>
             <label class="lbl" for="password">Password</label>
             <div class="form-group">
@@ -84,6 +84,7 @@
     </div>
     <img src="./images/img_StudentGraphic.png" class="image-group" width="100%" height="100%" />
   </div>
+  
   <?php require "./php_require/footer.php" ?>
   <script src="scripts/showpassword.js"></script>
   <script src="scripts/logindatasender.js"></script>

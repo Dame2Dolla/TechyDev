@@ -82,8 +82,8 @@
                         </div>
 
                         <div>
-                             <select class="textbox-medium" placeholder="Country" id="country" name="country" >
-                             <option value="" disabled selected>Country</option>
+							<select class="textbox-medium country-font" placeholder="Country" id="country" name="country">
+								<?php require "./php_require/country.php" ?>
 							 <option value="Afganistan">Afghanistan</option>
 							 <option value="Albania">Albania</option>
 							 <option value="Algeria">Algeria</option>
@@ -330,7 +330,7 @@
 							 <option value="Zaire">Zaire</option>
 							 <option value="Zambia">Zambia</option>
 							 <option value="Zimbabwe">Zimbabwe</option>
-						</select> </p>
+							</select> </p>
                         </div>
                     </div>
 
@@ -367,18 +367,18 @@
                     </div>
                     </div>
 
-                    <!-- signup token -- Security consultant Clayton -->
-                    <input class="textbox-signup" type="hidden" id="tokentwo" name="token" value="<?= $_SESSION["token"]; ?>" />
-                </div>
-            </form>
-            <!-- End of SignUp Form -->
-        </div>
-
+				<!-- signup token -- Security consultant Clayton -->
+				<input class="textbox-signup" type="hidden" id="tokentwo" name="token" value="<?= $_SESSION["token"]; ?>" />
+			</div>
+		</form>
+		<!-- End of SignUp Form -->
+	</div>
+	<?php require "./php_require/footer.php" ?>
     
   
     <script src="scripts/signupform.js"></script>
-    <script src="scripts/submitform.js"></script>
-    <script src="scripts/gender.js"></script>
+	<script src="scripts/submitform.js"></script>
+	<script src="scripts/gender.js"></script>
 
 </body>
 

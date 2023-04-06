@@ -359,16 +359,14 @@ footer {
   width: 20%;
 }
 
-.signup-background-image{
+.signup-background-image {
   background-position: center;
   background-size: cover;
-  position: absolute;
-  /* z-index: 1; */
   margin-top: 1%;
 }
 
-.signup-form-official{
-  background-color: #FFFEFF;
+.signup-form-official {
+  background-color: #fffeff;
   position: absolute;
   left: 315px;
   top: 26%;
@@ -378,95 +376,107 @@ footer {
   border-radius: 10px;
 }
 
-.signup-fullname{
+.signup-fullname {
   display: flex;
   margin-top: 3%;
   justify-content: space-evenly;
   margin-left: 3%;
 }
 
-.signup-emailGender{
+.signup-emailGender {
   display: flex;
   justify-content: space-evenly;
   margin-top: 3%;
   margin-left: 3%;
 }
 
-.signup-gender{
+.signup-gender {
   display: flex;
 }
 
-.gender-div{
+.gender-div {
   margin-left: 55px;
 }
 
-.signup-address-DOB-mobileNumber{
+.signup-address-DOB-mobileNumber {
   display: flex;
   margin-top: 3%;
   margin-right: 9%;
 }
 
-.signup-address{
+.signup-address {
   margin-left: 52px;
 }
 
-.signup-dob-mobilenumber{
+.signup-dob-mobilenumber {
   margin-left: 30px;
 }
 
-.div-mobileNumber{
+.div-mobileNumber {
   margin-top: 32px;
 }
 
-.signup-password{
+.signup-password {
   display: flex;
   margin-top: 2%;
 }
 
-.div-createPassword{
+.div-createPassword {
   margin-right: 30px;
   margin-left: 20%;
 }
 
-.signup-buttons{
+.signup-buttons {
   text-align: center;
   margin-top: 5%;
 }
+.country-font {
+  color: #787878;
+}
 
-.link-backtoLogin{
-  font-family: 'Bree Serif';
+.link-backtoLogin {
+  font-family: "Bree Serif";
   font-size: 24px;
-  color:#0188C6;
+  color: #0188c6;
 }
 
-.create-account-btn{
-    position: relative;
-    font-family: "Peace Sans";
-    font-style: normal;
-    font-weight: 400;
-    padding-top: 0.4%;
-    padding-bottom: 0.4%;
-    font-size: 32px;
-    color: #ffffff;
-    background: #42b62b;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    border: 0;
-    width: 500px;
-    height: 60px;
+.hide-scroll::-webkit-outer-spin-button,
+.hide-scroll::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.div-create-account-btn{
+.hide-scroll {
+  -moz-appearance: textfield;
+}
+.create-account-btn {
+  position: relative;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  padding-top: 0.4%;
+  padding-bottom: 0.4%;
+  font-size: 32px;
+  color: #ffffff;
+  background: #42b62b;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 500px;
+  height: 60px;
+}
+
+.div-create-account-btn {
   margin-top: 2%;
 }
 
-.textbox-small{
+.textbox-small {
   border-top-style: hidden !important;
   border-right-style: hidden !important;
   border-left-style: hidden !important;
   border-bottom-style: hidden !important;
   background: #fefffe;
-  font-family: 'Volkhov';
+  font-family: "Volkhov";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -480,13 +490,13 @@ footer {
   padding-left: 2%;
 }
 
-.textbox-medium{
+.textbox-medium {
   border-top-style: hidden !important;
   border-right-style: hidden !important;
   border-left-style: hidden !important;
   border-bottom-style: hidden !important;
   background: #fefffe;
-  font-family: 'Volkhov';
+  font-family: "Volkhov";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -499,13 +509,13 @@ footer {
   padding-left: 2%;
 }
 
-.textbox-long{
+.textbox-long {
   border-top-style: hidden !important;
   border-right-style: hidden !important;
   border-left-style: hidden !important;
   border-bottom-style: hidden !important;
   background: #fefffe;
-  font-family: 'Volkhov';
+  font-family: "Volkhov";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -517,11 +527,6 @@ footer {
   margin-bottom: 10px;
   padding-left: 2%;
 }
-
-
-
-/*------------------------------End of Fotter----------------------*/
-
 
 /*--------------------------------Start-of-Header------------------------------*/
 

@@ -81,7 +81,7 @@ function submitFormSignUp(event) {
       } else if (data === "Try again") {
         alert("Please ensure you have filled all your details.");
       } else if (data === "bad token") {
-        alert("Refresh the page and try again.");
+        alert("Token Expired. Please refresh the page and try again.");
       } else {
         alert("Something went wrong please try again.");
       }

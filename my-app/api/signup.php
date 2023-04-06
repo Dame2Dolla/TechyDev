@@ -4,6 +4,13 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
+//Remove Do not allow on final version
+//Add this at the beginning of your authentication.php file
+header("Access-Control-Allow-Origin: *");
+// If you need to allow specific methods, like POST, you can add the following line
+header("Access-Control-Allow-Methods: POST");
+// You may also need to allow specific headers, like Content-Type
+header("Access-Control-Allow-Headers: Content-Type");
 
 // Get the data from the POST request
 
@@ -20,13 +27,19 @@ $email = postCleanForEmail(isset($_POST['email']) ? $_POST['email'] : "");
 $password = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] : "");
 $dob = isset($_POST['dob']) ? $_POST['dob'] : "";
 $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
-$csrf_token = $_POST['token'];
 $bioDesc = "Emptiness...";
+
+if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
+    echo "bad token";
+    exit;
+}
+
 
 // create session for the current time
 $_SESSION['date_expire'] = time();
 // aquire session date_expire and add 60 minutes
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
+$csrf_token = $_POST['token'];
 
 // Check if any variables are empty if yes throw an error message.
 if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($postcode) || empty($city) || empty($country) || empty($email) || empty($password) || empty($dob) || empty($gender) || empty($mobileNumber)) {
@@ -37,7 +50,6 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
             echo "Password Incorrect";
         } else {
             // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
-
             $password = password_hash($password, PASSWORD_DEFAULT);
 
             //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton

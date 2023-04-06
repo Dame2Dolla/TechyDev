@@ -4,11 +4,39 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
+//Remove Do not allow on final version
+//Add this at the beginning of your authentication.php file
+header("Access-Control-Allow-Origin: *");
+// If you need to allow specific methods, like POST, you can add the following line
+header("Access-Control-Allow-Methods: POST");
+// You may also need to allow specific headers, like Content-Type
+header("Access-Control-Allow-Headers: Content-Type");
+
 //Sanitize, filtering & ESCAPE
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);
 $passworddb = postCleanForPasswordLogin($_POST['password']);
-$csrf_token = $_POST['token'];
+
+if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
+    echo "bad token";
+    exit;
+}
+
+// Query the database to check if the user exists and store it to the variable $sql.
+// Implementation of the prepare SQL statements for prevention of SQL Injection.
+// Replacing our variables with "?".
+
+$stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
+
+// Using blind_param to associate the variable with the "s" for String. 
+// Then the variables are bound to the SQL ? in chronological order.
+$stmt->bind_param("s", $email);
+
+// Finally the SQL is executed
+$stmt->execute();
+// get_result() is used to fetch the result.
+$result = $stmt->get_result();
+
 
 // for the logging form to work it has to pass 2 conditions. 
 // 1. Token received via html needs to be the same as token of the session. 
@@ -23,7 +51,7 @@ $_SESSION['date_expire'] = time();
 // Aquire session date_expire and add 60 minutes
 
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
-
+$csrf_token = $_POST['token'];
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
 
     // Query the database to check if the user exists and store it to the variable $sql.

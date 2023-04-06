@@ -349,62 +349,187 @@ footer {
 }
 
 /*------------------------------End of Fotter----------------------*/
-/* Signup Form */
-.sign-up-background {
-  background-color: #f5f5dc;
-}
 
-#signup-form {
-  display: flex;
-  margin-left: 36%;
-  margin-right: 38%;
+/*------------------------------Start of Sign Up----------------------*/
+
+.signup-logo-header {
+  position: relative;
   margin-top: 1%;
-  padding-top: 15px;
-  padding-bottom: 20px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: space-between;
-  justify-content: space-around;
-  background-color: #fff;
-  box-shadow: 8px 8px 4px rgb(0 0 0 / 44%);
+  margin-left: 40%;
+  width: 20%;
+}
+
+.signup-background-image{
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  /* z-index: 1; */
+  margin-top: 1%;
+}
+
+.signup-form-official{
+  background-color: #FFFEFF;
+  position: absolute;
+  left: 315px;
+  top: 26%;
+  width: 1280px;
+  height: 1000px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  font-size: larger;
 }
 
-.form-group-signup-inputs {
+.signup-fullname{
+  display: flex;
+  margin-top: 3%;
+  justify-content: space-evenly;
+  margin-left: 3%;
+}
+
+.signup-emailGender{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.signup-gender{
   display: flex;
 }
-.radio-wrapper {
+
+.gender-div{
+  margin-left: 55px;
+}
+
+.signup-address-DOB-mobileNumber{
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  margin-top: 3%;
+  margin-right: 9%;
 }
 
-.radio-label {
+.signup-address{
+  margin-left: 52px;
+}
+
+.signup-dob-mobilenumber{
+  margin-left: 30px;
+}
+
+.div-mobileNumber{
+  margin-top: 32px;
+}
+
+.signup-password{
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 10px;
+  margin-top: 2%;
 }
 
-.radio-label input[type="radio"] {
-  margin-right: 5px;
+.div-createPassword{
+  margin-right: 30px;
+  margin-left: 20%;
 }
 
-.custom-text {
-  margin-top: 10px;
+.signup-buttons{
+  text-align: center;
+  margin-top: 5%;
 }
 
-.customGenderInput {
-  display: none;
+.link-backtoLogin{
+  font-family: 'Bree Serif';
+  font-size: 24px;
+  color:#0188C6;
 }
+
+.create-account-btn{
+    position: relative;
+    font-family: "Peace Sans";
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    font-size: 32px;
+    color: #ffffff;
+    background: #42b62b;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 0;
+    width: 500px;
+    height: 60px;
+}
+
+.div-create-account-btn{
+  margin-top: 2%;
+}
+
+.textbox-small{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 250px;
+  height: 55px;
+  margin-bottom: 10px;
+  margin-right: 45px;
+  padding-left: 2%;
+}
+
+.textbox-medium{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 350px;
+  height: 55px;
+  margin-right: 40px;
+  padding-left: 2%;
+}
+
+.textbox-long{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 550px;
+  height: 55px;
+  margin-bottom: 10px;
+  padding-left: 2%;
+}
+
+
+
+/*------------------------------End of Fotter----------------------*/
+
+
+/*--------------------------------Start-of-Header------------------------------*/
 
 /* .header {
   display: flex;
   justify-content: space-between;
 } */
-/*--------------------------------Start-of-Header------------------------------*/
+
 .header {
   position: fixed;
   display: flex;

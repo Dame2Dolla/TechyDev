@@ -12,12 +12,20 @@ function closePopup() {
   const popup_personal = document.getElementById("popup-personal");
   const popup_email = document.getElementById("popup-email");
   const popup_password = document.getElementById("popup-change-password");
+  const popup_delete = document.getElementById("popup-delete");
+  const popup_education = document.getElementById("popup-education");
+  const popup_education_new = document.getElementById("popup-education-add");
+  const popup_education_edit = document.getElementById("popup-education-edit");
   overlay.style.display = "none";
   popup.style.display = "none";
   popup_personal.style = "none";
   popup_email.style = "none";
   overlay.style.zIndex = "5";
   popup_password.style = "none";
+  popup_delete.style = "none";
+  popup_education.style = "none";
+  popup_education_new.style = "none";
+  popup_education_edit.style = "none";
   document.body.classList.remove("no-scroll");
 }
 
@@ -43,6 +51,40 @@ function openPasswordPopup() {
   const popup = document.getElementById("popup-change-password");
   overlay.style.display = "block";
   popup.style.display = "block";
+  document.body.classList.add("no-scroll");
+}
+
+function openDeletePopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-delete");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  document.body.classList.add("no-scroll");
+}
+
+function openEducationPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-education");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  document.body.classList.add("no-scroll");
+}
+
+function openEducationNewPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-education-add");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  overlay.style.zIndex = "6";
+  document.body.classList.add("no-scroll");
+}
+
+function openEducationEditPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-education-edit");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  overlay.style.zIndex = "6";
   document.body.classList.add("no-scroll");
 }
 

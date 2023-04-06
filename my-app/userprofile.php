@@ -128,6 +128,114 @@
         </form>
     </div>
     <!-- End of Modal Box for Password Change -->
+    <!-- Start of Modal Box for Deletion -->
+    <div class="popup-deletion card-design pop-up-positioning" id="popup-delete">
+        <div class="pt-2">
+            <h5 class="section-title about-title">Are you sure?</h5>
+        </div>
+        <div class="popup-email-section">
+            <p class="popup-delete-text">Once you delete your account, there is no going back. Please be certain.</p>
+            <p class="popup-delete-text">Please be certain.</p>
+        </div>
+        <div class="button-sorting  button-sorting-extras">
+            <button type="button" class="popup-close-button" onclick="closePopup()">Close</button>
+            <button type="button" class="popup-deletion-button" onclick="submitDeletion()">Delete</button>
+        </div>
+    </div>
+    <!-- End of Modal Box for Deletion -->
+    <!-- Start of Modal Box for Education -->
+    <div class="popup-education card-design pop-up-positioning" id="popup-education">
+        <div class="popup-education-header pt-2">
+            <button type="button" class="close-button popup-education-plus" onclick="openEducationNewPopup()">+</button>
+            <h5 class="section-title">Education</h5>
+        </div>
+        <div class="popup-education-university-detail">
+            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEducationEditPopup()" />
+            <div>
+                <h5 class="popup-education-university-name pl-1">University of Wolverhampton</h5>
+                <p class="popup-education-university-text pl-1">Bachelor’s degree in Computer Science</p>
+                <p class="popup-education-university-text pl-1">Sep 2022 - ongoing</p>
+            </div>
+        </div>
+        <button type="submit" class="change-password-button popup-education-button-done" onclick="closePopup()">Done</button>
+    </div>
+    <!-- End of Modal Box for Education -->
+    <!-- Start of Modal Box for Add Education -->
+    <div class="popup-education-add card-design pop-up-positioning" id="popup-education-add">
+        <div class="popup-education-add-header pt-2">
+            <button type="button" class="close-button" onclick="closePopup()">X</button>
+            <h5 class="section-title">Add education</h5>
+        </div>
+        <label class="popup-education-university-name pl-1">School</label>
+        <input type="text" class="change-password-text-label" placeholder="Name of School" required />
+        <label class="popup-education-university-name pl-1">Degree</label>
+        <input type="text" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
+        <div class="popup-education-date-organizer">
+            <div>
+                <label class="popup-education-university-name pl-1">Start date</label>
+                <input type="date" id="Start date" class="change-password-text-label" required />
+            </div>
+            <div>
+                <label class="popup-education-university-name pl-1">End date</label>
+                <input type="date" id="End date" class="change-password-text-label" required />
+            </div>
+        </div>
+        <label>Ongoing</label>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <button type="submit" class="change-password-button">Save</button>
+    </div>
+    <!-- End of Modal Box for Add Education -->
+    <!-- Start of Modal Box for Edit Education -->
+    <div class="popup-education-add card-design pop-up-positioning" id="popup-education-edit">
+        <div class="popup-education-add-header pt-2">
+            <button type="button" class="close-button" onclick="closePopup()">X</button>
+            <h5 class="section-title">Edit education</h5>
+        </div>
+        <label class="popup-education-university-name pl-1">School</label>
+        <input type="text" class="change-password-text-label" placeholder="Name of School" required />
+        <label class="popup-education-university-name pl-1">Degree</label>
+        <input type="text" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
+        <div class="popup-education-date-organizer">
+            <div>
+                <label class="popup-education-university-name pl-1">Start date</label>
+                <input type="date" id="Start date" class="change-password-text-label" required />
+            </div>
+            <div>
+                <label class="popup-education-university-name pl-1">End date</label>
+                <input type="date" id="End date" class="change-password-text-label" required />
+            </div>
+        </div>
+        <label>Ongoing</label>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <button type="submit" class="change-password-button">Save</button>
+    </div>
+    <!-- End of Modal Box for Edit Education -->
+    <!-- Start of Modal Box for the Projects section.  -->
+    <div class="popup-projects card-design pop-up-positioning" id="popup-about">
+        <div class="popup-title-button">
+            <button type="button" class="close-button" onclick="closePopup()">X</button>
+        </div>
+        <h5 class="section-title about-title">Add project</h5>
+        <form>
+            <label class="popup-education-university-name pl-1">Project name</label>
+            <input type="text" class="change-password-text-label" placeholder="Name of project" required />
+
+            <label class="popup-education-university-name pl-1">Description</label>
+            <textarea class="popup-about-textarea" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <button type="submit" class="change-password-button">Save</button>
+        </form>
+    </div>
+    <!-- End of Modal Box for the Projects section.  -->
     <div>
         <div class="user-profile-adspace card-design">
             <span>for future development (Google Ads?)</span>
@@ -155,7 +263,7 @@
                     <div class="profile-card-third-left card-design">
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Education</h2>
-                            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" />
+                            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEducationPopup()" />
                         </div>
                         <div class="university">
                             <h3 class="user-details pt-2">University of Wolverhampton</h3>
@@ -223,7 +331,7 @@
                     <div class="profile-card-last card-design">
                         <h2 class="section-title delete-text">Danger zone</h2>
                         <p class="normal-text">Once you delete your account, there is no going back. Please be certain.</p>
-                        <button class="delete-button pt-2 pb-2 pl-3 pr-3 mb-2">Delete your account</button>
+                        <button class="delete-button pt-2 pb-2 pl-3 pr-3 mb-2" onclick="openDeletePopup()">Delete your account</button>
                     </div>
                 </div>
             </div>
@@ -232,6 +340,7 @@
         </div>
     </div>
     <script src="scripts/userprofile.js"></script>
+    <script src="scripts/deleteprofile.js"></script>
 </body>
 
 </html>

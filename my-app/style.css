@@ -1002,3 +1002,185 @@ footer {
 .popup-password-change-eye-wrapper {
   margin-top: -20%;
 }
+.popup-deletion {
+  display: none;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+}
+
+.popup-deletion-button {
+  background: #c02023;
+  border-radius: 20px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  border: 0 black;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.popup-close-button {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  text-align: center;
+  color: #494949;
+  border-radius: 20px;
+  background: #fefffe;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.button-sorting-extras {
+  flex-direction: row-reverse;
+  gap: 5%;
+}
+
+.popup-delete-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 23px;
+  color: #1d242b;
+}
+
+.popup-education {
+  width: 25%;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+  display: none;
+}
+
+.popup-education-header {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 5%;
+  justify-content: space-between;
+}
+
+.popup-education-add-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-left: 5%;
+}
+.popup-education-plus {
+  font-size: 1.5vw;
+  height: 4%;
+}
+
+.popup-education-add {
+  font-size: 1vw;
+  display: none;
+  z-index: 7;
+}
+
+.popup-education-university-detail {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.popup-education-university-name {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  margin: 0;
+  color: #494949;
+}
+
+.popup-education-university-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8vw;
+  margin: 0;
+  color: #494949;
+}
+
+.popup-education-button-done {
+  margin-top: 8%;
+}
+
+.popup-education-add {
+  width: 25%;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+}
+
+.switch {
+  position: relative;
+  width: 14%;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.popup-education-date-organizer {
+  display: flex;
+  margin-bottom: 5%;
+}

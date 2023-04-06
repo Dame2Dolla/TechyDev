@@ -9,7 +9,7 @@
     <!-- Start of Modal Box for the Forgot password.  -->
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="popup">
-      <div class="popup-title">
+      <div class="popup-title-button">
         <button type="button" class="close-button" onclick="closePopup()">X</button>
       </div>
       <h5 class="modal-title" id="forgot-password-modal-label">Forgot Password?</h5>

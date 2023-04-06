@@ -225,13 +225,91 @@ footer {
 
 /*------------------------------Start of Sign Up----------------------*/
 
-.signup-form-official{
-  background-color: #faebd7;
+.signup-logo-header {
+  position: relative;
+  margin-top: 1%;
+  margin-left: 40%;
+  width: 20%;
 }
 
-.signup-Fullname{
+.signup-background-image{
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  /* z-index: 1; */
+  margin-top: 1%;
+}
+
+.signup-form-official{
+  background-color: #FFFEFF;
+  position: absolute;
+  left: 315px;
+  top: 26%;
+  width: 1280px;
+  height: 1000px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.signup-fullname{
+  display: flex;
+  margin-top: 3%;
+  justify-content: space-evenly;
+  margin-left: 3%;
+}
+
+.signup-emailGender{
   display: flex;
   justify-content: space-evenly;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.signup-gender{
+  display: flex;
+}
+
+.gender-div{
+  margin-left: 55px;
+}
+
+.signup-address-DOB-mobileNumber{
+  display: flex;
+  margin-top: 3%;
+  margin-right: 9%;
+}
+
+.signup-address{
+  margin-left: 52px;
+}
+
+.signup-dob-mobilenumber{
+  margin-left: 30px;
+}
+
+.div-mobileNumber{
+  margin-top: 32px;
+}
+
+.signup-password{
+  display: flex;
+  margin-top: 2%;
+}
+
+.div-createPassword{
+  margin-right: 30px;
+  margin-left: 20%;
+}
+
+.signup-buttons{
+  text-align: center;
+  margin-top: 5%;
+}
+
+.link-backtoLogin{
+  font-family: 'Bree Serif';
+  font-size: 24px;
+  color:#0188C6;
 }
 
 .create-account-btn{
@@ -241,50 +319,76 @@ footer {
     font-weight: 400;
     padding-top: 0.4%;
     padding-bottom: 0.4%;
-    font-size: 20px;
+    font-size: 32px;
     color: #ffffff;
     background: #42b62b;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border: 0;
+    width: 500px;
+    height: 60px;
 }
 
-.textbox-signup{
+.div-create-account-btn{
+  margin-top: 2%;
+}
+
+.textbox-small{
   border-top-style: hidden !important;
   border-right-style: hidden !important;
   border-left-style: hidden !important;
   border-bottom-style: hidden !important;
   background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   border: 0;
+  width: 250px;
+  height: 55px;
+  margin-bottom: 10px;
+  margin-right: 45px;
+  padding-left: 2%;
 }
 
-.signup-EmailGender{
-  display: flex;
-  justify-content: space-evenly;
+.textbox-medium{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 350px;
+  height: 55px;
+  margin-right: 40px;
+  padding-left: 2%;
 }
 
-.signup-address{
-  display: inline-block;
-}
-
-.signup-dob-mobilenumber{
-  display: inline-block;
-  margin-left: 5%;
-}
-
-.signup-password{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.signup-buttons{
-  text-align: center;
-}
-
-.customGenderInput {
-  display: none;
+.textbox-long{
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 550px;
+  height: 55px;
+  margin-bottom: 10px;
+  padding-left: 2%;
 }
 
 

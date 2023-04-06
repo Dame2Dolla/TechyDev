@@ -65,8 +65,8 @@
         <!-- End of LoginForm -->
       </div>
     </div>
-
   </section>
+  
   <section>
     <div class="image-group">
       <img src="./images/img_StudentGraphic.png" width="100%" height="100%" />

@@ -5,72 +5,84 @@
 </head>
 
 <body>
-    <div class="sign-up-background">
+    <!-- Logo header -->
+    <section class="signup-logo-header">
+    <img src="./images/logo_StudentMind.png" width="100%" height="100%" />
+    </section>
+
+    <!-- Background Sign Up image -->
+    <section class="signup-background-image">
+    <img src="./images/img_SignupGraphic.png" width="100%" height="100%"/>
+    </section>
+
         <!-- Start of SignUp Form -->
         <div id="signup-form">
             <form onsubmit="submitFormSignUp(event)" class="signup-form-official">
-
                 <div class="form-group-signup">
-                    <div class="signup-Fullname">
+                    <div class="signup-fullname">
                         <div>
                             <label class="lbl" for="givenName"> Given Name </label>
-                            <input class="textbox-signup" type="text" placeholder="Given Name" id="givenName" required />
+                            <input class="textbox-medium" type="text" placeholder="Given Name" id="givenName" required />
                         </div>
 
                         <div>
                             <label class="lbl" for="middleName">Middle Name</label>
-                            <input class="textbox-signup" type="text" placeholder="Middle Name" id="middleName" />
+                            <input class="textbox-medium" type="text" placeholder="Middle Name" id="middleName" />
                         </div>
 
                         <div>
                             <label class="lbl" for="familyName">Family Name</label>
-                            <input class="textbox-signup" type="text" placeholder="Family Name" id="familyName" required />
+                            <input class="textbox-medium" type="text" placeholder="Family Name" id="familyName" required />
                         </div>
 
                     </div>
                     
-                    <div class="signup-EmailGender">
+                    <div class="signup-emailGender">
                         <div>
                             <label class="lbl" for="email">Email</label>
-                            <input class="textbox-signup" type="email" placeholder="email@gmail.com" id="email" required />
+                            <input class="textbox-long" type="email" placeholder="email@gmail.com" id="email" required />
                         </div>
-                    
-                        <div>
+
+                        <div class="gender-div">
                            <label class="lbl" for="gender">Gender</label>
+                           <div class="signup-gender">
                             <div>
-                            <select placeholder="Select" class="textbox-signup" id="gender" name="gender" required>
+                            <select placeholder="Select" class="textbox-small" id="gender" name="gender" required>
                             <option value="" disabled selected>Select</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
                             </div>
-                            <div class="customGenderInput">
-                                <input class="textbox-signup" type="text" id="customGender" placeholder="Enter custom gender"></input>
+                            <div>
+                                <input class="textbox-small" type="text" id="customGender" placeholder="Enter custom gender"></input>
+                            </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                    <div class="signup-address-DOB-mobileNumber">
                     <div class="signup-address">
                         <div>
                             <label class="lbl" for="address">Address</label>
-                            <input class="textbox-signup" type="text" placeholder="Line 1" id="address1" required />
                         </div>
 
                         <div>
-                            <input class="textbox-signup" type="text" placeholder="Line 2" id="address2" required />
+                            <input class="textbox-long" type="text" placeholder="Line 1" id="address1" required />
                         </div>
 
                         <div>
-                            <input class="textbox-signup" type="text" placeholder="Post Code" id="postCode" required />
+                            <input class="textbox-long" type="text" placeholder="Line 2" id="address2" required />
+                        </div>
+
+                        <div class="signup-postCodeCity">
+                            <input class="textbox-small" type="text" placeholder="Post Code" id="postCode" required />
+                    
+                            <input class="textbox-small" type="text" placeholder="City/Town" id="city" required />
                         </div>
 
                         <div>
-                            <input class="textbox-signup" type="text" placeholder="City/Town" id="city" required />
-                        </div>
-
-                        <div>
-                             <select class="textbox-signup" placeholder="Country" id="country" name="country" >
+                             <select class="textbox-medium" placeholder="Country" id="country" name="country" >
                              <option value="" disabled selected>Country</option>
 							 <option value="Afganistan">Afghanistan</option>
 							 <option value="Albania">Albania</option>
@@ -325,31 +337,32 @@
                     <div class="signup-dob-mobilenumber">
                         <div>
                             <label class="lbl" for="dob">Date of birth</label>
-                            <input class="textbox-signup" type="date" id="dateOfBirth" required />
+                            <input class="textbox-small" type="date" id="dateOfBirth" required />
                         </div>
 
-                        <div>
+                        <div class="div-mobileNumber">
                             <label class="lbl" for="mobileNumber">Mobile Number</label>
-                            <input class="textbox-signup" type="number" placeholder="Type here" id="mobileNumber" required />
+                            <input class="textbox-medium" type="number" placeholder="Type here" id="mobileNumber" required />
                         </div>
                     </div>
+                </div>
 
                     <div class="signup-password">
-                        <div>
+                        <div class="div-createPassword">
                             <label class="lbl" for="createPassword">Create Password</label>
-                            <input class="textbox-signup" type="password" placeholder="Type here" id="signup-password" required />
+                            <input class="textbox-medium" type="password" placeholder="Type here" id="signup-password" required />
                         </div>
 
                         <div>
                             <label class="lbl" for="confirmPassword">Confirm Password</label>
-                            <input class="textbox-signup" type="password" placeholder="Type here" id="signup-password" required />
+                            <input class="textbox-medium" type="password" placeholder="Type here" id="signup-password" required />
                         </div>
                     </div>
                     
                     <div class="signup-buttons">
-                    <a href="./index.php">Already have an account?</a>
+                    <a class ="link-backtoLogin" href="./index.php">Already have an account?</a>
 
-                    <div>
+                    <div class="div-create-account-btn">
                         <button class ="create-account-btn" type="submit" >Create new account</button>
                     </div>
                     </div>
@@ -360,25 +373,13 @@
             </form>
             <!-- End of SignUp Form -->
         </div>
-    </div>
 
+    
+  
     <script src="scripts/signupform.js"></script>
     <script src="scripts/submitform.js"></script>
     <script src="scripts/gender.js"></script>
 
-    <script>
-    //Customer gender script
-    const genderSelect = document.getElementById("gender");
-    const customGenderInput = document.querySelector(".customGenderInput");
-
-    genderSelect.addEventListener("change", function() {   
-    if (genderSelect.value === "other") {
-    customGenderInput.style.display = "block";
-    } else {
-    customGenderInput.style.display = "none";
-    }
-    });
-    </script>
 </body>
 
 </html>

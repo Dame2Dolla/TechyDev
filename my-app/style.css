@@ -1314,3 +1314,45 @@ input:checked + .slider:before {
   display: flex;
   margin-bottom: 5%;
 }
+
+.popup-add-projects {
+  display: none;
+  z-index: 6;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+}
+
+.toggle-button-project {
+  margin-left: 3%;
+  width: 9.5%;
+}
+
+.popup-project-popup-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.popup-project {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 24%;
+  display: none;
+}
+
+.project-text-alignment {
+  align-items: center;
+}
+
+.popup-edit-projects {
+  width: 35.5%;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+  display: none;
+  z-index: 6;
+}

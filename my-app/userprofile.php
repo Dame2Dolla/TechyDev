@@ -216,22 +216,63 @@
         <button type="submit" class="change-password-button">Save</button>
     </div>
     <!-- End of Modal Box for Edit Education -->
+    <!-- Start of Modal Box for Projects -->
+    <div class="popup-project card-design pop-up-positioning" id="popup-project">
+        <div class="popup-education-header pt-2">
+            <button type="button" class="close-button popup-education-plus" onclick="openAddProjectPopup()">+</button>
+            <h5 class="section-title">Projects</h5>
+        </div>
+        <div class="popup-education-university-detail project-text-alignment mt-2">
+            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEditProjectPopup()" />
+            <div>
+                <h5 class="popup-education-university-name pl-1">Smart garage door</h5>
+                <p class="popup-education-university-text pl-1">Mar 2022 - May 2020</p>
+            </div>
+        </div>
+        <button type="submit" class="change-password-button popup-education-button-done" onclick="closePopup()">Done</button>
+    </div>
+    <!-- End of Modal Box for Projects -->
     <!-- Start of Modal Box for the Projects section.  -->
-    <div class="popup-projects card-design pop-up-positioning" id="popup-about">
+    <div class="popup-add-projects card-design pop-up-positioning" id="popup-add-project">
         <div class="popup-title-button">
             <button type="button" class="close-button" onclick="closePopup()">X</button>
         </div>
-        <h5 class="section-title about-title">Add project</h5>
+        <h5 class="section-title about-title mb-2">Add project</h5>
         <form>
             <label class="popup-education-university-name pl-1">Project name</label>
-            <input type="text" class="change-password-text-label" placeholder="Name of project" required />
+            <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
 
             <label class="popup-education-university-name pl-1">Description</label>
-            <textarea class="popup-about-textarea" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
+            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+            <div class="popup-project-popup-toggle mt-1">
+                <label>Ongoing</label>
+                <label class="switch toggle-button-project">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <button type="submit" class="change-password-button">Save</button>
+        </form>
+    </div>
+    <!-- End of Modal Box for the Projects section.  -->
+    <!-- Start of Modal Box for the Projects section.  -->
+    <div class="popup-edit-projects card-design pop-up-positioning" id="popup-edit-project">
+        <div class="popup-title-button">
+            <button type="button" class="close-button" onclick="closePopup()">X</button>
+        </div>
+        <h5 class="section-title about-title mb-2">Edit project</h5>
+        <form>
+            <label class="popup-education-university-name pl-1">Project name</label>
+            <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
+            <label class="popup-education-university-name pl-1">Description</label>
+            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+            <div class="popup-project-popup-toggle mt-1">
+                <label>Ongoing</label>
+                <label class="switch toggle-button-project">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
             <button type="submit" class="change-password-button">Save</button>
         </form>
     </div>
@@ -303,8 +344,7 @@
                         </div>
                         <div>
                             <div class="user-details-flex">
-                                <p class="user-details user-details-text-left">tbl_Address.city_town</p>
-                                <p class="user-details user-details-text-right"> tbl_Address.country</p>
+                                <p class="user-details user-details-text-left">tbl_Address.city_town, tbl_Address.country</p>
                             </div>
                         </div>
                         <div class="user-details-flex">
@@ -315,7 +355,7 @@
                     <div class="profile-card-forth-right card-design">
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Projects</h2>
-                            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" />
+                            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openProjectPopup()" />
                         </div>
                         <div class="profile-project mb-1">
                             <h3 class="user-details mt-1">Smart garage door 1</h3>

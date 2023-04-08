@@ -16,6 +16,9 @@ function closePopup() {
   const popup_education = document.getElementById("popup-education");
   const popup_education_new = document.getElementById("popup-education-add");
   const popup_education_edit = document.getElementById("popup-education-edit");
+  const popup_project_add = document.getElementById("popup-add-project");
+  const popup_project = document.getElementById("popup-project");
+  const popup_project_edit = document.getElementById("popup-edit-project");
   overlay.style.display = "none";
   popup.style.display = "none";
   popup_personal.style = "none";
@@ -26,6 +29,9 @@ function closePopup() {
   popup_education.style = "none";
   popup_education_new.style = "none";
   popup_education_edit.style = "none";
+  popup_project_add.style = "none";
+  popup_project.style = "none";
+  popup_project_edit.style = "none";
   document.body.classList.remove("no-scroll");
 }
 
@@ -82,6 +88,31 @@ function openEducationNewPopup() {
 function openEducationEditPopup() {
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup-education-edit");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  overlay.style.zIndex = "6";
+  document.body.classList.add("no-scroll");
+}
+
+function openProjectPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-project");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  document.body.classList.add("no-scroll");
+}
+
+function openAddProjectPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-add-project");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  overlay.style.zIndex = "6";
+  document.body.classList.add("no-scroll");
+}
+function openEditProjectPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-edit-project");
   overlay.style.display = "block";
   popup.style.display = "block";
   overlay.style.zIndex = "6";

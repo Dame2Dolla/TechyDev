@@ -1,3 +1,5 @@
+// Show/hide custom gender text area based on "custom" drop down selection
+
 // Variables
 const customGenderInput = document.querySelector(".customGenderInput");
 

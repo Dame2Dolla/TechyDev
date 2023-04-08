@@ -25,25 +25,6 @@ function submitFormSignUp(event) {
   const token = document.getElementById("tokentwo").value;
 
 
-  if (document.getElementById("male").checked) {
-    gender = document.getElementById("male").value;
-  } else if (document.getElementById("female").checked) {
-    gender = document.getElementById("female").value;
-  } else if (document.getElementById("custom").checked) {
-    gender = document.getElementById("customGender").value;
-  }
-
-  // Show/hide custom gender text area based on "custom" radio button selection
-  // const customGenderInput = document.getElementById("customGenderInput");
-  // const customRadio = document.getElementById("custom");
-  // customRadio.addEventListener("change", function () {
-  //   if (customRadio.checked) {
-  //     customGenderInput.style.display = "block";
-  //   } else {
-  //     customGenderInput.style.display = "none";
-  //   }
-  // });
-
   // Code explanation:
   /**
    * Created 2 objects with the Date value and stored that as seperated variables

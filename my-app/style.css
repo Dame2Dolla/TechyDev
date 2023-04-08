@@ -816,6 +816,7 @@ footer {
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom: 1%;
+  width: 100%;
 }
 .section-title {
   font-family: "Bree Serif";
@@ -848,6 +849,9 @@ footer {
   display: flex;
   justify-content: space-between;
   column-gap: 3%;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .profile-card-left {
   display: flex;
@@ -855,7 +859,7 @@ footer {
   position: relative;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 74%;
+  width: 47%;
   margin-top: 2%;
 }
 
@@ -907,6 +911,7 @@ footer {
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 2%;
+  width: 49%;
 }
 
 .profile-card-third-right {
@@ -937,6 +942,7 @@ footer {
   padding-right: 2%;
   padding-bottom: 1%;
   margin-top: 4%;
+  width: 100%;
 }
 
 .profile-project {
@@ -952,9 +958,7 @@ footer {
   padding-right: 2%;
   display: flex;
   flex-direction: column;
-  margin-top: 15%;
-  min-width: 173%;
-  right: 73%;
+  margin-top: 4%;
 }
 
 .delete-text {
@@ -1355,4 +1359,14 @@ input:checked + .slider:before {
   padding-right: 1%;
   display: none;
   z-index: 6;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

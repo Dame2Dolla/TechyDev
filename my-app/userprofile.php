@@ -2,7 +2,9 @@
 <?php require "./php_require/htmlheader.php" ?>
 <title>User Profile</title>
 </head>
-<?php require "./php_require/header.php" ?>
+<?php require "./php_require/header.php";
+//error_reporting(0);
+?>
 
 <body class="user-profile-page">
     <div class="overlay" id="overlay"></div>
@@ -13,8 +15,8 @@
             <button type="button" class="close-button" onclick="closePopup()">X</button>
         </div>
         <h5 class="section-title about-title">Edit about section</h5>
-        <form>
-            <textarea class="popup-about-textarea" placeholder="Write here..." maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+        <form id="about-form">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/aboutpopup.php'; ?>
             <button type="submit" class="change-password-button">Save</button>
         </form>
     </div>
@@ -287,7 +289,7 @@
         <div class="profile-card-first card-design">
             <img class="profile-banner" src="./images/img_StudentGraphic.png" />
             <div class="profile-card-first-info">
-                <h1 class="text-name">Damjan Velichkovski</h1>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/name.php'; ?>
                 <p class="text-school">University of Wolverhampton</p>
             </div>
         </div>
@@ -297,7 +299,7 @@
                     <h2 class="section-title">About</h2>
                     <img class="edit-button" src="./images/edit.svg" width="100%" height="100%" onclick="openAboutPopup()" />
                 </div>
-                <p class="user-details">Bacon ipsum dolor amet ball tip buffalo short ribs pancetta ribeye burgdoggen doner pork chop kielbasa. Fatback swine venison, beef ribs jowl tenderloin hamburger capicola short ribs brisket doner salami. Beef ball tip pancetta pig frankfurter leberkas meatloaf biltong capicola beef ribs tongue rump ribeye shankle ham hock. Kevin capicola pork filet mignon. Prosciutto shank cow strip steak biltong t-bone bacon andouille cupim. Jerky ground round prosciutto, shankle burgdoggen andouille pork loin beef chicken meatball beef ribs ball tip chislic picanha doner. Filet mignon kevin beef alcatra shankle venison pork chop beef ribs ribeye ham hock biltong buffalo burgdoggen.</p>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/about.php'; ?>
             </div>
             <div class="profile-card-center">
                 <div class="profile-card-left">
@@ -306,21 +308,7 @@
                             <h2 class="section-title">Education</h2>
                             <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEducationPopup()" />
                         </div>
-                        <div class="university">
-                            <h3 class="user-details pt-2">University of Wolverhampton</h3>
-                            <h4 class="certificate">Bachelor's degree in Computer Science</h4>
-                            <p class="normal-text">Sep 2022 - ongoing</p>
-                        </div>
-                        <div class="university">
-                            <h3 class="user-details">NCC Education</h3>
-                            <h4 class="certificate">Diploma in Computing</h4>
-                            <p class="normal-text">Sep 2021 - Jun 2022</p>
-                        </div>
-                        <div class="university">
-                            <h3 class="user-details">MCAST</h3>
-                            <h4 class="certificate">Advanced diploma in IT(Software Development)</h4>
-                            <p class="normal-text">Sep 2019 - Jun 2021</p>
-                        </div>
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/education.php'; ?>
                     </div>
                     <div class="profile-card-third-left-password card-design">
                         <div class="profile-card-edit">
@@ -336,43 +324,20 @@
                             <h2 class="section-title">Personal Details</h2>
                             <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openPersonalPopup()" />
                         </div>
-                        <div>
-                            <div class=" user-details-flex pt-2">
-                                <p class="user-details user-details-text-left">email@wlv.ac.uk</p>
-                                <p class="user-details user-details-text-right">male&#40;he&#47;him&#41;</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="user-details-flex">
-                                <p class="user-details user-details-text-left">tbl_Address.city_town, tbl_Address.country</p>
-                            </div>
-                        </div>
-                        <div class="user-details-flex">
-                            <p class="user-details user-details-text-left">&#43; 77 1234 56798</p>
-                            <p class="user-details user-details-text-right">08/09/1991</p>
-                        </div>
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/personaldetails.php'; ?>
                     </div>
                     <div class="profile-card-forth-right card-design">
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Projects</h2>
                             <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openProjectPopup()" />
                         </div>
-                        <div class="profile-project mb-1">
-                            <h3 class="user-details mt-1">Smart garage door 1</h3>
-                            <p class="certificate mb-0">Using Python on Raspberry Pi and basic electric components I created an overhead garage door that can be controlled from a mobile app, with an RFID reader and by pressing a button.</p>
-                            <a href="https://damjanvelichkovski.tech.blog/">https://damjanvelichkovski.tech.blog/</a>
-                        </div>
-                        <!-- <div>
-                        <h3 class="user-details">Smart garage door 2</h3>
-                        <p class="certificate">Using Python on Raspberry Pi and basic electric components I created an overhead garage door that can be controlled from a mobile app, with an RFID reader and by pressing a button.</p>
-                        <a href="https://damjanvelichkovski.tech.blog/" class="normal-text">https://damjanvelichkovski.tech.blog/</a>
-                    </div> -->
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/projects.php'; ?>
                     </div>
-                    <div class="profile-card-last card-design">
-                        <h2 class="section-title delete-text">Danger zone</h2>
-                        <p class="normal-text">Once you delete your account, there is no going back. Please be certain.</p>
-                        <button class="delete-button pt-2 pb-2 pl-3 pr-3 mb-2" onclick="openDeletePopup()">Delete your account</button>
-                    </div>
+                </div>
+                <div class="profile-card-last card-design">
+                    <h2 class="section-title delete-text">Danger zone</h2>
+                    <p class="normal-text">Once you delete your account, there is no going back. Please be certain.</p>
+                    <button class="delete-button pt-2 pb-2 pl-3 pr-3 mb-2" onclick="openDeletePopup()">Delete your account</button>
                 </div>
             </div>
             <hr class="w-100">

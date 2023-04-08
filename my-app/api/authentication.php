@@ -93,8 +93,6 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
 
                     if ($daysSinceLastChange <= 90) {
                         $_SESSION['id_user'] = $rowx['user_ID'];
-                        $_SESSION['first_name'] = $rowx['givenName'];
-                        $_SESSION['last_name'] = $rowx['familyName'];
                         echo "Successful";
                         exit;
                     } else {

@@ -1,11 +1,38 @@
-function openAboutPopup() {
-  const overlay = document.getElementById("overlay");
-  const popup = document.getElementById("popup-about");
-  overlay.style.display = "block";
-  popup.style.display = "block";
-  document.body.classList.add("no-scroll");
+//About modal popup
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutForm = document.getElementById("about-form");
+  aboutForm.addEventListener("submit", submitAbout);
+});
+
+function submitAbout(event) {
+  event.preventDefault();
+
+  // The two variables are filled with the email value and the password from the form
+  const aboutBio = document.getElementById("bio").value;
+  const aboutUser = document.getElementById("user_id").value;
+
+  // Add header that the value is going to be a value form
+  // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
+  fetch("/api/userdetailsApi/changeabout.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `aboutBio=${aboutBio}&aboutUser=${aboutUser}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("Change Implemented.");
+        window.location.reload();
+      } else if (data === "Error updating bio") {
+        alert("Something went wrong please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
 }
 
+// Functions to make the modal popups be visible or no.
 function closePopup() {
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup-about");
@@ -33,6 +60,14 @@ function closePopup() {
   popup_project.style = "none";
   popup_project_edit.style = "none";
   document.body.classList.remove("no-scroll");
+}
+
+function openAboutPopup() {
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup-about");
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  document.body.classList.add("no-scroll");
 }
 
 function openPersonalPopup() {
@@ -137,6 +172,7 @@ const togglePassword1 = document.getElementById("toggle-password1");
 const password2 = document.getElementById("password2");
 const togglePassword2 = document.getElementById("toggle-password2");
 
+//Function to change the images of the password icon.
 function toggleVisibility(inputElement, eyeElement) {
   if (inputElement.type === "password") {
     inputElement.type = "text";
@@ -146,6 +182,8 @@ function toggleVisibility(inputElement, eyeElement) {
     eyeElement.src = "./images/eye.svg";
   }
 }
+
+//Event listeners to switch eye icon password for each click.
 
 togglePassword.addEventListener("click", function () {
   toggleVisibility(password, togglePassword);

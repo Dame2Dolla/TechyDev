@@ -29,57 +29,11 @@
             </div>
             <h5 class="section-title about-title">Edit your personal details</h5>
         </div>
-        <form class="pl-3 pr-3 pb-3">
-            <div class="popup-personal-details-display">
-                <div class="popup-details-display">
-                    <label class="popup-personal-text">Given name</label>
-                    <input type="text" placeholder="First Name" class="popup-personal-text-boxes pl-3" />
-                </div>
-                <div class="popup-details-display">
-                    <label class="popup-personal-text">Middle name</label>
-                    <input type="text" placeholder="Middle Name" class="popup-personal-text-boxes pl-3" />
-                </div>
-                <div class="popup-details-display">
-                    <label class="popup-personal-text">Last name</label>
-                    <input type="text" placeholder="Last Name" class="popup-personal-text-boxes pl-3" />
-                </div>
-            </div>
-            <div class="popup-personal-details-display">
-                <div class="popup-details-display">
-                    <label class="popup-personal-text">Mobile number</label>
-                    <input type="text" placeholder="+00 0000 0000" class="popup-personal-text-boxes pl-3" />
-                </div>
-                <div>
-                    <label class="popup-personal-text">Gender</label>
-                    <div>
-                        <select name="gender" class="popup-personal-text-boxes pl-3">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="custom">Custom</option>
-                        </select>
-                        <input type="text" placeholder="Custom gender" class="popup-personal-text-boxes pl-3" />
-                    </div>
-                </div>
-            </div>
-            <label class="popup-personal-text">Address</label>
-            <div class="popup-details-display">
-                <div class="popup-personal-details-display">
-                    <input type="text" placeholder="Line 1" class="popup-personal-text-boxes pl-3" />
-                    <input type="text" placeholder="Line 2" class="popup-personal-text-boxes pl-3" />
-                    <input type="text" placeholder="City" class="popup-personal-text-boxes pl-3" />
-                </div>
-                <div class="popup-country">
-                    <input type="text" placeholder="PostCode" class="popup-personal-text-boxes pl-3" />
-                    <select id="country" name="country" class="popup-personal-text-boxes pl-3">
-                        <?php require "./php_require/country.php" ?>
-                    </select>
-                </div>
-            </div>
-            <div class="button-sorting">
-                <button type="button" class="change-email-button" onclick="openEmailPopup()">Change email</button>
-                <button type="submit" class="change-password-button">Save</button>
-            </div>
-        </form>
+        <form class="pl-3 pr-3 pb-3" id="changeDetails-form">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/changedetailspopup.php'; ?>
+            <button type="submit" class="change-password-button">Save</button>
+    </div>
+    </form>
     </div>
     <!-- Start of Modal Box for confirm email -->
     <div class="popup-email-confirm card-design pop-up-positioning" id="popup-email">

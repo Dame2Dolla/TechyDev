@@ -83,6 +83,7 @@
 
 						<div>
 							<select class="textbox-medium country-font" placeholder="Country" id="country" name="country">
+								<option value="" disabled selected>Country</option>
 								<?php require "./php_require/country.php" ?>
 							</select>
 						</div>

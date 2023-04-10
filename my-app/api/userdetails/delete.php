@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/conn.php';
 
-$student_id = $_SESSION['id_user'];
+$user_id = $_SESSION['id_user'];
 
 // remove Safe update from MySQL to implement an update sql statement.
 
@@ -10,6 +9,7 @@ $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
 $stmt->execute();
 $stmt->get_result();
 
+//To be reviewed...
 $stmts = $conn->prepare("DELETE FROM Student WHERE ID = ?");
 $stmts->bind_param("i", $student_id);
 $stmts->execute();

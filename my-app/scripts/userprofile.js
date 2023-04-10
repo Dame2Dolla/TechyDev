@@ -2,6 +2,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const aboutForm = document.getElementById("about-form");
   aboutForm.addEventListener("submit", submitAbout);
+
+  const changeDetailsForm = document.getElementById("changeDetails-form");
+  changeDetailsForm.addEventListener("submit", submitChangeDetails);
 });
 
 function submitAbout(event) {
@@ -30,6 +33,59 @@ function submitAbout(event) {
       }
     })
     .catch((error) => console.error(error));
+}
+
+function submitChangeDetails(event) {
+  event.preventDefault();
+
+  const aboutUser = document.getElementById("user_id").value;
+  const changeFirstName = document.getElementById("firstName").value;
+  const changeMiddleName = document.getElementById("middleName").value;
+  const changeFamilyName = document.getElementById("familyName").value;
+  const changeContactNumber = document.getElementById("contactNumber").value;
+  const changeLineOne = document.getElementById("lineOne").value;
+  const changelineTwo = document.getElementById("lineTwo").value;
+  const changePostCode = document.getElementById("postCode").value;
+  const changeCity_town = document.getElementById("city_town").value;
+  const changeCountry = document.getElementById("country").value;
+
+  const genderDropdown = document.getElementById("gender");
+  let gender = genderDropdown.value;
+  if (gender === "custom") {
+    gender = document.getElementById("customGender").value;
+  }
+
+  // Add header that the value is going to be a value form
+  // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
+  fetch("/api/userdetailsApi/changedetails.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `detailUser=${aboutUser}&firstName=${changeFirstName}&middleName=${changeMiddleName}&familyName=${changeFamilyName}&gender=${gender}&contactNumber=${changeContactNumber}&lineOne=${changeLineOne}&lineTwo=${changelineTwo}&postCode=${changePostCode}&cityTown=${changeCity_town}&country=${changeCountry}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("Change Implemented.");
+        window.location.reload();
+      } else if (data === "Error updating bio") {
+        alert("Something went wrong please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
+//Delete profile.
+function submitDeletion() {
+  fetch("/api/userdetailsApi/delete.php")
+    .then(() => {
+      alert("You're account has been successfully deleted.");
+      window.location.href = "index.php";
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 // Functions to make the modal popups be visible or no.

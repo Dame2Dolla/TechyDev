@@ -32,28 +32,30 @@
         <form class="pl-3 pr-3 pb-3" id="changeDetails-form">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/changedetailspopup.php'; ?>
             <button type="submit" class="change-password-button">Save</button>
+        </form>
     </div>
-    </form>
     </div>
     <!-- Start of Modal Box for confirm email -->
     <div class="popup-email-confirm card-design pop-up-positioning" id="popup-email">
-        <div class="pt-2">
-            <div class="popup-title-button">
-                <button type="button" class="close-button" onclick="closePopup()">X</button>
+        <form id="email-form">
+            <div class="pt-2">
+                <div class="popup-title-button">
+                    <button type="button" class="close-button" onclick="closePopup()">X</button>
+                </div>
+                <h5 class="section-title about-title">Change email</h5>
             </div>
-            <h5 class="section-title about-title">Change email</h5>
-        </div>
-        <div class="popup-email-section">
-            <div class="popup-details-display popup-email-label">
-                <label class="popup-personal-text">New Email</label>
-                <input type="text" placeholder="email@email.com" class="popup-personal-text-boxes pl-3 popup-email-textbox" />
+            <div class="popup-email-section">
+                <div class="popup-details-display popup-email-label">
+                    <label class="popup-personal-text">New Email</label>
+                    <input type="email" id="email1" placeholder="email@email.com" class="popup-personal-text-boxes pl-3 popup-email-textbox" />
+                </div>
+                <div class="popup-details-display popup-email-label">
+                    <label class="popup-personal-text">Confirm Email</label>
+                    <input type="email" id="email2" placeholder="email@email.com" class="popup-personal-text-boxes pl-3 popup-email-textbox" />
+                </div>
             </div>
-            <div class="popup-details-display popup-email-label">
-                <label class="popup-personal-text">Confirm Email</label>
-                <input type="text" placeholder="email@email.com" class="popup-personal-text-boxes pl-3 popup-email-textbox" />
-            </div>
-        </div>
-        <button type="submit" class="change-password-button">Save</button>
+            <button type="submit" class="change-password-button">Save</button>
+        </form>
     </div>
     <!-- End of Modal Box for the Personal section.  -->
     <!-- Start of Modal Box for Password Change -->

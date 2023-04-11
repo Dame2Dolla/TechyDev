@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const changeDetailsForm = document.getElementById("changeDetails-form");
   changeDetailsForm.addEventListener("submit", submitChangeDetails);
+
+  const changeEmailForm = document.getElementById("email-form");
+  changeEmailForm.addEventListener("submit", submitChangeEmail);
 });
 
 function submitAbout(event) {
@@ -77,7 +80,8 @@ function submitChangeDetails(event) {
 }
 
 //Delete profile.
-function submitDeletion() {
+function submitDeletion(event) {
+  event.preventDefault();
   fetch("/api/userdetailsApi/delete.php")
     .then(() => {
       alert("You're account has been successfully deleted.");
@@ -86,6 +90,52 @@ function submitDeletion() {
     .catch((error) => {
       console.error(error);
     });
+}
+
+function submitChangeEmail(event) {
+  event.preventDefault();
+
+  const email1 = document.getElementById("email1").value;
+  const email2 = document.getElementById("email2").value;
+
+  if (email1 != email2) {
+    alert("Emails do not match. Please check the spelling and try again.");
+  } else {
+    // Send a POST request to the PHP API to check if the user exists
+    fetch("/api/emailchecker.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email1}`,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data === "User does not exist") {
+          // If the user exists, send an email to the user's email address
+          fetch("/api/userdetailsApi/changeemail.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `email=${email1}`,
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              if (data === "Complete") {
+                alert("E-mail changed successfully.");
+                window.location.reload();
+              } else {
+                alert("Something has gone wrong. Please try again later.");
+              }
+            })
+            .catch((error) => console.error(error));
+        } else {
+          alert("This email is already taken.");
+        }
+      })
+      .catch((error) => console.error(error));
+  }
 }
 
 // Functions to make the modal popups be visible or no.

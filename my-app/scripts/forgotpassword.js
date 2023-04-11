@@ -21,7 +21,7 @@ function submitFormForgotPassword(event) {
   const email = document.getElementById("forgot-password-email").value;
 
   // Send a POST request to the PHP API to check if the user exists
-  fetch("/api/emailchecker.php", {
+  fetch("/api/checker/emailchecker.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

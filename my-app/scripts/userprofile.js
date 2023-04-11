@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const changeEmailForm = document.getElementById("email-form");
   changeEmailForm.addEventListener("submit", submitChangeEmail);
+
+  const changePasswordForm = document.getElementById("password-form");
+  changePasswordForm.addEventListener("submit", submitChangePassword);
 });
 
 function submitAbout(event) {
@@ -102,7 +105,7 @@ function submitChangeEmail(event) {
     alert("Emails do not match. Please check the spelling and try again.");
   } else {
     // Send a POST request to the PHP API to check if the user exists
-    fetch("/api/emailchecker.php", {
+    fetch("/api/checker/emailchecker.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -132,6 +135,53 @@ function submitChangeEmail(event) {
             .catch((error) => console.error(error));
         } else {
           alert("This email is already taken.");
+        }
+      })
+      .catch((error) => console.error(error));
+  }
+}
+
+function submitChangePassword(event) {
+  event.preventDefault();
+
+  const oldpassword = document.getElementById("oldpassword").value;
+  const password1 = document.getElementById("password1").value;
+  const password2 = document.getElementById("password2").value;
+
+  if (password1 != password2) {
+    alert("Emails do not match. Please check the spelling and try again.");
+  } else {
+    // Send a POST request to the PHP API to check if the user exists
+    fetch("/api/checker/passwordchecker.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `oldpassword=${oldpassword}`,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data === "Correct") {
+          // If the user exists, send an email to the user's email address
+          fetch("/api/userdetailsApi/changepassword.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `password=${password1}`,
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              if (data === "Complete") {
+                alert("Password changed successfully.");
+                window.location.reload();
+              } else {
+                alert("Something has gone wrong. Please try again later.");
+              }
+            })
+            .catch((error) => console.error(error));
+        } else {
+          alert("Password is incorrect.");
         }
       })
       .catch((error) => console.error(error));

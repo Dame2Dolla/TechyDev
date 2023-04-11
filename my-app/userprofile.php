@@ -64,7 +64,7 @@
             <button type="button" class="close-button" onclick="closePopup()">X</button>
         </div>
         <h5 class="section-title about-title">Change password</h5>
-        <form>
+        <form id="password-form">
             <div class="modal-change-password-password-section">
                 <label class="change-password-text">Old password</label>
                 <div class="input-eye-wrapper">

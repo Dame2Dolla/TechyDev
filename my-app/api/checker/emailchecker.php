@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/session.php';
+session_start();
 require_once __DIR__ . '/conn.php';
 
 // Trim the variables of any unneccasary spaces. 
@@ -24,9 +24,9 @@ $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
 // Then the variables are bound to the SQL ?.
 $stmt->bind_param("s", $email);
 // Finally the SQL is executed
-$stmt -> execute();
+$stmt->execute();
 // get_result() is used to fetch the result.
-$result = $stmt -> get_result();
+$result = $stmt->get_result();
 
 
 // Return response

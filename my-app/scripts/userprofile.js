@@ -11,6 +11,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const changePasswordForm = document.getElementById("password-form");
   changePasswordForm.addEventListener("submit", submitChangePassword);
+
+  const ongoingCheckbox = document.getElementById("ongoing");
+  const endDateInput = document.getElementById("endDate");
+
+  // Disable the End date input if the Ongoing checkbox is checked
+  ongoingCheckbox.addEventListener("change", function () {
+    endDateInput.disabled = this.checked;
+  });
+
+  // Get the checkbox and endDate input field elements
+  const ongoingCheckboxEdit = document.getElementById("ongoingEdit");
+  const endDateInputEdit = document.getElementById("endDateEdit");
+
+  // Lock or unlock the endDate input field based on the ongoing state
+  endDateInputEdit.disabled = ongoing;
+
+  // Add an event listener to the checkbox
+  ongoingCheckboxEdit.addEventListener("change", function () {
+    // Lock or unlock the endDate input field based on the checkbox's state
+    endDateInputEdit.disabled = this.checked;
+  });
+
+  const AddUniversityForm = document.getElementById("new-university-form");
+  AddUniversityForm.addEventListener("submit", submitAddUniversity);
+
+  const EditUniversityForm = document.getElementById("edit-university-form");
+  EditUniversityForm.addEventListener("submit", submitEditUniversity);
 });
 
 function submitAbout(event) {
@@ -75,7 +102,7 @@ function submitChangeDetails(event) {
       if (data === "Complete") {
         alert("Change Implemented.");
         window.location.reload();
-      } else if (data === "Error updating bio") {
+      } else {
         alert("Something went wrong please try again later.");
       }
     })
@@ -188,6 +215,101 @@ function submitChangePassword(event) {
   }
 }
 
+function submitAddUniversity(event) {
+  event.preventDefault();
+
+  const university = document.getElementById("university").value;
+  const certificate = document.getElementById("certificate").value;
+  const startdate = document.getElementById("Start date").value;
+  const enddate = document.getElementById("End date").value;
+  const ongoing = document.getElementById("ongoing");
+
+  // Get the checked state of the checkbox
+  const isOngoing = ongoing.checked;
+
+  // Validate date range
+  if (!ongoing && new Date(startdate) > new Date(enddate)) {
+    alert(
+      "End date cannot be before the start date, and start date cannot be after the end date. Please correct the dates and try again."
+    );
+    return;
+  }
+
+  // Validate end date is not in the future
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set time to midnight for accurate date comparison
+  if (!ongoing && new Date(enddate) > today) {
+    alert("End date cannot be in the future.");
+    return;
+  }
+
+  fetch("/api/userdetailsApi/adduniversity.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `university=${university}&certificate=${certificate}&startdate=${startdate}&enddate=${enddate}&ongoing=${isOngoing}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("University has been added successfully.");
+        window.location.reload();
+      } else {
+        alert("Something has gone wrong. Please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
+function submitEditUniversity(event) {
+  event.preventDefault();
+
+  const educationId = document.getElementById("educationId").value;
+  const universityEdit = document.getElementById("universityEdit").value;
+  const certificateEdit = document.getElementById("certificateEdit").value;
+  const startDateEdit = document.getElementById("startDateEdit").value;
+  const endDateEdit = document.getElementById("endDateEdit").value;
+  const ongoingEdit = document.getElementById("ongoingEdit");
+
+  // Get the checked state of the checkbox
+  const isOngoingEdit = ongoingEdit.checked;
+
+  // Validate date range
+  if (!ongoingEdit && new Date(startDateEdit) > new Date(endDateEdit)) {
+    alert(
+      "End date cannot be before the start date, and start date cannot be after the end date. Please correct the dates and try again."
+    );
+    return;
+  }
+
+  // Validate end date is not in the future
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set time to midnight for accurate date comparison
+  if (!ongoingEdit && new Date(endDateEdit) > today) {
+    alert("End date cannot be in the future.");
+    return;
+  }
+
+  fetch("/api/userdetailsApi/edituniversity.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `educationID=${educationId}&universityEdit=${universityEdit}&certificateEdit=${certificateEdit}&startDateEdit=${startDateEdit}&endDateEdit=${endDateEdit}&ongoingEdit=${isOngoingEdit}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("University has been changed successfully.");
+        window.location.reload();
+      } else {
+        alert("Something has gone wrong. Please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
 // Functions to make the modal popups be visible or no.
 function closePopup() {
   const overlay = document.getElementById("overlay");
@@ -276,7 +398,21 @@ function openEducationNewPopup() {
   document.body.classList.add("no-scroll");
 }
 
-function openEducationEditPopup() {
+function openEducationEditPopup(
+  educationId,
+  institutionName,
+  courseTitle,
+  startDate,
+  endDate,
+  isOngoing
+) {
+  document.getElementById("educationId").value = educationId;
+  document.getElementById("universityEdit").value = institutionName;
+  document.getElementById("certificateEdit").value = courseTitle;
+  document.getElementById("startDateEdit").value = startDate;
+  document.getElementById("endDateEdit").value = endDate;
+  document.getElementById("ongoingEdit").checked = isOngoing;
+
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup-education-edit");
   overlay.style.display = "block";

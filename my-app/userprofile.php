@@ -107,43 +107,38 @@
             <button type="button" class="close-button popup-education-plus" onclick="openEducationNewPopup()">+</button>
             <h5 class="section-title">Education</h5>
         </div>
-        <div class="popup-education-university-detail">
-            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEducationEditPopup()" />
-            <div>
-                <h5 class="popup-education-university-name pl-1">University of Wolverhampton</h5>
-                <p class="popup-education-university-text pl-1">Bachelor’s degree in Computer Science</p>
-                <p class="popup-education-university-text pl-1">Sep 2022 - ongoing</p>
-            </div>
-        </div>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/viewuniversitypopup.php'; ?>
         <button type="submit" class="change-password-button popup-education-button-done" onclick="closePopup()">Done</button>
     </div>
     <!-- End of Modal Box for Education -->
     <!-- Start of Modal Box for Add Education -->
     <div class="popup-education-add card-design pop-up-positioning" id="popup-education-add">
-        <div class="popup-education-add-header pt-2">
-            <button type="button" class="close-button" onclick="closePopup()">X</button>
-            <h5 class="section-title">Add education</h5>
-        </div>
-        <label class="popup-education-university-name pl-1">School</label>
-        <input type="text" class="change-password-text-label" placeholder="Name of School" required />
-        <label class="popup-education-university-name pl-1">Degree</label>
-        <input type="text" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
-        <div class="popup-education-date-organizer">
-            <div>
-                <label class="popup-education-university-name pl-1">Start date</label>
-                <input type="date" id="Start date" class="change-password-text-label" required />
+        <form id="new-university-form">
+            <div class="popup-education-add-header pt-2">
+                <button type="button" class="close-button" onclick="closePopup()">X</button>
+                <h5 class="section-title">Add education</h5>
             </div>
-            <div>
-                <label class="popup-education-university-name pl-1">End date</label>
-                <input type="date" id="End date" class="change-password-text-label" required />
+            <label class="popup-education-university-name pl-1">School</label>
+            <input type="text" id="university" class="change-password-text-label" placeholder="Name of School" required />
+            <label class="popup-education-university-name pl-1">Degree</label>
+            <input type="text" id="certificate" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
+            <div class="popup-education-date-organizer">
+                <div>
+                    <label class="popup-education-university-name pl-1">Start date</label>
+                    <input type="date" id="startDate" class="change-password-text-label" required />
+                </div>
+                <div>
+                    <label class="popup-education-university-name pl-1">End date</label>
+                    <input type="date" id="endDate" class="change-password-text-label" required />
+                </div>
             </div>
-        </div>
-        <label>Ongoing</label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <button type="submit" class="change-password-button">Save</button>
+            <label>Ongoing</label>
+            <label class="switch">
+                <input type="checkbox" id="ongoing">
+                <span class="slider round"></span>
+            </label>
+            <button type="submit" class="change-password-button">Save</button>
+        </form>
     </div>
     <!-- End of Modal Box for Add Education -->
     <!-- Start of Modal Box for Edit Education -->
@@ -152,26 +147,29 @@
             <button type="button" class="close-button" onclick="closePopup()">X</button>
             <h5 class="section-title">Edit education</h5>
         </div>
-        <label class="popup-education-university-name pl-1">School</label>
-        <input type="text" class="change-password-text-label" placeholder="Name of School" required />
-        <label class="popup-education-university-name pl-1">Degree</label>
-        <input type="text" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
-        <div class="popup-education-date-organizer">
-            <div>
-                <label class="popup-education-university-name pl-1">Start date</label>
-                <input type="date" id="Start date" class="change-password-text-label" required />
+        <form id="edit-university-form">
+            <label class="popup-education-university-name pl-1">School</label>
+            <input type="text" id="universityEdit" class="change-password-text-label" placeholder="Name of School" required />
+            <label class="popup-education-university-name pl-1">Degree</label>
+            <input type="text" id="certificateEdit" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
+            <div class="popup-education-date-organizer">
+                <div>
+                    <label class="popup-education-university-name pl-1">Start date</label>
+                    <input type="date" id="startDateEdit" class="change-password-text-label" required />
+                </div>
+                <div>
+                    <label class="popup-education-university-name pl-1">End date</label>
+                    <input type="date" id="endDateEdit" class="change-password-text-label" required />
+                </div>
             </div>
-            <div>
-                <label class="popup-education-university-name pl-1">End date</label>
-                <input type="date" id="End date" class="change-password-text-label" required />
-            </div>
-        </div>
-        <label>Ongoing</label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <button type="submit" class="change-password-button">Save</button>
+            <label>Ongoing</label>
+            <label class="switch">
+                <input type="checkbox" id="ongoingEdit">
+                <span class="slider round"></span>
+            </label>
+            <input type="hidden" id="educationId" />
+            <button type="submit" class="change-password-button">Save</button>
+        </form>
     </div>
     <!-- End of Modal Box for Edit Education -->
     <!-- Start of Modal Box for Projects -->
@@ -201,7 +199,7 @@
             <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
 
             <label class="popup-education-university-name pl-1">Description</label>
-            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
             <div class="popup-project-popup-toggle mt-1">
                 <label>Ongoing</label>
                 <label class="switch toggle-button-project">
@@ -223,7 +221,7 @@
             <label class="popup-education-university-name pl-1">Project name</label>
             <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
             <label class="popup-education-university-name pl-1">Description</label>
-            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255">wxkRf10O9NdRy13mSDk7Jm0Nu1Ux4zIcMjjo0gpHiV3tuNpOfIqa3L29OmQxa2lgRbBl2D4jslwvEYwidLTV0vOtjHwj2XuxBxVCsokkBuyQEOhlCrju1NjPB5hGmQB2ExbXqnYn6iEhrnkbA0gvuc3CEA6dULBQ5Vf51UgEJMmh3dVyN4Cb2IV8Raim3L8H4rXvNseZlO5TkijGnsW25a64DjNCgm8PI7a2rA5yynJx4lvq034F75r3baELRwj</textarea>
+            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
             <div class="popup-project-popup-toggle mt-1">
                 <label>Ongoing</label>
                 <label class="switch toggle-button-project">

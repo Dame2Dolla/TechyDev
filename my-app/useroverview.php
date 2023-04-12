@@ -1,6 +1,19 @@
+<?php
+require_once __DIR__ . '/api/conn.php';
+
+if (isset($_GET['user_data'])) {
+    $searched_user = $_GET['user_data'];
+    $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
+    $stmt->bind_param("s", $searched_user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $user_ID = $row['user_ID'];
+}
+?>
 <?php require "./php_require/session.php" ?>
 <?php require "./php_require/htmlheader.php" ?>
-<title>User Profile</title>
+<title>User</title>
 </head>
 <?php require "./php_require/header.php";
 //error_reporting(0);
@@ -17,8 +30,8 @@
         <div class="profile-card-first card-design">
             <img class="profile-banner" src="./images/img_StudentGraphic.png" />
             <div class="profile-card-first-info">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/name.php'; ?>
-                <p class="text-school">University of Wolverhampton</p>
+                <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/api/userview/name.php';
+                ?>
             </div>
         </div>
         <div class="profile-card">
@@ -26,7 +39,7 @@
                 <div class="profile-card-edit">
                     <h2 class="section-title">About</h2>
                 </div>
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/about.php'; ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userview/about.php'; ?>
             </div>
             <div class="profile-card-center">
                 <div class="profile-card-left">
@@ -34,7 +47,7 @@
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Education</h2>
                         </div>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/education.php'; ?>
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userview/education.php'; ?>
                     </div>
                 </div>
                 <div class="profile-card-right">
@@ -42,13 +55,13 @@
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Personal Details</h2>
                         </div>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/personaldetails.php'; ?>
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userview/personaldetails.php'; ?>
                     </div>
                     <div class="profile-card-forth-right card-design">
                         <div class="profile-card-edit-half">
                             <h2 class="section-title">Projects</h2>
                         </div>
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/projects.php'; ?>
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userview/projects.php'; ?>
                     </div>
                 </div>
             </div>
@@ -56,7 +69,7 @@
             <?php require "./php_require/footer.php" ?>
         </div>
     </div>
-    <script src="scripts/userprofile.js"></script>
+
 </body>
 
 </html>

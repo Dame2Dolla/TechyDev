@@ -1,8 +1,9 @@
 <?php
+
 require_once __DIR__ . '/conn.php';
 
+$user_id = $user_ID;
 // Fetch a user about section
-$user_id = $_SESSION['id_user'];
 $stmt = $conn->prepare("SELECT * FROM tbl_Users us LEFT JOIN tbl_Users_Educations usedu ON us.user_ID = usedu.user_ID_pk_fk LEFT JOIN tbl_Educations edu ON edu.education_ID = usedu.education_ID_pk_fk WHERE us.user_ID = ? ORDER BY edu.is_ongoing DESC, edu.date_end DESC;");
 $stmt->bind_param('i', $user_id);
 $stmt->execute();

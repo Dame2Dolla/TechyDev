@@ -191,7 +191,7 @@
         <h5 class="section-title about-title mb-2">Add project</h5>
         <form id="new-project-form">
             <label class="popup-education-university-name pl-1">Project name</label>
-            <input type="text" id="addProjectName"class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
+            <input type="text" id="addProjectName" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
             <label class="popup-education-university-name pl-1">Description</label>
             <textarea id="addProjectDesc" class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
             <div class="popup-project-popup-toggle mt-1">

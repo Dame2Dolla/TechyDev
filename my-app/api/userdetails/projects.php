@@ -14,7 +14,7 @@ $row = $result->fetch_assoc();
 // Output the quote
 if ($result->num_rows === 0) {
     echo '<div class="university">';
-    echo '<h3 class="user-details pt-2">Emptyness</h3>';
+    echo '<h3 class="user-details pt-2 pb-2">Emptyness</h3>';
     echo '</div>';
 } else {
     while ($row = $result->fetch_assoc()) {

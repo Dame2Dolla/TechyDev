@@ -1369,3 +1369,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.popupeducation-emptyness {
+  justify-content: flex-end !important;
+}

@@ -178,14 +178,9 @@
             <button type="button" class="close-button popup-education-plus" onclick="openAddProjectPopup()">+</button>
             <h5 class="section-title">Projects</h5>
         </div>
-        <div class="popup-education-university-detail project-text-alignment mt-2">
-            <img class="edit-button-half" src="./images/edit.svg" width="100%" height="100%" onclick="openEditProjectPopup()" />
-            <div>
-                <h5 class="popup-education-university-name pl-1">Smart garage door</h5>
-                <p class="popup-education-university-text pl-1">Mar 2022 - May 2020</p>
-            </div>
-        </div>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/viewprojectspopup.php'; ?>
         <button type="submit" class="change-password-button popup-education-button-done" onclick="closePopup()">Done</button>
+    </div>
     </div>
     <!-- End of Modal Box for Projects -->
     <!-- Start of Modal Box for the Projects section.  -->
@@ -194,16 +189,15 @@
             <button type="button" class="close-button" onclick="closePopup()">X</button>
         </div>
         <h5 class="section-title about-title mb-2">Add project</h5>
-        <form>
+        <form id="new-project-form">
             <label class="popup-education-university-name pl-1">Project name</label>
-            <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
-
+            <input type="text" id="addProjectName"class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
             <label class="popup-education-university-name pl-1">Description</label>
-            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
+            <textarea id="addProjectDesc" class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
             <div class="popup-project-popup-toggle mt-1">
                 <label>Ongoing</label>
                 <label class="switch toggle-button-project">
-                    <input type="checkbox">
+                    <input type="checkbox" id="addProjectIsOngoing">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -217,18 +211,19 @@
             <button type="button" class="close-button" onclick="closePopup()">X</button>
         </div>
         <h5 class="section-title about-title mb-2">Edit project</h5>
-        <form>
+        <form id="edit-project-form">
             <label class="popup-education-university-name pl-1">Project name</label>
-            <input type="text" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
+            <input type="text" id="projectNameEdit" class="change-password-text-label pt-2 pb-2 mb-2" placeholder="Name of project" required />
             <label class="popup-education-university-name pl-1">Description</label>
-            <textarea class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
+            <textarea id="projectDescEdit" class="popup-about-textarea pt-2 pb-2" placeholder="Write a short description" maxlength="255"></textarea>
             <div class="popup-project-popup-toggle mt-1">
                 <label>Ongoing</label>
                 <label class="switch toggle-button-project">
-                    <input type="checkbox">
+                    <input type="checkbox" id="projectOngoingEdit">
                     <span class="slider round"></span>
                 </label>
             </div>
+            <input type="hidden" id="projectId" />
             <button type="submit" class="change-password-button">Save</button>
         </form>
     </div>
@@ -299,7 +294,6 @@
         </div>
     </div>
     <script src="scripts/userprofile.js"></script>
-    <script src="scripts/deleteprofile.js"></script>
 </body>
 
 </html>

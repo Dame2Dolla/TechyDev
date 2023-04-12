@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const EditUniversityForm = document.getElementById("edit-university-form");
   EditUniversityForm.addEventListener("submit", submitEditUniversity);
+
+  const AddProjectForm = document.getElementById("new-project-form");
+  AddProjectForm.addEventListener("submit", submitAddProject);
 });
 
 function submitAbout(event) {
@@ -313,6 +316,35 @@ function submitEditUniversity(event) {
     .catch((error) => console.error(error));
 }
 
+function submitAddProject(event) {
+  event.preventDefault();
+
+  const projectName = document.getElementById("addProjectName").value;
+  const projectDesc = document.getElementById("addProjectDesc").value;
+  const ongoing = document.getElementById("addProjectIsOngoing");
+
+  // Get the checked state of the checkbox
+  const isOngoing = ongoing.checked;
+
+  fetch("/api/userdetailsApi/addproject.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `projectName=${projectName}&projectDesc=${projectDesc}&ongoing=${isOngoing}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("Project has been added successfully.");
+        window.location.reload();
+      } else {
+        alert("Something has gone wrong. Please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
 // Functions to make the modal popups be visible or no.
 function closePopup() {
   const overlay = document.getElementById("overlay");
@@ -440,7 +472,18 @@ function openAddProjectPopup() {
   overlay.style.zIndex = "6";
   document.body.classList.add("no-scroll");
 }
-function openEditProjectPopup() {
+function openEditProjectPopup(
+  projectId,
+  projectName,
+  projectDesc,
+  projectEndDate,
+  projectIsOngoing
+) {
+  document.getElementById("projectId").value = projectId;
+  document.getElementById("projectNameEdit").value = projectName;
+  document.getElementById("projectDescEdit").value = projectDesc;
+  document.getElementById("endDateEdit").value = projectEndDate;
+  document.getElementById("ongoingEdit").checked = projectIsOngoing;
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup-edit-project");
   overlay.style.display = "block";

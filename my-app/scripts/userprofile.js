@@ -113,13 +113,16 @@ function submitChangeDetails(event) {
 function submitDeletion(event) {
   event.preventDefault();
   fetch("/api/userdetailsApi/delete.php")
-    .then(() => {
-      alert("You're account has been successfully deleted.");
-      window.location.href = "index.php";
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("Account has been deleted.");
+        window.location.href = "./index.php";
+      } else {
+        alert("Something has gone wrong. Please try again later.");
+      }
     })
-    .catch((error) => {
-      console.error(error);
-    });
+    .catch((error) => console.error(error));
 }
 
 function submitChangeEmail(event) {

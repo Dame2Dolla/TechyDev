@@ -239,7 +239,6 @@
             <img class="profile-banner" src="./images/img_StudentGraphic.png" />
             <div class="profile-card-first-info">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/name.php'; ?>
-                <p class="text-school">University of Wolverhampton</p>
             </div>
         </div>
         <div class="profile-card">

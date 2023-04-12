@@ -1,0 +1,1316 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 3vh);
+  margin-bottom: 3vh;
+}
+
+.main-content-index {
+  flex: 1;
+  min-height: calc(100vh - 13vh);
+  margin-bottom: -1vh;
+}
+
+/*---------------------Login-modal-pop-up----------------*/
+
+.popup-change-password {
+  position: fixed;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-top: 13%;
+  margin-bottom: 17%;
+  margin-right: 38%;
+  z-index: 6;
+  display: none;
+  width: 24%;
+  flex-direction: column;
+  margin-left: 38%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.input-eye-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.modal-title-change-password {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  padding-left: 2%;
+}
+
+.modal-change-password-message {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: justify;
+  color: #1d242b;
+}
+
+.modal-change-password-password-section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 8%;
+}
+
+.change-password-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #494949;
+  margin-bottom: 0;
+  margin-top: 1%;
+}
+
+.change-password-button {
+  background: #0188c6;
+  border-radius: 20px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border: 0px white;
+  color: #ffffff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 4%;
+  margin-top: 3%;
+  margin-left: auto;
+  justify-content: flex-end;
+  padding-right: 4%;
+}
+
+.change-password-text-label {
+  background: #fefffe;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-left: 4%;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.change-password-eye {
+  position: relative;
+  width: 7%;
+  margin-top: -16%;
+  margin-left: 91%;
+}
+
+.popup {
+  position: absolute;
+  width: 400px;
+  left: 38%;
+  text-align: center;
+  padding: 0 30px 30px;
+  background-color: #fff;
+  box-shadow: 8px 8px 4px rgb(0 0 0 / 44%);
+  border-radius: 10px;
+  z-index: 6;
+  top: -100%;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+  top: 2%;
+  transition: transform 0.4s, top 0.4s;
+}
+.popup-title-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  padding: 5px;
+  color: #111;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  display: none;
+}
+.main-content-login {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4%;
+  margin-left: 5%;
+  margin-right: 5%;
+  justify-content: space-around;
+}
+
+.main-content-left {
+  position: relative;
+  max-width: 50%;
+}
+
+.login-form {
+  position: relative;
+  width: 32%;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 4;
+  margin-left: 8%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.form-order {
+  display: flex;
+  margin-top: 10%;
+  flex-direction: column;
+  align-items: center;
+}
+.lbl {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+
+  color: #1d242b;
+}
+.or {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.btn-login {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 44px;
+  width: 135%;
+  color: #ffffff;
+  background: #0188c6;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+}
+
+.eye-dropper .password-icon {
+  position: absolute;
+  right: -132%;
+  top: 90%;
+  transform: translateY(-50%);
+  max-width: fit-content;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.credential-order {
+  position: relative;
+  left: -58%;
+}
+
+.textbox-login {
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 210%;
+  height: 40px;
+}
+
+.btn-signup {
+  position: relative;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 44px;
+  width: 270%;
+  left: -84%;
+  color: #ffffff;
+  background: #42b62b;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+}
+
+.forgot-password {
+  font-family: "Bree Serif";
+  font-style: normal;
+  text-decoration-line: underline;
+  color: #0188c6 !important;
+}
+
+.image-group {
+  position: relative;
+  height: 35vh;
+  width: 100%;
+}
+
+.logo-header {
+  position: relative;
+  margin-top: 1%;
+  margin-left: 29%;
+  height: 41%;
+  width: 42%;
+}
+
+.quotes {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+}
+
+.quote-text {
+  font-family: "Hey Patrick", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+  line-height: 1.95;
+  text-align: center;
+  margin-bottom: 0;
+  color: #676667;
+  align-self: flex-start;
+  text-align: center;
+}
+
+.quoter-text {
+  font-family: "Hey Patrick", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.3vw;
+  color: #cd852d;
+  align-self: flex-end;
+  text-align: right;
+}
+
+/*------------------------------Start of Fotter----------------------*/
+footer {
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+}
+
+.footer-img {
+  width: 7%;
+}
+.footer-text {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  color: #000000;
+}
+
+/*------------------------------End of Fotter----------------------*/
+
+/*------------------------------Start of Sign Up----------------------*/
+
+.signup-logo-header {
+  position: relative;
+  margin-top: 1%;
+  margin-left: 40%;
+  width: 20%;
+}
+
+.signup-background-image {
+  background-position: center;
+  background-size: cover;
+  margin-top: 1%;
+}
+
+.signup-form-official {
+  background-color: #fffeff;
+  position: absolute;
+  left: 315px;
+  top: 26%;
+  width: 1280px;
+  height: 1000px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.signup-fullname {
+  display: flex;
+  margin-top: 3%;
+  justify-content: space-evenly;
+  margin-left: 3%;
+}
+
+.signup-emailGender {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.signup-gender {
+  display: flex;
+}
+
+.gender-div {
+  margin-left: 55px;
+}
+
+.signup-address-DOB-mobileNumber {
+  display: flex;
+  margin-top: 3%;
+  margin-right: 9%;
+}
+
+.signup-address {
+  margin-left: 52px;
+}
+
+.signup-dob-mobilenumber {
+  margin-left: 30px;
+}
+
+.div-mobileNumber {
+  margin-top: 32px;
+}
+
+.signup-password {
+  display: flex;
+  margin-top: 2%;
+}
+
+.div-createPassword {
+  margin-right: 30px;
+  margin-left: 20%;
+}
+
+.signup-buttons {
+  text-align: center;
+  margin-top: 5%;
+}
+.country-font {
+  color: #787878;
+}
+
+.link-backtoLogin {
+  font-family: "Bree Serif";
+  font-size: 24px;
+  color: #0188c6;
+}
+
+.hide-scroll::-webkit-outer-spin-button,
+.hide-scroll::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hide-scroll {
+  -moz-appearance: textfield;
+}
+.create-account-btn {
+  position: relative;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  padding-top: 0.4%;
+  padding-bottom: 0.4%;
+  font-size: 32px;
+  color: #ffffff;
+  background: #42b62b;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 500px;
+  height: 60px;
+}
+
+.div-create-account-btn {
+  margin-top: 2%;
+}
+
+.textbox-small {
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 250px;
+  height: 55px;
+  margin-bottom: 10px;
+  margin-right: 45px;
+  padding-left: 2%;
+}
+
+.textbox-medium {
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 350px;
+  height: 55px;
+  margin-right: 40px;
+  padding-left: 2%;
+}
+
+.textbox-long {
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: hidden !important;
+  background: #fefffe;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 0;
+  width: 550px;
+  height: 55px;
+  margin-bottom: 10px;
+  padding-left: 2%;
+}
+
+/*--------------------------------Start-of-Header------------------------------*/
+
+/* .header {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.header {
+  position: fixed;
+  display: flex;
+  background: #fafafa;
+  filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.25));
+  width: 100%;
+  height: 7%;
+  justify-content: space-around;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
+}
+
+.logo {
+  position: relative;
+  top: 7%;
+  width: 5.5%;
+  height: 82%;
+}
+
+.search {
+  margin-top: 1%;
+  position: relative;
+  width: 24%;
+  right: 11%;
+}
+
+.search-text-box {
+  min-width: 100%;
+  padding-left: 10%;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  background: #fefffe;
+  border: 1px solid #676667;
+  border-radius: 100px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.search-icon {
+  position: absolute;
+  min-width: 10%;
+  left: 0%;
+  max-width: fit-content;
+  top: 5%;
+  height: 63%;
+  z-index: 1;
+}
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  right: 3.5%;
+}
+
+.user-profile-image-header {
+  border-radius: 50%;
+  position: relative;
+  width: 3%;
+  top: 7%;
+  height: 84%;
+  right: 2%;
+}
+
+.sub-menu {
+  display: none;
+  position: fixed;
+  margin-top: 4%;
+  right: 15%;
+  width: 100%;
+  max-width: 20%;
+  background: #fafafa;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px 0px 10px 10px;
+  padding: 20px;
+  z-index: 4;
+}
+
+.sub-menu-items {
+  display: flex;
+}
+
+.sub-menu img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.sub-menu h2 {
+  position: relative;
+  margin-top: 0;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1d242b;
+  left: 8%;
+}
+
+.sub-menu p {
+  position: relative;
+  margin-bottom: 20px;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #494949;
+  left: 8%;
+}
+
+.sub-menu-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-menu-button-line {
+  width: 100%;
+}
+
+.sub-menu-profile {
+  position: relative;
+  background: #cd852d;
+}
+
+.sub-menu-logout {
+  position: relative;
+  background: #c02023;
+}
+
+.button-text {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 80%;
+  border: 0px #cd852d;
+
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+/*---------------------Start of user profile--------------*/
+.profile-page {
+  position: absolute;
+  top: 10%;
+  height: 100vh;
+}
+.user-info {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info-name-details {
+  font-size: large;
+  margin-right: 20px;
+}
+
+.user-info p {
+  margin: 0 10px 0 0;
+  font-weight: bold;
+}
+
+.user-info a {
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.user-info a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.user-profile-page {
+  background: #f3f2ee;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-design {
+  background: #fefffe;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.user-profile-adspace {
+  position: absolute;
+  display: flex;
+  top: 8%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 21%;
+  padding-top: 13%;
+  align-items: center;
+  max-width: 28%;
+  justify-content: center;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  right: 4%;
+}
+
+.profile-pic {
+  position: absolute;
+  width: 11%;
+  height: 21%;
+  top: 14%;
+  left: 11%;
+  z-index: 1;
+}
+
+.image-rotation {
+  border-radius: 50%;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  top: 48%;
+  left: 0px;
+  position: absolute;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10%;
+  right: 29%;
+}
+
+.profile-card-first {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  right: 29%;
+  height: 37%;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 24vh;
+  border-radius: 10px;
+}
+
+.text-name {
+  position: relative;
+  left: 20%;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  padding-bottom: 1%;
+  color: #1d242b;
+  max-width: fit-content;
+}
+.text-school {
+  padding-left: 3%;
+  padding-bottom: 2%;
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.3vw;
+  color: #494949;
+}
+
+.profile-card-second {
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+}
+.section-title {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vw;
+}
+
+.profile-card-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button {
+  width: 3vw;
+}
+
+.profile-card-edit-half {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button-half {
+  width: 3vw;
+}
+.profile-card-center {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 3%;
+}
+.profile-card-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 74%;
+  margin-top: 2%;
+}
+
+.profile-card-third-left {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 9%;
+  padding-right: 3%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+
+.profile-card-third-left-password {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 8%;
+  padding-right: 3%;
+  padding-bottom: 1%;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.user-details {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9vw;
+  color: #1d242b;
+}
+
+.certificate {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9vw;
+}
+
+.normal-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9vw;
+}
+
+.profile-card-right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2%;
+}
+
+.profile-card-third-right {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+
+.user-details-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-details-text-left {
+  padding-left: 1%;
+}
+.user-details-text-right {
+  padding-right: 15%;
+}
+
+.profile-card-forth-right {
+  position: relative;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  margin-top: 4%;
+}
+
+.profile-project {
+  padding-bottom: 1%;
+}
+
+.profile-card-last {
+  position: relative;
+  width: 100%;
+  padding-left: 2%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-right: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+  min-width: 173%;
+  right: 73%;
+}
+
+.delete-text {
+  color: #c02023;
+}
+
+.delete-button {
+  background: #c02023;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border: 0px #c02023;
+  border-radius: 10px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: revert;
+  text-align: center;
+  color: #ffffff;
+  justify-content: flex-end;
+  margin-left: 78%;
+}
+
+/*---------------End of user Profile---------------*/
+/*---------------------Modal pop ups---------------*/
+.popup-about {
+  display: none;
+  width: 35%;
+  height: 34vh;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.pop-up-positioning {
+  position: fixed;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about-title {
+  margin-bottom: 5%;
+  font-size: 1.5vw;
+  padding-left: 5%;
+}
+.close-button {
+  border: 0 black;
+  background: none;
+  font-size: 2vh;
+}
+.popup-about-textarea {
+  position: relative;
+  width: 100%;
+  resize: none;
+  height: 16vh;
+  overflow: hidden;
+  background: #fefffe;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-top: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 2%;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 23px;
+  color: #1d242b;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+.popup-personal-details {
+  display: none;
+  width: 30%;
+}
+
+.popup-personal-details-display {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  padding-bottom: 2%;
+}
+
+.popup-details-display {
+  display: flex;
+  flex-direction: column;
+}
+.popup-country {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2%;
+}
+
+.popup-personal-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 23px;
+  color: #494949;
+}
+
+.popup-personal-text-boxes {
+  background: #fefffe;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #494949;
+  padding-left: 7%;
+  height: 3.5vh;
+  width: 9vw;
+}
+
+.change-email-button {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  text-align: center;
+  color: #494949;
+  border-radius: 20px;
+  background: #fefffe;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: -45%;
+}
+.button-sorting {
+  display: flex;
+}
+
+.popup-email-confirm {
+  width: 18%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+  z-index: 6;
+  display: none;
+}
+
+.popup-email-section {
+  padding-left: 7%;
+  padding-right: 4%;
+}
+
+.popup-email-textbox {
+  width: 100%;
+}
+
+.popup-email-label {
+  margin-bottom: 3%;
+}
+
+.popup-password-change {
+  width: 20%;
+  padding-top: 0.7%;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-bottom: 1%;
+  display: none;
+}
+
+.popup-password-change-eye-wrapper {
+  margin-top: -20%;
+}
+.popup-deletion {
+  display: none;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+}
+
+.popup-deletion-button {
+  background: #c02023;
+  border-radius: 20px;
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  border: 0 black;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.popup-close-button {
+  font-family: "Peace Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  text-align: center;
+  color: #494949;
+  border-radius: 20px;
+  background: #fefffe;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.button-sorting-extras {
+  flex-direction: row-reverse;
+  gap: 5%;
+}
+
+.popup-delete-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 23px;
+  color: #1d242b;
+}
+
+.popup-education {
+  width: 25%;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+  display: none;
+}
+
+.popup-education-header {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 5%;
+  justify-content: space-between;
+}
+
+.popup-education-add-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-left: 5%;
+}
+.popup-education-plus {
+  font-size: 1.5vw;
+  height: 4%;
+}
+
+.popup-education-add {
+  font-size: 1vw;
+  display: none;
+  z-index: 7;
+}
+
+.popup-education-university-detail {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.popup-education-university-name {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  margin: 0;
+  color: #494949;
+}
+
+.popup-education-university-text {
+  font-family: "Volkhov";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8vw;
+  margin: 0;
+  color: #494949;
+}
+
+.popup-education-button-done {
+  margin-top: 8%;
+}
+
+.popup-education-add {
+  width: 25%;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+}
+
+.switch {
+  position: relative;
+  width: 14%;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.popup-education-date-organizer {
+  display: flex;
+  margin-bottom: 5%;
+}

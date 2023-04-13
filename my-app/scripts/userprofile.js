@@ -226,8 +226,8 @@ function submitAddUniversity(event) {
 
   const university = document.getElementById("university").value;
   const certificate = document.getElementById("certificate").value;
-  const startdate = document.getElementById("Start date").value;
-  const enddate = document.getElementById("End date").value;
+  const startdate = document.getElementById("startDate").value;
+  const enddate = document.getElementById("endDate").value;
   const ongoing = document.getElementById("ongoing");
 
   // Get the checked state of the checkbox

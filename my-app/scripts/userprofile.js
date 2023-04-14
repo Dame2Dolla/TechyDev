@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const AddProjectForm = document.getElementById("new-project-form");
   AddProjectForm.addEventListener("submit", submitAddProject);
+
+  const EditProjectForm = document.getElementById("edit-project-form");
+  EditProjectForm.addEventListener("submit", submitEditProject);
 });
 
 function submitAbout(event) {
@@ -345,6 +348,36 @@ function submitAddProject(event) {
     .catch((error) => console.error(error));
 }
 
+function submitEditProject(event) {
+  event.preventDefault();
+
+  const projectId = document.getElementById("projectId").value;
+  const projectNameEdit = document.getElementById("projectNameEdit").value;
+  const projectDescEdit = document.getElementById("projectDescEdit").value;
+  const projectOngoingEdit = document.getElementById("projectOngoingEdit");
+
+  // Get the checked state of the checkbox
+  const isOngoingEdit = projectOngoingEdit.checked;
+
+  fetch("/api/userdetailsApi/editproject.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `projectId=${projectId}&projectNameEdit=${projectNameEdit}&projectDescEdit=${projectDescEdit}&projectOngoingEdit=${isOngoingEdit}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "Complete") {
+        alert("Project has been changed successfully.");
+        window.location.reload();
+      } else {
+        alert("Something has gone wrong. Please try again later.");
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
 // Functions to make the modal popups be visible or no.
 function closePopup() {
   const overlay = document.getElementById("overlay");
@@ -476,14 +509,12 @@ function openEditProjectPopup(
   projectId,
   projectName,
   projectDesc,
-  projectEndDate,
   projectIsOngoing
 ) {
   document.getElementById("projectId").value = projectId;
   document.getElementById("projectNameEdit").value = projectName;
   document.getElementById("projectDescEdit").value = projectDesc;
-  document.getElementById("endDateEdit").value = projectEndDate;
-  document.getElementById("ongoingEdit").checked = projectIsOngoing;
+  document.getElementById("projectOngoingEdit").checked = projectIsOngoing;
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup-edit-project");
   overlay.style.display = "block";

@@ -97,7 +97,7 @@
         </div>
         <div class="button-sorting  button-sorting-extras">
             <button type="button" class="popup-close-button" onclick="closePopup()">Close</button>
-            <button type="button" class="popup-deletion-button" onclick="submitDeletion()">Delete</button>
+            <button type="button" class="popup-deletion-button" onclick="submitDeletion(event)">Delete</button>
         </div>
     </div>
     <!-- End of Modal Box for Deletion -->

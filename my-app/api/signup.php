@@ -50,7 +50,8 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
             echo "Password Incorrect";
         } else {
             // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            // Increased cost of default value from 10 to 15. To increase the complexity of the password salt.
+            $password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 15]);
 
             //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
             $stmts = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");

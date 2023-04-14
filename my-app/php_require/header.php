@@ -6,7 +6,7 @@
             <!-- </a> -->
         </div>
         <div class="search">
-            <form action="/action_page.php">
+            <form action="useroverview.php" method="POST">
                 <img class="search-icon" src="./images/search-icon.svg" width="100%" height="100%" />
                 <input type="text" class="search-text-box" placeholder="Search.." name="search" id="search-input">
             </form>
@@ -19,8 +19,7 @@
                 <img src="./images/default_profile.jpg" width="100%" height="100%" />
             </div>
             <div class="sub-menu-items-text">
-                <h2>Patrick Frendo</h2>
-                <p>Student at University of Wolverhampton</p>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/headerapi/username.php'; ?>
             </div>
         </div>
         <div class="sub-menu-button">

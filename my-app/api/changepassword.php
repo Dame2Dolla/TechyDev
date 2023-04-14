@@ -6,7 +6,7 @@ require_once __DIR__ . '/functionsForApi/functions.php';
 $email = postCleanForEmail($_POST['email']);
 $password = postCleanForPasswordLogin($_POST['password']);
 
-$password = password_hash($password, PASSWORD_DEFAULT);
+$password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 15]);
 
 $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
 $stmt->execute();

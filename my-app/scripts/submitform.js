@@ -1,39 +1,29 @@
+window.onload = function () {
+  const form = document.getElementById("signupForm");
+
+  form.addEventListener("submit", function (event) {
+    submitFormSignUp(event);
+  });
+};
+
 function submitFormSignUp(event) {
   event.preventDefault(); // Prevent the form from submitting normally
 
   // Get form data
-  const firstName = document.getElementById("firstName").value;
+  const firstName = document.getElementById("givenName").value;
   const middleName = document.getElementById("middleName").value;
-  const lastName = document.getElementById("lastName").value;
+  const lastName = document.getElementById("familyName").value;
   const address1 = document.getElementById("address1").value;
   const address2 = document.getElementById("address2").value;
   const postCode = document.getElementById("postCode").value;
   const city = document.getElementById("city").value;
   const mobile = document.getElementById("mobileNumber").value;
   const country = document.getElementById("country").value;
-  const email = document.getElementById("signup-email").value;
+  const email = document.getElementById("email").value;
   const password = document.getElementById("signup-password").value;
   const dob = document.getElementById("dateOfBirth").value;
   const token = document.getElementById("tokentwo").value;
 
-  if (document.getElementById("male").checked) {
-    gender = document.getElementById("male").value;
-  } else if (document.getElementById("female").checked) {
-    gender = document.getElementById("female").value;
-  } else if (document.getElementById("custom").checked) {
-    gender = document.getElementById("customGender").value;
-  }
-
-  // Show/hide custom gender text area based on "custom" radio button selection
-  // const customGenderInput = document.getElementById("customGenderInput");
-  // const customRadio = document.getElementById("custom");
-  // customRadio.addEventListener("change", function () {
-  //   if (customRadio.checked) {
-  //     customGenderInput.style.display = "block";
-  //   } else {
-  //     customGenderInput.style.display = "none";
-  //   }
-  // });
 
   // Code explanation:
   /**

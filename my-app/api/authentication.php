@@ -83,7 +83,8 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
             } else {
 
                 //The password is the same as the hashed value the user exists. Security Consultant-Clayton
-
+                // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 
+                // Security Consultant-Clayton
                 if (password_verify($passworddb, $rowx['password_hash'])) {
 
                     // Check if the password has expired
@@ -99,8 +100,6 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
                         echo "password expired";
                         exit;
                     }
-                    // if the password does'nt match it will go to the else statement and starts the process for updating password_count column - 
-                    // Security Consultant-Clayton
                 } else {
 
                     //----------------------------------------------------Update password count -1 --------------------------------------------

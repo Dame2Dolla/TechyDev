@@ -208,9 +208,13 @@ function submitChangePassword(event) {
           })
             .then((response) => response.text())
             .then((data) => {
-              if (data === "Complete") {
-                alert("Password changed successfully.");
+              if (data === "password changed") {
+                alert("Password has been changed");
                 window.location.reload();
+              } else if (data === "invalid input") {
+                alert(
+                  "Password must be longer than 15 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."
+                );
               } else {
                 alert("Something has gone wrong. Please try again later.");
               }

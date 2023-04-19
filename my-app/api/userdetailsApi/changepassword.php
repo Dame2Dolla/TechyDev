@@ -1,35 +1,38 @@
 <?php
-
 require "../conn.php";
 require "../functionsForApi/functions.php";
 require "../session.php";
 
-//Sanitize, filtering & ESCAPE
-
-$password = postCleanForTextAndNumbers($_POST['password']);
 $user_id = $_SESSION['id_user'];
+$password = postCleanForPassword($_POST['password']);
 
-$password = password_hash($password, PASSWORD_DEFAULT);
+if ($password != 'Password not properly formatted') {
+    $password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 15]);
 
-//----------------------------------------------------Update password count -1 --------------------------------------------
-// remove Safe update from MySQL to implement an update sql statement.
-$stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
-$stmt->execute();
-$stmt->get_result();
+    $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
+    $stmt->execute();
+    $stmt->get_result();
 
-// Update statement
-// To prevent SQL injections, we use prepared statements with bound parameters.
-$stmt = $conn->prepare("UPDATE tbl_Users SET password_hash = ? WHERE user_ID = ?");
-$stmt->bind_param("si", $password, $user_id);
-$stmt->execute();
+    // Update statement
+    //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
+    $stmt = $conn->prepare("UPDATE tbl_Users set password_hash = ? WHERE User_ID = ?");
+    $stmt->bind_param("si", $password, $user_id);
+    $stmt->execute();
+    $stmt->get_result();
 
-// Remove safe update to protect the database from any manipulation.
-$stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 1");
-$stmt->execute();
-$stmt->get_result();
+    // Remove safe update to protect the database from any manipulation.
+    $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 1");
+    $stmt->execute();
 
-echo "Complete";
+    if ($stmt) {
+        // Success response
+        echo ("password changed");
+    } else {
+        // Error response
+        echo ("error");
+    }
+} else {
+    echo "invalid input";
+}
 
-$stmt->close();
 $conn->close();
-?>

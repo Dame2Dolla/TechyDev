@@ -6,8 +6,7 @@ require "../functionsForApi/functions.php";
 
 //Sanitize, filtering & ESCAPE
 
-//$aboutBio = postCleanForTextAndNumbers($_POST['aboutBio']);
-$aboutBio = $_POST['aboutBio'];
+$aboutBio = postCleanForTextAndNumbers($_POST['aboutBio']);
 $aboutUser = postCleanForNumber($_POST['aboutUser']);
 
 //----------------------------------------------------Update password count -1 --------------------------------------------

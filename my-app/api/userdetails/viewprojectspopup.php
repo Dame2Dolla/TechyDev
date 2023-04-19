@@ -19,8 +19,12 @@ if ($result->num_rows === 0) {
 } else {
     while ($row = $result->fetch_assoc()) {
 
-        // Format end date (if not ongoing)
-        $status = $row["ongoing"] == 1 ? "Ongoing" : "Complete";
+        if ($row["ongoing"] == 1) {
+            $status = "Ongoing";
+        } else {
+            $formattedDateEnd = (new DateTime($row["date_end"]))->format('Y-m-d');
+            $status = "Completed on: " . $formattedDateEnd;
+        }
 
         // Output the university div section with formatted dates
         echo '<div class="popup-education-university-detail project-text-alignment mt-2">';

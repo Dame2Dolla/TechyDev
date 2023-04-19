@@ -69,24 +69,6 @@ function submitFormSignUp(event) {
     gender = document.getElementById("customGender").value;
   }
 
-  // Show/hide custom gender text area based on "custom" radio button selection
-  // const customGenderInput = document.getElementById("customGenderInput");
-  // const customRadio = document.getElementById("custom");
-  // customRadio.addEventListener("change", function () {
-  //   if (customRadio.checked) {
-  //     customGenderInput.style.display = "block";
-  //   } else {
-  //     customGenderInput.style.display = "none";
-  //   }
-  // });
-
-  // Code explanation:
-  /**
-   * Created 2 objects with the Date value and stored that as seperated variables
-   * Then subracted both variables together by aquiring the year.
-   * If statement is created to check is the dob entered is either greater than 16 or
-   *  - if it is exactly 16 than a check is done to check if user has had their 16th birthday.
-   */
   const birthDate = new Date(dob);
   const today = new Date();
   const ageDiff = today.getFullYear() - birthDate.getFullYear();
@@ -109,7 +91,9 @@ function submitFormSignUp(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
+    body: `firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&
+    address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&
+    email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {

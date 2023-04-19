@@ -16,18 +16,24 @@ $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
 $stmt->execute();
 $stmt->get_result();
 
+//To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
+// $stmt = $conn->prepare("UPDATE tbl_Educations set institutionName = ?, courseTitle = ? WHERE education_ID = ?");
+// $stmt->bind_param("ssi", $universityEdit, $certificateEdit, $educationID);
+// $stmt->execute();
+// $stmt->get_result();
+
 if ($ongoingEdit) {
     // Update statement
     //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-    $stmt = $conn->prepare("UPDATE tbl_Educations set institutionName = ?, courseTitle = ?,date_start = ?, date_end = NULL, is_ongoing = 1 WHERE education_ID = ?");
-    $stmt->bind_param("sssi", $universityEdit, $certificateEdit, $startDateEdit, $educationID);
+    $stmt = $conn->prepare("UPDATE tbl_Users_Educations set date_start = ?, date_end = NULL, is_ongoing = 1 WHERE education_ID_pk_fk = ? AND user_ID_pk_fk  = ?");
+    $stmt->bind_param("sii", $startDateEdit, $educationID, $user_id);
     $stmt->execute();
     $stmt->get_result();
 } else {
     // Update statement
     //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-    $stmt = $conn->prepare("UPDATE tbl_Educations set institutionName = ?, courseTitle = ?,date_start = ?, date_end = ?, is_ongoing = 0  WHERE education_ID = ?");
-    $stmt->bind_param("ssssi", $universityEdit, $certificateEdit, $startDateEdit, $endDateEdit, $educationID);
+    $stmt = $conn->prepare("UPDATE tbl_Users_Educations set date_start = ?, date_end = ?, is_ongoing = 0 WHERE education_ID_pk_fk = ? AND user_ID_pk_fk  = ?");
+    $stmt->bind_param("ssii", $startDateEdit, $endDateEdit, $educationID, $user_id);
     $stmt->execute();
     $stmt->get_result();
 }

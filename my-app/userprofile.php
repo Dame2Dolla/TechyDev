@@ -149,9 +149,9 @@
         </div>
         <form id="edit-university-form">
             <label class="popup-education-university-name pl-1">School</label>
-            <input type="text" id="universityEdit" class="change-password-text-label" placeholder="Name of School" required />
+            <input type="text" id="universityEdit" class="change-password-text-label" placeholder="Name of School" required readonly="true" />
             <label class="popup-education-university-name pl-1">Degree</label>
-            <input type="text" id="certificateEdit" class="change-password-text-label" placeholder="Name of Certificate Earned" required />
+            <input type="text" id="certificateEdit" class="change-password-text-label" placeholder="Name of Certificate Earned" required readonly="true" />
             <div class="popup-education-date-organizer">
                 <div>
                     <label class="popup-education-university-name pl-1">Start date</label>

@@ -12,8 +12,7 @@ header("Access-Control-Allow-Methods: POST");
 // You may also need to allow specific headers, like Content-Type
 header("Access-Control-Allow-Headers: Content-Type");
 
-// Get the data from the POST request
-
+// Get the data from the POST request payload sent from the Javascript submitform.js
 $firstName = postCleanForText(isset($_POST['firstName']) ? $_POST['firstName'] : "");
 $middleName = postCleanForText(isset($_POST['middleName']) ? $_POST['middleName'] : "");
 $lastName = postCleanForText(isset($_POST['lastName']) ? $_POST['lastName'] : "");
@@ -29,22 +28,27 @@ $dob = isset($_POST['dob']) ? $_POST['dob'] : "";
 $gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
 $bioDesc = "Emptiness...";
 
+// Check if value of both $csrftoken and $_SESSION['token'] is empty. - Security Consultant - Clayton Farrugia
+// If yes than send "Bad token" and end the API.
 if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
     echo "bad token";
     exit;
 }
 
+//If token is not empty, store value into $csrf_token
+$csrf_token = $_POST['token'];
 
 // create session for the current time
 $_SESSION['date_expire'] = time();
 // aquire session date_expire and add 60 minutes
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
-$csrf_token = $_POST['token'];
 
 // Check if any variables are empty if yes throw an error message.
 if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($postcode) || empty($city) || empty($country) || empty($email) || empty($password) || empty($dob) || empty($gender) || empty($mobileNumber)) {
     echo "Try again";
 } else {
+    //Compare the 2 values together to check if they match. - Security Consultant - Clayton Farrugia
+    //and check if the session has passed the 1 hour rule.   
     if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
         if ($password == 'Password not properly formatted') {
             echo "Password Incorrect";

@@ -9,18 +9,17 @@
 
 <body>
     <h1>Simulated Malicious Website</h1>
-    <!-- <form onsubmit="submitFormLogin(event)" method="POST">
-    <h2>Login Form<h2>
+    <form onsubmit="submitFormLogin(event)" method="POST">
+        <h2>Login Form</h2>
         <label for="email">Email</label>
         <input type="email" id="email" value="patar450@gmail.com">
         <label for="password">Password</label>
         <input type="password" id="password" value="n!W!6Gqe?W8n!W!6Gqe?W8">
-        CSRF token input with a hardcoded, invalid value 
-        <input type="hidden" id="token" value="INVALID_CSRF_TOKEN">
+        <input type="hidden" id="token" value="Malicious_Token_Sign_In">
         <button type="submit">Submit</button>
-  </form> -->
+    </form>
     <br />
-    <form onsubmit="submitFormSignUp(event)" method="POST">
+    <!-- <form onsubmit="submitFormSignUp(event)" method="POST">
         <h2>Sign Up</h2>
         <label>First Name:</label>
         <input type="text" value="First Name" id="firstName" required />
@@ -54,9 +53,9 @@
         <input type="radio" name="gender" id="customRadio" value="Custom">
         <label for="custom">Custom</label>
         <input type="text" id="customGender" placeholder="Enter custom gender"></input>
-        <input type="hidden" name="token" id="tokentwo" value="INVALID_CSRF_TOKEN" />
+        <input type="hidden" name="token" id="tokentwo" value="Malicious_Token" />
         <button type="submit">Submit</button>
-    </form>
+    </form> -->
 </body>
 <script src="badlogindatasender.js"></script>
 

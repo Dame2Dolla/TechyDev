@@ -24,7 +24,6 @@ function submitFormSignUp(event) {
   const dob = document.getElementById("dateOfBirth").value;
   const token = document.getElementById("tokentwo").value;
 
-
   // Code explanation:
   /**
    * Created 2 objects with the Date value and stored that as seperated variables

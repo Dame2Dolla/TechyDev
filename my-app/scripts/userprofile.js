@@ -52,6 +52,7 @@ function submitAbout(event) {
   // The two variables are filled with the email value and the password from the form
   const aboutBio = document.getElementById("bio").value;
   const aboutUser = document.getElementById("user_id").value;
+  const token = document.getElementById("token").value;
 
   // Add header that the value is going to be a value form
   // Reference: https://www.geeksforgeeks.org/http-headers-content-type/
@@ -60,14 +61,16 @@ function submitAbout(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `aboutBio=${aboutBio}&aboutUser=${aboutUser}`,
+    body: `aboutBio=${aboutBio}&aboutUser=${aboutUser}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("Change Implemented.");
         window.location.reload();
-      } else if (data === "Error updating bio") {
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
+      } else {
         alert("Something went wrong please try again later.");
       }
     })
@@ -87,6 +90,7 @@ function submitChangeDetails(event) {
   const changePostCode = document.getElementById("postCode").value;
   const changeCity_town = document.getElementById("city_town").value;
   const changeCountry = document.getElementById("country").value;
+  const token = document.getElementById("token").value;
 
   const genderDropdown = document.getElementById("gender");
   let gender = genderDropdown.value;
@@ -101,13 +105,15 @@ function submitChangeDetails(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `detailUser=${aboutUser}&firstName=${changeFirstName}&middleName=${changeMiddleName}&familyName=${changeFamilyName}&gender=${gender}&contactNumber=${changeContactNumber}&lineOne=${changeLineOne}&lineTwo=${changelineTwo}&postCode=${changePostCode}&cityTown=${changeCity_town}&country=${changeCountry}`,
+    body: `detailUser=${aboutUser}&firstName=${changeFirstName}&middleName=${changeMiddleName}&familyName=${changeFamilyName}&gender=${gender}&contactNumber=${changeContactNumber}&lineOne=${changeLineOne}&lineTwo=${changelineTwo}&postCode=${changePostCode}&cityTown=${changeCity_town}&country=${changeCountry}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("Change Implemented.");
         window.location.reload();
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
       } else {
         alert("Something went wrong please try again later.");
       }
@@ -136,6 +142,7 @@ function submitChangeEmail(event) {
 
   const email1 = document.getElementById("email1").value;
   const email2 = document.getElementById("email2").value;
+  const token = document.getElementById("token").value;
 
   if (email1 != email2) {
     alert("Emails do not match. Please check the spelling and try again.");
@@ -144,31 +151,38 @@ function submitChangeEmail(event) {
     fetch("/api/checker/emailchecker.php", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: `email=${email1}`,
+      body: JSON.stringify({
+        email: email1,
+        token: token,
+      }),
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((data) => {
-        if (data === "User does not exist") {
+        if (data.status === "User does not exist") {
           // If the user exists, send an email to the user's email address
           fetch("/api/userdetailsApi/changeemail.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: `email=${email1}`,
+            body: `email=${email1}&token=${token}`,
           })
             .then((response) => response.text())
             .then((data) => {
               if (data === "Complete") {
                 alert("E-mail changed successfully.");
                 window.location.reload();
+              } else if (data === "bad token") {
+                alert("Refresh the page and try again.");
               } else {
                 alert("Something has gone wrong. Please try again later.");
               }
             })
             .catch((error) => console.error(error));
+        } else if (data.status === "bad token") {
+          alert("Refresh the page and try again.");
         } else {
           alert("This email is already taken.");
         }
@@ -183,6 +197,7 @@ function submitChangePassword(event) {
   const oldpassword = document.getElementById("oldpassword").value;
   const password1 = document.getElementById("password1").value;
   const password2 = document.getElementById("password2").value;
+  const token = document.getElementById("token").value;
 
   if (password1 != password2) {
     alert("Passwords do not match. Please check the spelling and try again.");
@@ -193,7 +208,7 @@ function submitChangePassword(event) {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `oldpassword=${oldpassword}`,
+      body: `oldpassword=${oldpassword}&token=${token}`,
     })
       .then((response) => response.text())
       .then((data) => {
@@ -220,6 +235,8 @@ function submitChangePassword(event) {
               }
             })
             .catch((error) => console.error(error));
+        } else if (data === "bad token") {
+          alert("Refresh the page and try again.");
         } else {
           alert("Password is incorrect.");
         }
@@ -236,6 +253,7 @@ function submitAddUniversity(event) {
   const startdate = document.getElementById("startDate").value;
   const enddate = document.getElementById("endDate").value;
   const ongoing = document.getElementById("ongoing");
+  const token = document.getElementById("token").value;
 
   // Get the checked state of the checkbox
   const isOngoing = ongoing.checked;
@@ -261,13 +279,15 @@ function submitAddUniversity(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `university=${university}&certificate=${certificate}&startdate=${startdate}&enddate=${enddate}&ongoing=${isOngoing}`,
+    body: `university=${university}&certificate=${certificate}&startdate=${startdate}&enddate=${enddate}&ongoing=${isOngoing}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("University has been added successfully.");
         window.location.reload();
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
       } else if (data === "Already registered") {
         alert(
           "This University and Certificate is already registered into your account. Please change the already existing information."
@@ -288,6 +308,7 @@ function submitEditUniversity(event) {
   const startDateEdit = document.getElementById("startDateEdit").value;
   const endDateEdit = document.getElementById("endDateEdit").value;
   const ongoingEdit = document.getElementById("ongoingEdit");
+  const token = document.getElementById("token").value;
 
   // Get the checked state of the checkbox
   const isOngoingEdit = ongoingEdit.checked;
@@ -313,13 +334,15 @@ function submitEditUniversity(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `educationID=${educationId}&universityEdit=${universityEdit}&certificateEdit=${certificateEdit}&startDateEdit=${startDateEdit}&endDateEdit=${endDateEdit}&ongoingEdit=${isOngoingEdit}`,
+    body: `educationID=${educationId}&universityEdit=${universityEdit}&certificateEdit=${certificateEdit}&startDateEdit=${startDateEdit}&endDateEdit=${endDateEdit}&ongoingEdit=${isOngoingEdit}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("University has been changed successfully.");
         window.location.reload();
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
       } else {
         alert("Something has gone wrong. Please try again later.");
       }
@@ -333,6 +356,7 @@ function submitAddProject(event) {
   const projectName = document.getElementById("addProjectName").value;
   const projectDesc = document.getElementById("addProjectDesc").value;
   const ongoing = document.getElementById("addProjectIsOngoing");
+  const token = document.getElementById("token").value;
 
   // Get the checked state of the checkbox
   const isOngoing = ongoing.checked;
@@ -342,13 +366,15 @@ function submitAddProject(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `projectName=${projectName}&projectDesc=${projectDesc}&ongoing=${isOngoing}`,
+    body: `projectName=${projectName}&projectDesc=${projectDesc}&ongoing=${isOngoing}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("Project has been added successfully.");
         window.location.reload();
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
       } else {
         alert("Something has gone wrong. Please try again later.");
       }
@@ -363,6 +389,7 @@ function submitEditProject(event) {
   const projectNameEdit = document.getElementById("projectNameEdit").value;
   const projectDescEdit = document.getElementById("projectDescEdit").value;
   const projectOngoingEdit = document.getElementById("projectOngoingEdit");
+  const token = document.getElementById("token").value;
 
   // Get the checked state of the checkbox
   const isOngoingEdit = projectOngoingEdit.checked;
@@ -372,13 +399,15 @@ function submitEditProject(event) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `projectId=${projectId}&projectNameEdit=${projectNameEdit}&projectDescEdit=${projectDescEdit}&projectOngoingEdit=${isOngoingEdit}`,
+    body: `projectId=${projectId}&projectNameEdit=${projectNameEdit}&projectDescEdit=${projectDescEdit}&projectOngoingEdit=${isOngoingEdit}&token=${token}`,
   })
     .then((response) => response.text())
     .then((data) => {
       if (data === "Complete") {
         alert("Project has been changed successfully.");
         window.location.reload();
+      } else if (data === "bad token") {
+        alert("Refresh the page and try again.");
       } else {
         alert("Something has gone wrong. Please try again later.");
       }

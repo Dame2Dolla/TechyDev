@@ -19,6 +19,7 @@ function submitFormForgotPassword(event) {
 
   // Get the email input value
   const email = document.getElementById("forgot-password-email").value;
+  const token = document.getElementById("token").value;
 
   // Send a POST request to the PHP API to check if the user exists
   fetch("/api/checker/emailchecker.php", {
@@ -28,6 +29,7 @@ function submitFormForgotPassword(event) {
     },
     body: JSON.stringify({
       email: email,
+      token: token,
     }),
   })
     .then((response) => response.json())

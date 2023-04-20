@@ -4,14 +4,6 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
-//Remove Do not allow on final version
-//Add this at the beginning of your authentication.php file
-header("Access-Control-Allow-Origin: *");
-// If you need to allow specific methods, like POST, you can add the following line
-header("Access-Control-Allow-Methods: POST");
-// You may also need to allow specific headers, like Content-Type
-header("Access-Control-Allow-Headers: Content-Type");
-
 //Sanitize, filtering & ESCAPE
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($_POST['email']);

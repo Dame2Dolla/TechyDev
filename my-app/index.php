@@ -19,6 +19,7 @@
           <input type="email" class="form-control" id="forgot-password-email" placeholder="Enter email" required />
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
       </form>
     </div>
     <!-- End of Modal Box for the Forgot password.  -->
@@ -84,7 +85,7 @@
     </div>
     <img src="./images/img_StudentGraphic.png" class="image-group" width="100%" height="100%" />
   </div>
-  
+
   <?php require "./php_require/footer.php" ?>
   <script src="scripts/showpassword.js"></script>
   <script src="scripts/logindatasender.js"></script>

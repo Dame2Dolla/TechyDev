@@ -1,5 +1,6 @@
 <?php require "./php_require/session.php" ?>
 <?php require "./php_require/htmlheader.php" ?>
+<?php require "./php_require/securitycsrf.php" ?>
 <title>User Profile</title>
 </head>
 <?php require "./php_require/header.php";
@@ -18,6 +19,7 @@
         <form id="about-form">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/aboutpopup.php'; ?>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for the About section.  -->
@@ -32,6 +34,7 @@
         <form class="pl-3 pr-3 pb-3" id="changeDetails-form">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/api/userdetails/changedetailspopup.php'; ?>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     </div>
@@ -55,6 +58,7 @@
                 </div>
             </div>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for the Personal section.  -->
@@ -83,6 +87,7 @@
                 </div>
             </div>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for Password Change -->
@@ -138,6 +143,7 @@
                 <span class="slider round"></span>
             </label>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for Add Education -->
@@ -169,6 +175,7 @@
             </label>
             <input type="hidden" id="educationId" />
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for Edit Education -->
@@ -202,6 +209,7 @@
                 </label>
             </div>
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for the Projects section.  -->
@@ -225,6 +233,7 @@
             </div>
             <input type="hidden" id="projectId" />
             <button type="submit" class="change-password-button">Save</button>
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
         </form>
     </div>
     <!-- End of Modal Box for the Projects section.  -->

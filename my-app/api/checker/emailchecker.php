@@ -12,31 +12,44 @@ function postCleanForEmail($value)
     // Filter trimedValue to sanitize for e-mail value.
     return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
 }
-
 //Obtain the json file from javascript.
 $input = json_decode(file_get_contents('php://input'), true);
+
+if (!isset($input['token']) || !isset($_SESSION['token'])) {
+    echo "bad token";
+    exit;
+}
+
 //Sanitize, filtering & ESCAPE
 // Get email and password from POST request and store each of them in a variable.
 $email = postCleanForEmail($input['email']);
+$_SESSION['date_expire'] = time();
+$sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
+$csrf_token = $_POST['token'];
+if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
 
-$stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
 
-// Using blind_param to associate the a variables with the "s" for String. 
-// Then the variables are bound to the SQL ?.
-$stmt->bind_param("s", $email);
-// Finally the SQL is executed
-$stmt->execute();
-// get_result() is used to fetch the result.
-$result = $stmt->get_result();
+    // Using blind_param to associate the a variables with the "s" for String. 
+    // Then the variables are bound to the SQL ?.
+    $stmt->bind_param("s", $email);
+    // Finally the SQL is executed
+    $stmt->execute();
+    // get_result() is used to fetch the result.
+    $result = $stmt->get_result();
 
 
-// Return response
-if (mysqli_num_rows($result) > 0) {
-    header('Content-Type: application/json');
-    echo json_encode(['status' => 'User exists']);
+    // Return response
+    if (mysqli_num_rows($result) > 0) {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'User exists']);
+    } else {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'User does not exist']);
+    }
 } else {
     header('Content-Type: application/json');
-    echo json_encode(['status' => 'User does not exist']);
+    echo json_encode(['status' => 'bad token']);
 }
 
 $conn->close();

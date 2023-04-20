@@ -27,16 +27,29 @@ $oldpassword = postCleanForPassword($_POST['oldpassword']);
 
 // Fetch a user data section
 $user_id = $_SESSION['id_user'];
-$stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE user_ID = ?");
-$stmt->bind_param('i', $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
+if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
+    echo "bad token";
+    exit;
+}
 
-if (password_verify($oldpassword, $row['password_hash'])) {
-    echo 'Correct';
+$_SESSION['date_expire'] = time();
+$sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
+$csrf_token = $_POST['token'];
+if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
+
+    $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE user_ID = ?");
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if (password_verify($oldpassword, $row['password_hash'])) {
+        echo 'Correct';
+    } else {
+        echo 'Not Matched';
+    }
 } else {
-    echo 'Not Matched';
+    echo "bad token";
 }
 
 $conn->close();

@@ -2,7 +2,7 @@
 require "../session.php";
 require "../conn.php";
 require "../functionsForApi/functions.php";
-
+require_once __DIR__ . '/session.php';
 
 $user_id = $_SESSION['id_user'];
 $projectName = postCleanForText(isset($_POST['projectName']) ? $_POST['projectName'] : "");

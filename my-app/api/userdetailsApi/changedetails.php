@@ -1,6 +1,7 @@
 <?php
 require "../conn.php";
 require "../functionsForApi/functions.php";
+require_once __DIR__ . '/session.php';
 
 $detailUser = postCleanForNumber($_POST['detailUser']);
 $firstName = postCleanForText(isset($_POST['firstName']) ? $_POST['firstName'] : "");

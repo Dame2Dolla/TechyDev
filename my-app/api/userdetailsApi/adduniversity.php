@@ -2,6 +2,7 @@
 require "../session.php";
 require "../conn.php";
 require "../functionsForApi/functions.php";
+require_once __DIR__ . '/session.php';
 
 //Get the data from the fetch request
 $user_id = $_SESSION['id_user'];
@@ -42,7 +43,6 @@ if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <=
         $education_id = $conn->insert_id;
     }
 
-    print_r($education_id);
     // Insert user-education mapping into tbl_Users_Educations
     $sql = "INSERT INTO tbl_Users_Educations (user_ID_pk_fk, education_ID_pk_fk, date_start, date_end, is_ongoing) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);

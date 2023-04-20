@@ -4,8 +4,6 @@ require "../conn.php";
 require "../functionsForApi/functions.php";
 require "../session.php";
 
-
-
 //Sanitize, filtering & ESCAPE
 
 $email = postCleanForTextAndNumbers($_POST['email']);

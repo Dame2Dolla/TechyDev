@@ -599,6 +599,7 @@ footer {
   top: 7%;
   height: 84%;
   right: 2%;
+  cursor: pointer;
 }
 
 .sub-menu {
@@ -832,6 +833,7 @@ footer {
 
 .edit-button {
   width: 3vw;
+  cursor: pointer;
 }
 
 .profile-card-edit-half {
@@ -842,6 +844,7 @@ footer {
 
 .edit-button-half {
   width: 3vw;
+  cursor: pointer;
 }
 .profile-card-center {
   position: relative;

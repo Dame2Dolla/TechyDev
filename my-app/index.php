@@ -88,9 +88,6 @@
   <?php require "./php_require/footer.php" ?>
   <script src="scripts/showpassword.js"></script>
   <script src="scripts/logindatasender.js"></script>
-  <script src="scripts/signupform.js"></script>
-  <script src="scripts/submitform.js"></script>
-  <script src="scripts/gender.js"></script>
   <script src="scripts/forgotpassword.js"></script>
 </body>
 

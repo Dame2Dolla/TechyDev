@@ -13,6 +13,7 @@ function submitFormSignUp(event) {
   const country = document.getElementById("country").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("signup-password").value;
+  const password1 = document.getElementById("signup-password1").value;
   const dob = document.getElementById("dateOfBirth").value;
   const token = document.getElementById("tokentwo").value;
   const genderDropdown = document.getElementById("gender");
@@ -45,36 +46,54 @@ function submitFormSignUp(event) {
     // return is used to stop the whole function.
     return;
   }
-
-  // Send data to PHP API
-  fetch("/api/signup.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: `firstName=${firstName}&middleName=${middleName}&lastName=${lastName}&mobile=${mobile}&address1=${address1}&address2=${address2}&postCode=${postCode}&city=${city}&country=${country}&email=${email}&password=${password}&dob=${dob}&gender=${gender}&token=${token}`,
-  })
-    .then((response) => response.text())
-    .then((data) => {
-      if (data === "Password Incorrect") {
-        alert(
-          "Password must be longer than 15 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."
-        );
-      } else if (data === "User Exist") {
-        alert("This email is already registered. Redirecting to Login page.");
-        window.location.href = "index.php";
-      } else if (data === "User Created") {
-        alert("Account is successfully created.");
-        window.location.href = "index.php";
-      } else if (data === "Try again") {
-        alert("Please ensure you have filled all your details.");
-      } else if (data === "bad token") {
-        alert("Token Expired. Please refresh the page and try again.");
-      } else {
-        alert("Something went wrong please try again.");
-      }
+  if (password != password1) {
+    alert("Passwords do not match. Please check the spelling and try again.");
+  } else {
+    // Send data to PHP API
+    fetch("/api/signup.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        middleName: middleName,
+        lastName: lastName,
+        mobile: mobile,
+        address1: address1,
+        address2: address2,
+        postCode: postCode,
+        city: city,
+        country: country,
+        email: email,
+        password: password,
+        dob: dob,
+        gender: gender,
+        token: token,
+      }),
     })
-    .catch((error) => console.error(error));
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "Password Incorrect") {
+          alert(
+            "Password must be longer than 15 characters, must have Uppercase and Lowercase and AlphaNumeric with Special Characters."
+          );
+        } else if (data.status === "User Exist") {
+          alert("This email is already registered. Redirecting to Login page.");
+          window.location.href = "index.php";
+        } else if (data.status === "User Created") {
+          alert("Account is successfully created.");
+          window.location.href = "index.php";
+        } else if (data.status === "Try again") {
+          alert("Please ensure you have filled all your details.");
+        } else if (data.status === "bad token") {
+          alert("Token Expired. Please refresh the page and try again.");
+        } else {
+          alert("Something went wrong please try again.");
+        }
+      })
+      .catch((error) => console.error(error));
+  }
 }
 
 // Show/hide custom gender text area based on "custom" drop down selection

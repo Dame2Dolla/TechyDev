@@ -13,10 +13,11 @@ function postCleanForEmail($value)
     return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
 }
 
+//Obtain the json file from javascript.
+$input = json_decode(file_get_contents('php://input'), true);
 //Sanitize, filtering & ESCAPE
-
 // Get email and password from POST request and store each of them in a variable.
-$email = postCleanForEmail($_POST['email']);
+$email = postCleanForEmail($input['email']);
 
 $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");
 
@@ -31,9 +32,11 @@ $result = $stmt->get_result();
 
 // Return response
 if (mysqli_num_rows($result) > 0) {
-    echo "User exists";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'User exists']);
 } else {
-    echo "User does not exist";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'User does not exist']);
 }
 
 $conn->close();

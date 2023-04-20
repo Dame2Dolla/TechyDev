@@ -24,27 +24,31 @@ function submitFormForgotPassword(event) {
   fetch("/api/checker/emailchecker.php", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
     },
-    body: `email=${email}`,
+    body: JSON.stringify({
+      email: email,
+    }),
   })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((data) => {
-      if (data === "User exists") {
+      if (data.status === "User exists") {
         // If the user exists, send an email to the user's email address
         fetch("/api/sendemailtouser.php", {
           method: "POST",
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
-          body: `email=${email}`,
+          body: JSON.stringify({
+            email: email,
+          }),
         })
-          .then((response) => response.text())
+          .then((response) => response.json())
           .then((data) => {
-            if (data === "Email sent") {
+            if (data.status === "Email sent") {
               alert("Email sent.");
               closePopup();
-            } else if (data === "Failed") {
+            } else if (data.status === "Failed") {
               alert(
                 "Email failed to generate. please contact customer support."
               );

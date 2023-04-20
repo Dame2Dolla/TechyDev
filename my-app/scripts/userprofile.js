@@ -185,7 +185,7 @@ function submitChangePassword(event) {
   const password2 = document.getElementById("password2").value;
 
   if (password1 != password2) {
-    alert("Emails do not match. Please check the spelling and try again.");
+    alert("Passwords do not match. Please check the spelling and try again.");
   } else {
     // Send a POST request to the PHP API to check if the user exists
     fetch("/api/checker/passwordchecker.php", {
@@ -268,6 +268,10 @@ function submitAddUniversity(event) {
       if (data === "Complete") {
         alert("University has been added successfully.");
         window.location.reload();
+      } else if (data === "Already registered") {
+        alert(
+          "This University and Certificate is already registered into your account. Please change the already existing information."
+        );
       } else {
         alert("Something has gone wrong. Please try again later.");
       }

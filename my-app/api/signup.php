@@ -4,39 +4,35 @@ require_once __DIR__ . '/conn.php';
 
 require "./functionsForApi/functions.php";
 
-//Remove Do not allow on final version
-//Add this at the beginning of your authentication.php file
-header("Access-Control-Allow-Origin: *");
-// If you need to allow specific methods, like POST, you can add the following line
-header("Access-Control-Allow-Methods: POST");
-// You may also need to allow specific headers, like Content-Type
-header("Access-Control-Allow-Headers: Content-Type");
+//Obtain the json file from javascript.
+$input = json_decode(file_get_contents('php://input'), true);
 
 // Get the data from the POST request payload sent from the Javascript submitform.js
-$firstName = postCleanForText(isset($_POST['firstName']) ? $_POST['firstName'] : "");
-$middleName = postCleanForText(isset($_POST['middleName']) ? $_POST['middleName'] : "");
-$lastName = postCleanForText(isset($_POST['lastName']) ? $_POST['lastName'] : "");
-$mobileNumber = postCleanForNumber(isset($_POST['mobile']) ? $_POST['mobile'] : "");
-$address1 = postCleanForTextAndNumbers(isset($_POST['address1']) ? $_POST['address1'] : "");
-$address2 = postCleanForTextAndNumbers(isset($_POST['address2']) ? $_POST['address2'] : "");
-$postcode = postCleanForTextAndNumbers(isset($_POST['postCode']) ? $_POST['postCode'] : "");
-$city = postCleanForText(isset($_POST['city']) ? $_POST['city'] : "");
-$country = postCleanForText(isset($_POST['country']) ? $_POST['country'] : "");
-$email = postCleanForEmail(isset($_POST['email']) ? $_POST['email'] : "");
-$password = postCleanForPassword(isset($_POST['password']) ? $_POST['password'] : "");
-$dob = isset($_POST['dob']) ? $_POST['dob'] : "";
-$gender = postCleanForText(isset($_POST['gender']) ? $_POST['gender'] : "");
+$firstName = postCleanForText(isset($input['firstName']) ? $input['firstName'] : "");
+$middleName = postCleanForText(isset($input['middleName']) ? $input['middleName'] : "");
+$lastName = postCleanForText(isset($input['lastName']) ? $input['lastName'] : "");
+$mobileNumber = postCleanForNumber(isset($input['mobile']) ? $input['mobile'] : "");
+$address1 = postCleanForTextAndNumbers(isset($input['address1']) ? $input['address1'] : "");
+$address2 = postCleanForTextAndNumbers(isset($input['address2']) ? $input['address2'] : "");
+$postcode = postCleanForTextAndNumbers(isset($input['postCode']) ? $input['postCode'] : "");
+$city = postCleanForText(isset($input['city']) ? $input['city'] : "");
+$country = postCleanForText(isset($input['country']) ? $input['country'] : "");
+$email = postCleanForEmail(isset($input['email']) ? $input['email'] : "");
+$password = postCleanForPassword(isset($input['password']) ? $input['password'] : "");
+$dob = isset($input['dob']) ? $input['dob'] : "";
+$gender = postCleanForText(isset($input['gender']) ? $input['gender'] : "");
 $bioDesc = "Emptiness...";
 
 // Check if value of both $csrftoken and $_SESSION['token'] is empty. - Security Consultant - Clayton Farrugia
 // If yes than send "Bad token" and end the API.
-if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
-    echo "bad token";
+if (!isset($input['token']) || !isset($_SESSION['token'])) {
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'bad token']);
     exit;
 }
 
 //If token is not empty, store value into $csrf_token
-$csrf_token = $_POST['token'];
+$csrf_token = $input['token'];
 
 // create session for the current time
 $_SESSION['date_expire'] = time();
@@ -45,13 +41,15 @@ $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
 
 // Check if any variables are empty if yes throw an error message.
 if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2) || empty($postcode) || empty($city) || empty($country) || empty($email) || empty($password) || empty($dob) || empty($gender) || empty($mobileNumber)) {
-    echo "Try again";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'Try again']);
 } else {
     //Compare the 2 values together to check if they match. - Security Consultant - Clayton Farrugia
     //and check if the session has passed the 1 hour rule.   
     if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
         if ($password == 'Password not properly formatted') {
-            echo "Password Incorrect";
+            header('Content-Type: application/json');
+            echo json_encode(['status' => 'Password Incorrect']);
         } else {
             // performing the password hashing in the signup form to insert into database - Security Consultant - Clayton Farrugia
             // Increased cost of default value from 10 to 15. To increase the complexity of the password salt.
@@ -64,7 +62,8 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
             $results = $stmts->get_result();
 
             if ($results->num_rows > 0) {
-                echo "User Exist";
+                header('Content-Type: application/json');
+                echo json_encode(['status' => 'User Exist']);
             } else {
 
                 //prepared SQL statements.
@@ -88,11 +87,15 @@ if (empty($firstName) || empty($lastName) || empty($address1) || empty($address2
                 $sql->bind_param("ssssssssss", $firstName, $middleName, $lastName, $gender, $dob, $email, $mobileNumber, $bioDesc, $password, $tmp_storage);
                 $sql->execute();
 
-                echo "User Created";
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => 'User Created'
+                ]);
             }
         }
     } else {
-        echo "bad token";
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'bad token']);
     }
 }
 // Close the connection

@@ -16,12 +16,6 @@ $stmt = $conn->prepare("SET SQL_SAFE_UPDATES = 0");
 $stmt->execute();
 $stmt->get_result();
 
-//To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton
-// $stmt = $conn->prepare("UPDATE tbl_Educations set institutionName = ?, courseTitle = ? WHERE education_ID = ?");
-// $stmt->bind_param("ssi", $universityEdit, $certificateEdit, $educationID);
-// $stmt->execute();
-// $stmt->get_result();
-
 if ($ongoingEdit) {
     // Update statement
     //To prevent SQL injections we used something called prepared statements which uses bound parameters. - Security Consultant - Clayton

@@ -110,7 +110,7 @@
 
 					<div>
 						<label class="lbl" for="confirmPassword">Confirm Password</label>
-						<input class="textbox-medium" type="password" placeholder="Type here" id="signup-password" required />
+						<input class="textbox-medium" type="password" placeholder="Type here" id="signup-password1" required />
 					</div>
 				</div>
 

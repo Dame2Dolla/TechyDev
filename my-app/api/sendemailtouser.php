@@ -8,8 +8,10 @@ function postCleanForEmail($value)
     return filter_var($trimedValue, FILTER_SANITIZE_EMAIL);
 }
 
+//Obtain the json file from javascript.
+$input = json_decode(file_get_contents('php://input'), true);
 // Get the email address from the POST request
-$email = postCleanForEmail($_POST['email']);
+$email = postCleanForEmail($input['email']);
 
 
 // Create the email message with a link to reset the password
@@ -28,7 +30,9 @@ $headers .= "Reply-To: techy_2023@outlook.com\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 if (mail($email, $subject, $message, $headers)) {
-    echo "Email sent";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'Email sent']);
 } else {
-    echo "Failed";
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'Failed']);
 }

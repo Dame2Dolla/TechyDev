@@ -9,6 +9,7 @@
             <form action="useroverview.php" method="POST">
                 <img class="search-icon" src="./images/search-icon.svg" width="100%" height="100%" />
                 <input type="text" class="search-text-box" placeholder="Search.." name="search" id="search-input">
+                <input type="hidden" id="token" name="token" value="<?= $_SESSION["token"]; ?>" />
             </form>
         </div>
         <img class="user-profile-image-header" src="./images/default_profile.jpg" width="100%" height="100%" />

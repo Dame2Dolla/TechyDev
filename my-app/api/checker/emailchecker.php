@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once __DIR__ . '/conn.php';
+require __DIR__ . "/../session.php";
+require __DIR__ . "/../conn.php";
 
 // Trim the variables of any unneccasary spaces. 
 function postCleanForEmail($value)
@@ -15,17 +15,19 @@ function postCleanForEmail($value)
 //Obtain the json file from javascript.
 $input = json_decode(file_get_contents('php://input'), true);
 
+//Sanitize, filtering & ESCAPE
+// Get email and password from POST request and store each of them in a variable.
+$email = postCleanForEmail($input['email']);
+
 if (!isset($input['token']) || !isset($_SESSION['token'])) {
     echo "bad token";
     exit;
 }
 
-//Sanitize, filtering & ESCAPE
-// Get email and password from POST request and store each of them in a variable.
-$email = postCleanForEmail($input['email']);
 $_SESSION['date_expire'] = time();
 $sixtyMinutes = $_SESSION['date_expire'] + (60 * 60);
-$csrf_token = $_POST['token'];
+$csrf_token = $input['token'];
+
 if (hash_equals($_SESSION['token'], $csrf_token) && $_SESSION['token-expire'] <= $sixtyMinutes) {
 
     $stmt = $conn->prepare("SELECT * FROM tbl_Users WHERE email = ?");

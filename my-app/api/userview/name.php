@@ -1,6 +1,5 @@
 <?php
-
-require_once __DIR__ . '/conn.php';
+require __DIR__ . "/../conn.php";
 
 $user_id = $user_ID;
 // Fetch a user about section

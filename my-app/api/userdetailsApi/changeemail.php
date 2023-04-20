@@ -1,8 +1,8 @@
 <?php
 
-require "../conn.php";
+require __DIR__ . "/../session.php";
+require __DIR__ . "/../conn.php";
 require "../functionsForApi/functions.php";
-require "../session.php";
 
 //Sanitize, filtering & ESCAPE
 

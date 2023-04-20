@@ -1,7 +1,7 @@
 <?php
-require "../conn.php";
+require __DIR__ . "/../session.php";
+require __DIR__ . "/../conn.php";
 require "../functionsForApi/functions.php";
-require "../session.php";
 
 $user_id = $_SESSION['id_user'];
 $password = postCleanForPassword($_POST['password']);

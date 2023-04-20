@@ -28,17 +28,21 @@ document
 
 function searchUser() {
   const search = document.querySelector("#search-input").value;
+  const token = document.getElementById("token").value;
 
   fetch("/api/checker/emailchecker.php", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
     },
-    body: `email=${search}`,
+    body: JSON.stringify({
+      email: search,
+      token: token,
+    }),
   })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((data) => {
-      if (data === "User exists") {
+      if (data.status === "User exists") {
         window.location.href = "useroverview.php?user_data=" + search;
       } else {
         alert("This user doesn't exist.");

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/conn.php';
-require_once __DIR__ . '/session.php';
+require __DIR__ . "/../session.php";
+require __DIR__ . "/../conn.php";
 
 $user_id = $_SESSION['id_user'];
 

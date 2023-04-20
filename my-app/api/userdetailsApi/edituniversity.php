@@ -1,8 +1,7 @@
 <?php
-require "../session.php";
-require "../conn.php";
+require __DIR__ . "/../session.php";
+require __DIR__ . "/../conn.php";
 require "../functionsForApi/functions.php";
-require_once __DIR__ . '/session.php';
 
 $user_id = $_SESSION['id_user'];
 $educationID = postCleanForNumber(isset($_POST['educationID']) ? $_POST['educationID'] : "");

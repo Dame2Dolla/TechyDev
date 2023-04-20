@@ -1080,6 +1080,10 @@ footer {
   height: 3.5vh;
   width: 9vw;
 }
+.popup-details-gender-customGender {
+  display: flex;
+  gap: 2%;
+}
 
 .change-email-button {
   font-family: "Peace Sans";

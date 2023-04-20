@@ -41,7 +41,7 @@ echo '<input type="text" pattern="[0-9 ]+" id="contactNumber" placeholder="+00 0
 echo '</div>';
 echo '<div>';
 echo  '<label class="popup-personal-text">Gender</label>';
-echo '<div>';
+echo '<div class="popup-details-gender-customGender">';
 echo '<select id="gender" name="gender" class="popup-personal-text-boxes pl-3">';
 echo   "<option value=\"male\" {$maleSelected}>Male</option>";
 echo   "<option value=\"female\" {$femaleSelected}>Female</option>";

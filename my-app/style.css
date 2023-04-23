@@ -226,7 +226,7 @@ body {
 
 .eye-dropper .password-icon {
   position: absolute;
-  right: -132%;
+  right: -108%;
   top: 90%;
   transform: translateY(-50%);
   max-width: fit-content;
@@ -254,6 +254,7 @@ body {
   border: 0;
   width: 210%;
   height: 40px;
+  padding-left: 10%;
 }
 
 .btn-signup {
@@ -308,7 +309,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 2vw;
-  line-height: 1.95;
+  line-height: 4vw;
   text-align: center;
   margin-bottom: 0;
   color: #676667;

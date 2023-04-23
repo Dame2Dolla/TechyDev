@@ -1405,14 +1405,14 @@ input[type="number"] {
 }
 
 .headingError {
-  font-size: 5vh;
+  font-size: 3vw;
   line-height: 75px;
   margin-left: 5%;
 }
 
 .pError {
-  font-size: 4vh;
-  line-height: 75px;
+  font-size: 2vw;
+  line-height: 3vw;
   flex-direction: column;
   margin-right: auto;
   margin-left: 8%;
@@ -1436,8 +1436,8 @@ input[type="number"] {
 }
 
 .imageError {
-  width: 43vw;
-  right: 10;
+  width: 40vw;
+  height: 81vh;
   position: relative;
   right: 14%;
 }

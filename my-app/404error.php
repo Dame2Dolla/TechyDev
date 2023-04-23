@@ -3,6 +3,7 @@
 </head>
 
 <body class="backgroundError">
+    <!-- Comet Image -->
     <img src="./images/img_404_commet.png" alt="Commet.png" class="commetError" height="100%" width="100%" />
     <div class="flexError">
         <div class="subFlexError">

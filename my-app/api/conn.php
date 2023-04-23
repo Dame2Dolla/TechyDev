@@ -3,9 +3,15 @@
 //error_reporting(0);
 
 //Details of the Database.
-$servername = "localhost";
-$username = "u704680868_admin";
-$password = "n!W!6Gqe?W8";
+// $servername = "localhost";
+// $username = "u704680868_admin";
+// $password = "n!W!6Gqe?W8";
+// $dbname = "u704680868_studentmind_db";
+
+//Local host enviorment
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
 $dbname = "u704680868_studentmind_db";
 
 // Create a new connection and assign to $conn variable

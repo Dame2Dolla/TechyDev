@@ -1380,3 +1380,71 @@ input[type="number"] {
 .popupeducation-emptyness {
   justify-content: flex-end !important;
 }
+
+/*--------------------------------------------404-Error----------------------*/
+
+.backgroundError {
+  background-color: #f3f2ee;
+}
+
+.commetError {
+  height: 8vh;
+  width: 5vw;
+  margin-top: 3%;
+  margin-left: 6%;
+}
+
+.textStyle {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #cd852d;
+}
+
+.headingError {
+  font-size: 5vh;
+  line-height: 75px;
+  margin-left: 5%;
+}
+
+.pError {
+  font-size: 4vh;
+  line-height: 75px;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: 8%;
+  position: relative;
+  margin-top: 2%;
+}
+
+.aError {
+  text-decoration-line: underline;
+  color: #cd852d;
+}
+
+.rocketError {
+  width: 23vw;
+  height: 48vh;
+}
+
+.flexError {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imageError {
+  width: 43vw;
+  right: 10;
+  position: relative;
+  right: 14%;
+}
+
+.subFlexError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

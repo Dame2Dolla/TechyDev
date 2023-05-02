@@ -136,5 +136,3 @@
 </body>
 
 </html>
-
-<!-- my path http://localhost/xampp/TechyDev/my-app/signup.php -->

@@ -75,4 +75,15 @@ function postCleanForPasswordLogin($value)
     return $trimedValue;
 }
 
-?>
+//sanitization to avoid SQL injection and Cross site scripting - Security Consultant Clayton
+function postCleanForTextAndNumbersForAbout($value)
+{
+    // Removes ASCI characters for escaping.
+    $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    // Removes spaces
+    $trimedValue = trim($value);
+    // Using str_replace() function to replace the word
+    $res = str_replace(array('\'', '"', ',', '; ', '<', '>', '&'), ' ', $trimedValue);
+    // Turns first letter of the text to UpperCase.
+    return filter_var(ucfirst($res), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+}

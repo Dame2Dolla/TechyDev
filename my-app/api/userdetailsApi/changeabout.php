@@ -6,7 +6,7 @@ require "../functionsForApi/functions.php";
 
 //Sanitize, filtering & ESCAPE
 
-$aboutBio = postCleanForTextAndNumbers($_POST['aboutBio']);
+$aboutBio = postCleanForTextAndNumbersForAbout($_POST['aboutBio']);
 $aboutUser = postCleanForNumber($_POST['aboutUser']);
 
 if (!isset($_POST['token']) || !isset($_SESSION['token'])) {

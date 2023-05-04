@@ -2,7 +2,7 @@
 require __DIR__ . "/../conn.php";
 
 // Fetch a user about section
-$user_id = $_SESSION['id_user'];
+$user_id = $user_ID;
 $stmt = $conn->prepare("SELECT edu.projectName, edu.projectDesc, edu.is_ongoing as ongoing, edu.date_end FROM tbl_Users us JOIN tbl_Users_Projects usedu ON us.user_ID = usedu.user_ID_pk_fk JOIN tbl_Projects edu ON edu.project_ID = usedu.project_ID_pk_fk WHERE us.user_ID = ?;");
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
